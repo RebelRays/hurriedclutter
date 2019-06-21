@@ -1,0 +1,37 @@
+[Event "Counter Scandi: Qxd5 Qd8"]
+[Site "https://lichess.org/study/BryQP9r9/Dyohnyyp"]
+[Result "*"]
+[UTCDate "2019.06.19"]
+[UTCTime "21:44:01"]
+[Variant "Standard"]
+[ECO "B01"]
+[Opening "Scandinavian Defense: Mieses-Kotroc Variation"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 d5 2. exd5 Qxd5 (2... Nf6)  (2... c6)  (2... e6)  (2... e5)  (2... Bf5)  (2... c5)  (2... g6) 3. Nc3 Qd8 (3... Qa5)  (3... Qe5+)  (3... Qd6)  (3... Qe6+)  (3... Qf5) 4. d4 Nf6 5. Nf3 Bg4 6. h3 Bh5 (6... Bxf3) 7. g4 Bg6 8. Ne5 { If h-file moves -> bam } 8... e6 (8... Nbd7)  (8... c6)  (8... Be4)  (8... Nc6) 9. Bg2 c6 10. h4 h6 11. Nxg6 fxg6 12. Qd3 Kf7 13. a3 { Prevent Bb5 } 13... Nbd7 14. g5 hxg5 15. Bxg5 Be7 16. O-O-O b5 (16... Nd5 17. Ne4) 17. Bxc6 *
+
+
+[Event "Counter Scandi: Qxd5 Qd8 ... Nd5"]
+[Site "https://lichess.org/study/BryQP9r9/Gdm0GIyb"]
+[Result "*"]
+[UTCDate "2019.06.19"]
+[UTCTime "22:08:49"]
+[Variant "Standard"]
+[ECO "B01"]
+[Opening "Scandinavian Defense: Mieses-Kotroc Variation"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 d5 2. exd5 Qxd5 3. Nc3 Qd8 4. d4 Nf6 5. Nf3 Bg4 6. h3 Bh5 7. g4 Bg6 8. Ne5 e6 9. Bg2 c6 10. h4 h6 11. Nxg6 fxg6 12. Qd3 Kf7 13. g5 hxg5 14. Bxg5 Nd5 15. Ne4 *
+
+
+[Event "Counter Scandi: Qxd5 Qd8 ... g5 Nd5"]
+[Site "https://lichess.org/study/BryQP9r9/NxpcSzFN"]
+[Result "*"]
+[UTCDate "2019.06.19"]
+[UTCTime "22:13:33"]
+[Variant "Standard"]
+[ECO "B01"]
+[Opening "Scandinavian Defense: Mieses-Kotroc Variation"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 d5 2. exd5 Qxd5 3. Nc3 Qd8 4. d4 Nf6 5. Nf3 Bg4 6. h3 Bh5 7. g4 Bg6 8. Ne5 e6 9. Bg2 c6 10. h4 h6 11. Nxg6 fxg6 12. Qd3 Kf7 13. g5 Nd5 14. Ne4 Be7 15. c4 *

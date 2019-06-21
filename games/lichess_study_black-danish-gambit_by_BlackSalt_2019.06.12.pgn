@@ -1,0 +1,37 @@
+[Event "Black Danish Gambit: Chapter 2"]
+[Site "https://lichess.org/study/R6LyIGqC/ktWdR6Y0"]
+[Result "*"]
+[UTCDate "2019.06.12"]
+[UTCTime "21:27:03"]
+[Variant "Standard"]
+[ECO "C21"]
+[Opening "Danish Gambit"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 e5 2. d4 exd4 3. c3 Qe7 4. Bd3 (4. Qxd4 Nf6 5. Bd3) 4... d5 5. Qe2? dxe4 6. Bxe4 Nf6 7. Bd3 Bg4 8. Qxe7+ Bxe7 9. cxd4 Nc6 10. Be3 O-O-O 11. Ne2 Bxe2 { [%cal Gc6d4,Gd4c2] } 12. Bxe2 Nxd4 13. Bxd4 Rxd4 14. O-O Rhd8 15. Nc3 Rd2 16. Rab1 Bb4 17. Bc4 Bxc3 18. bxc3 Nd5 19. Rbc1 c6 20. Rfe1 a5 *
+
+
+[Event "Black Danish Gambit: QXD4"]
+[Site "https://lichess.org/study/R6LyIGqC/vCz5tP2k"]
+[Result "*"]
+[UTCDate "2019.06.12"]
+[UTCTime "23:06:09"]
+[Variant "Standard"]
+[ECO "C21"]
+[Opening "Danish Gambit"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 e5 2. d4 exd4 3. c3 Qe7 4. Qxd4 Nf6 5. Nd2 Nc6 6. Qe3 d5 7. Bd3 Bd7 8. Ngf3 O-O-O 9. O-O Re8 10. Re1 Qd8 11. Ng5 Ng4 12. Nxf7 Qh4 13. Qg3 Qxg3 14. hxg3 Bc5 15. Nxh8 Bxf2+ 16. Kf1 Nce5 17. Be2 Rf8 18. Bf3 Bb5+ 19. c4 dxc4 20. a4 Ba6 21. Re2 Bxg3 22. Nb1 Rxh8 *
+
+
+[Event "Black Danish Gambit: QXD4"]
+[Site "https://lichess.org/study/R6LyIGqC/vCz5tP2k"]
+[Result "*"]
+[UTCDate "2019.06.12"]
+[UTCTime "23:06:09"]
+[Variant "Standard"]
+[ECO "C21"]
+[Opening "Danish Gambit"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. c4 e5 *

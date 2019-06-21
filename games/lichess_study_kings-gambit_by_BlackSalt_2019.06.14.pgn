@@ -1,0 +1,102 @@
+[Event "Kings Gambit: Chapter 1"]
+[Site "https://lichess.org/study/a79OLRl4/kHR4rXJw"]
+[Result "*"]
+[UTCDate "2019.06.14"]
+[UTCTime "20:43:13"]
+[Variant "Standard"]
+[ECO "C38"]
+[Opening "King's Gambit Accepted, Hanstein Gambit"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 e5 2. f4 exf4 3. Nf3 { [%cal Gg8g7] } 3... g5 4. Bc4 (4. h4)  (4. d4)  (4. h3)  (4. Nc3 d6 5. g3 g4 6. Nh4 Be7 7. Ng2 f3 8. Nf4 h5) 4... Bg7 5. O-O h6 6. d4 { [%cal Gd7d6] } 6... d6 7. c3 Nc6 8. b4 Nf6 9. Nbd2 O-O 10. a4 Ng4 11. Nb3 Ne7 12. Bd3 f5 13. Ra2 { zero moves } 13... fxe4 14. Bxe4 Nf5 15. Re1 Nge3 16. Bxe3 Nxe3 17. Qb1 g4 18. Nfd2 Qg5 19. Qd3 d5 20. Bh7+ Kh8 21. Nf1 Nxf1 22. Rxf1 b6 23. Qb1 Bd7 24. Bd3 Rae8 *
+
+
+[Event "Kings Gambit: Black Schallopp Defense"]
+[Site "https://lichess.org/study/a79OLRl4/hQrgq6tq"]
+[Result "*"]
+[UTCDate "2019.06.14"]
+[UTCTime "20:54:35"]
+[Variant "Standard"]
+[ECO "C34"]
+[Opening "King's Gambit Accepted, Schallopp Defense"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 e5 2. f4 exf4 3. Nf3 Nf6 4. e5 (4. Nc3 d5 5. Nxd5 Nxd5 6. exd5 Qxd5 7. d4 Bd6 8. c4) 4... Nh5 5. d4 d6 6. Bc4 Nc6 7. O-O dxe5 8. d5 Bc5+ 9. Kh1 Nd4 10. Nxd4 Qh4 11. Ne2 Ng3+ 12. Nxg3 fxg3 13. h3 Bxh3 14. Bg5 Qxg5 15. gxh3 g2+ 16. Kh2 gxf1=Q 17. Qxf1 O-O *
+
+
+[Event "Kings Gambit: Game"]
+[Site "https://lichess.org/study/a79OLRl4/xpQkeZo9"]
+[Result "*"]
+[UTCDate "2019.06.19"]
+[UTCTime "00:01:31"]
+[Variant "Standard"]
+[ECO "C39"]
+[Opening "King's Gambit Accepted: King Knight's Gambit"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 e5 2. f4 exf4 3. Nf3 g5 4. h4 d5 5. exd5 g4 6. Ne5 Qe7 7. Qe2 Nf6 8. d4 Nh5 *
+
+
+[Event "Kings Gambit: d5 Nxg5 Qh5"]
+[Site "https://lichess.org/study/a79OLRl4/lJetxoLw"]
+[Result "*"]
+[UTCDate "2019.06.19"]
+[UTCTime "00:10:24"]
+[Variant "Standard"]
+[ECO "C39"]
+[Opening "King's Gambit Accepted: King Knight's Gambit"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 e5 2. f4 exf4 3. Nf3 g5 4. h4 d5 5. Nxg5 h6 6. Qh5 Qe7 7. Nxf7 Qxf7 8. Qe5+ Kd8 9. Qxh8 Bg7 10. Qh7 Nf6 *
+
+
+[Event "Kings Gambit: d5 Nxg5 Nxf7"]
+[Site "https://lichess.org/study/a79OLRl4/NfduNUSz"]
+[Result "*"]
+[UTCDate "2019.06.19"]
+[UTCTime "00:16:45"]
+[Variant "Standard"]
+[ECO "C39"]
+[Opening "King's Gambit Accepted: King Knight's Gambit"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 e5 2. f4 exf4 3. Nf3 g5 4. h4 d5 5. Nxg5 h6 6. Nxf7 Kxf7 7. Qh5+ Kg7 8. e5 Nc6 9. d4 Qd7 10. c3 Qg4 11. Qe8 Qg3+ 12. Kd2 Qf2+ 13. Be2 Bg4 14. Re1 Rxe8 *
+
+
+[Event "Kings Gambit: d5 hxg5"]
+[Site "https://lichess.org/study/a79OLRl4/3hWvzkir"]
+[Result "*"]
+[UTCDate "2019.06.19"]
+[UTCTime "05:35:04"]
+[Variant "Standard"]
+[ECO "C39"]
+[Opening "King's Gambit Accepted: King Knight's Gambit"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 e5 2. f4 exf4 3. Nf3 g5 4. h4 d5 5. hxg5 dxe4 6. Qe2 Qe7 7. Nd4 Bg7 8. c3 h6 9. gxh6 Rxh6 10. Rxh6 Nxh6 11. g3 Bg4 12. Qb5+ c6 13. Qb4 Qxb4 14. cxb4 Bxd4 *
+
+
+[Event "Kings Gambit: d5 e5"]
+[Site "https://lichess.org/study/a79OLRl4/ITFP0Mmz"]
+[Result "*"]
+[UTCDate "2019.06.19"]
+[UTCTime "07:05:24"]
+[Variant "Standard"]
+[ECO "C39"]
+[Opening "King's Gambit Accepted: King Knight's Gambit"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 e5 2. f4 exf4 3. Nf3 g5 4. h4 d5 5. e5 g4 6. Ng5 f6 7. exf6 Nxf6 8. d4 h6 9. Bxf4 hxg5 10. Bxg5 Qe7+ 11. Be2 Bh6 12. O-O Bxg5 13. hxg5 Qe3+ *
+
+
+[Event "Kings Gambit: d5 Ng5 Nxf7 Qh5+ exd5"]
+[Site "https://lichess.org/study/a79OLRl4/3W1DcpMZ"]
+[Result "*"]
+[UTCDate "2019.06.19"]
+[UTCTime "07:16:39"]
+[Variant "Standard"]
+[ECO "C39"]
+[Opening "King's Gambit Accepted: King Knight's Gambit"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 e5 2. f4 exf4 3. Nf3 g5 4. h4 d5 5. Nxg5 h6 6. Nxf7 Kxf7 7. Qh5+ Kg7 8. exd5 Nf6 9. Qf3 Bd6 10. Bc4 Re8+ 11. Kf1 Bg4 12. Qc3 Qe7 13. d3 f3 14. Qd2 Qe2+ 15. Qxe2 fxe2+ 16. Kf2 Nh5 *

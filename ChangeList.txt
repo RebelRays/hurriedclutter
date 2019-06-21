@@ -1,0 +1,19 @@
+V4
+
+1) Git Migration
+https://raw.githubusercontent.com/RebelRays/hurriedclutter/master/index.html
+
+
+----------------------------------------
+V3
+1)Break out logic from index
+2)Add support for multiple files load
+3)Add support for switch color button
+4)End current Line Button
+5)No of subnodes
+-----------------------------------------
+V2
+1) Copy files to local  -> server control
+2) Set Title
+3) Icon?
+4)Scroll

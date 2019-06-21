@@ -1,0 +1,89 @@
+[Event "MyOpeningLibrary: d6"]
+[Site "https://lichess.org/study/3MPuRdge/4SoBmEjF"]
+[Result "*"]
+[UTCDate "2019.06.16"]
+[UTCTime "20:06:56"]
+[Variant "Standard"]
+[ECO "B90"]
+[Opening "Sicilian Defense: Najdorf Variation, English Attack"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 a6 6. Be3 e5 7. Nb3 Be6 8. f3 Be7 9. Qd2 O-O 10. O-O-O Nbd7 11. g4 b5 12. g5 b4 13. Ne2 Ne8 14. f4 a5 15. f5 a4 16. fxe6 axb3 17. exf7+ Rxf7 18. cxb3 Rxa2 19. Kc2 Qa8 20. Ng3 Rxb2+ 21. Kxb2 Qa3+ 22. Kb1 Qxb3+ 23. Ka1 Bxg5 24. Bxg5 Nb6 25. Ba6 Ra7 26. Qd3 Rxa6+ 27. Qxa6 Qc3+ { Perpetual box } { [%csl Gb3,Gc3,Gb2,Gc2,Gb4] } 28. Kb1 *
+
+
+[Event "MyOpeningLibrary: d6 Nh4 Bxd5 Nxd5?"]
+[Site "https://lichess.org/study/3MPuRdge/ry7R8cQJ"]
+[Result "*"]
+[UTCDate "2019.06.16"]
+[UTCTime "21:13:59"]
+[Variant "Standard"]
+[ECO "B90"]
+[Opening "Sicilian Defense: Najdorf Variation, English Attack"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 a6 6. Be3 e5 7. Nb3 Be6 8. f3 Be7 9. Qd2 Nbd7 10. O-O-O O-O 11. g4 b5 12. g5 Nh5 13. Nd5 { [%csl Gf4] } 13... Bxd5 { important } 14. exd5 Nb6 15. Na5! Nxd5?? 16. Nc6 Qc7 17. Qxd5 Rfc8 18. Nxe7+ Qxe7 19. Qxd6 Qb7 20. Qd5 Qc7 21. Qe4 Rab8 22. Bh3 Re8 23. Rd7 Qa5 24. Qd5 *
+
+
+[Event "MyOpeningLibrary: d6 Nh4 Rc8?"]
+[Site "https://lichess.org/study/3MPuRdge/BemMM24q"]
+[Result "*"]
+[UTCDate "2019.06.16"]
+[UTCTime "21:38:03"]
+[Variant "Standard"]
+[ECO "B90"]
+[Opening "Sicilian Defense: Najdorf Variation, English Attack"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 a6 6. Be3 e5 7. Nb3 Be6 8. f3 Be7 9. Qd2 Nbd7 10. O-O-O O-O 11. g4 b5 12. g5 Nh5 13. Nd5 Rc8 14. Nxe7+ Qxe7 15. Qxd6 Qxd6 16. Rxd6 Ra8 17. Na5 { [%csl Ge7,Gb6][%cal Ga5c6,Gc6b4,Gb4d5] } 17... Nf4 18. Nc6 Ng6 { [%csl Ge7][%cal Gc6b4] } 19. h4 Rfe8 { [%cal Gh4h5] } 20. h5 Ne7 21. Nb4 a5 22. Na6 { [%csl Gc7,Gb8,Gb5] } *
+
+
+[Event "MyOpeningLibrary: g6"]
+[Site "https://lichess.org/study/3MPuRdge/FIHwOYnb"]
+[Result "*"]
+[UTCDate "2019.06.16"]
+[UTCTime "22:11:03"]
+[Variant "Standard"]
+[ECO "B38"]
+[Opening "Sicilian Defense: Accelerated Dragon, Maróczy Bind"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 c5 2. Nf3 g6 3. c4 Bg7 4. d4 cxd4 5. Nxd4 Nc6 6. Be3 Nf6 7. Nc3 O-O 8. Be2 d6 9. O-O Bd7 10. h3 *
+
+
+[Event "MyOpeningLibrary: Qc8+"]
+[Site "https://lichess.org/study/3MPuRdge/j0zhWeob"]
+[Result "*"]
+[UTCDate "2019.06.16"]
+[UTCTime "22:03:56"]
+[Variant "Standard"]
+[ECO "B90"]
+[Opening "Sicilian Defense: Najdorf Variation, English Attack"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 a6 6. Be3 e5 7. Nb3 Be6 8. f3 Be7 9. Qd2 Nbd7 10. O-O-O O-O 11. g4 b5 12. g5 b4 13. Ne2 Ne8 14. f4 a5 15. f5 a4 16. fxe6 axb3 17. exf7+ Rxf7 18. cxb3 Rxa2 19. Kc2 Qc7+ 20. Kb1 *
+
+
+[Event "MyOpeningLibrary: c5-e5"]
+[Site "https://lichess.org/study/3MPuRdge/rcT7rwgD"]
+[Result "*"]
+[UTCDate "2019.06.16"]
+[UTCTime "22:24:30"]
+[Variant "Standard"]
+[ECO "B27"]
+[Opening "Sicilian Defense: Jalalabad Variation"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 c5 2. Nf3 e5 3. Nxe5 Qe7 4. d4 d6 5. Bb5+ Bd7 6. Nxd7 Qxe4+ 7. Be3 Nxd7 8. O-O Nf6 9. Nc3 Qf5 10. Bd3 Qh5 11. Qxh5 Nxh5 12. dxc5 dxc5 13. Nb5 *
+
+
+[Event "MyOpeningLibrary: Chapter 7"]
+[Site "https://lichess.org/study/3MPuRdge/37mFY9kB"]
+[Result "*"]
+[UTCDate "2019.06.16"]
+[UTCTime "22:54:16"]
+[Variant "Standard"]
+[ECO "B32"]
+[Opening "Sicilian Defense: Löwenthal Variation"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 c5 2. Nf3 Nc6 3. d4 cxd4 4. Nxd4 e5 5. Nb5 a6 6. Nd6+ Bxd6 7. Qxd6 Qf6 8. Qc7 Nge7 9. Nc3 O-O 10. Be3 b5 11. O-O-O Rb8 12. Bc5 Rb7 13. Qd6 Qxd6 14. Bxd6 Re8 15. a4 b4 16. Nd5 Nxd5 17. Rxd5 *
