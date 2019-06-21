@@ -1,16 +1,3 @@
-[Event "Indian Game: Nf6 c4 e6 Nc3 Bb4 e3"]
-[Site "https://lichess.org/study/BcCgI02z/4agMsreb"]
-[Result "*"]
-[UTCDate "2019.06.21"]
-[UTCTime "07:32:47"]
-[Variant "Standard"]
-[ECO "E54"]
-[Opening "Nimzo-Indian Defense: Normal Variation, Gligoric System, Exchange at c4"]
-[Annotator "https://lichess.org/@/BlackSalt"]
-
-1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. e3 O-O 5. Bd3 d5 6. Nf3 dxc4 7. Bxc4 c5 8. O-O cxd4 9. exd4 b6 10. Bg5 Bb7 11. Ne5 h6 12. Bh4 Nbd7 13. Nxd7 Qxd7 14. Bxf6 gxf6 15. Qg4+ Kh7 16. Ne4 Be7 17. Qf4 f5 18. Ng3 Bg5 19. Qe5 Qc6 { [%cal Gc6c4,Gc6g2] } 20. d5 Qxc4 21. dxe6 fxe6 22. Nh5 Rg8 23. f4 Bh4 24. g3 Qc2 25. Rf2 Qc6 *
-
-
 [Event "Indian Game: Nf6 c4 e6 Nc3 Bb4 a3"]
 [Site "https://lichess.org/study/BcCgI02z/kY0MXIyV"]
 [Result "*"]
@@ -22,6 +9,19 @@
 [Annotator "https://lichess.org/@/BlackSalt"]
 
 1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. a3 Bxc3+ { Everything else is bad } 5. bxc3 b6 6. f3 Nc6 7. e4 (7. d5)  (7. Bg5) 7... Na5 8. Bd3 Ba6 9. Qe2 c5 10. Bg5 h6 11. Bh4 cxd4 12. cxd4 Rc8 13. Rc1 Bxc4 14. Bxc4 b5 *
+
+
+[Event "Indian Game: Nf6 c4 e6 Nc3 Bb4 e3"]
+[Site "https://lichess.org/study/BcCgI02z/4agMsreb"]
+[Result "*"]
+[UTCDate "2019.06.21"]
+[UTCTime "07:32:47"]
+[Variant "Standard"]
+[ECO "E54"]
+[Opening "Nimzo-Indian Defense: Normal Variation, Gligoric System, Exchange at c4"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. e3 O-O 5. Bd3 d5 6. Nf3 dxc4 7. Bxc4 c5 8. O-O cxd4 9. exd4 b6 10. Bg5 Bb7 11. Ne5 h6 12. Bh4 Nbd7 13. Nxd7 Qxd7 14. Bxf6 gxf6 15. Qg4+ Kh7 16. Ne4 Be7 17. Qf4 f5 18. Ng3 Bg5 19. Qe5 Qc6 { [%cal Gc6c4,Gc6g2] } 20. d5 Qxc4 21. dxe6 fxe6 22. Nh5 Rg8 23. f4 Bh4 24. g3 Qc2 25. Rf2 Qc6 *
 
 
 [Event "Indian Game: Nf6 c4 e6 Nc3 Bb4 a3 .. Bxc4 eat with the rook"]
@@ -61,3 +61,94 @@
 [Annotator "https://lichess.org/@/BlackSalt"]
 
 1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. Qc2 O-O 5. a3 Bxc3+ 6. Qxc3 d5 7. Bg5 { turning point } 7... c5 8. dxc5 d4 9. Qc2 h6 10. Bh4 Qe7 11. Rd1 e5 12. b4 a5 13. Nf3 axb4 14. axb4 Nc6 15. Qb3 g5 *
+
+
+[Event "Indian Game: Nf6 c4 e6 Nc3 Bb4 Bg5"]
+[Site "https://lichess.org/study/BcCgI02z/WXBDAWMZ"]
+[Result "*"]
+[UTCDate "2019.06.21"]
+[UTCTime "16:11:24"]
+[Variant "Standard"]
+[ECO "E30"]
+[Opening "Nimzo-Indian Defense: Leningrad Variation"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. Bg5 { Turningpoint } 4... c5 5. d5 Bxc3+ 6. bxc3 h6 7. Bh4 d6 8. e3 e5 9. Bd3 e4 10. Bxe4 g5 *
+
+
+[Event "Indian Game: Nf6 c4 e6 Nc3 Bb4 Bg5 ... not Bxe4"]
+[Site "https://lichess.org/study/BcCgI02z/N2p7DQL6"]
+[Result "*"]
+[UTCDate "2019.06.21"]
+[UTCTime "16:20:46"]
+[Variant "Standard"]
+[ECO "E30"]
+[Opening "Nimzo-Indian Defense: Leningrad Variation"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. Bg5 c5 5. d5 Bxc3+ 6. bxc3 h6 7. Bh4 d6 8. e3 e5 9. Bd3 e4 10. Bc2 Nbd7 11. Ne2 Qe7 12. O-O g5 13. Bg3 h5 14. h3 h4 15. Bh2 Ne5 { [%csl Gc4][%cal Gg5g4] } *
+
+
+[Event "Indian Game: Nf6 c4 e6 Nc3 Bb4 Nf3"]
+[Site "https://lichess.org/study/BcCgI02z/c68YwOqf"]
+[Result "*"]
+[UTCDate "2019.06.21"]
+[UTCTime "16:45:09"]
+[Variant "Standard"]
+[ECO "E21"]
+[Opening "Nimzo-Indian Defense: Three Knights Variation"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. Nf3 O-O 5. Bg5 c5 6. e3 cxd4 7. exd4 h6 8. Bh4 Qa5 9. Bxf6 Bxc3+ 10. bxc3 Qxc3+ 11. Nd2 gxf6 12. Qg4+ Kh7 13. Rd1 f5 14. Qh4 Nc6 15. d5 Qe5+ 16. Be2 Nd4 17. Qh5 b6 { [%csl Gc4,Gd5,Ga2][%cal Gc8a6,Ga8c8,Gc8c5,Gf8c8,Gf8g8,Gd4e2,Ge5e2,Gc5a5] } *
+
+
+[Event "Indian Game: Nf6 c4 e6 Nc3 Bb4 Bf4"]
+[Site "https://lichess.org/study/BcCgI02z/QYbMD78H"]
+[Result "*"]
+[UTCDate "2019.06.21"]
+[UTCTime "18:48:18"]
+[Variant "Standard"]
+[ECO "E20"]
+[Opening "Nimzo-Indian Defense"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. Bf4 { Turning point } 4... c5 5. e3 cxd4 6. exd4 d5 7. Nf3 O-O 8. Be2 b6 9. O-O Bb7 10. a3 Bxc3 11. bxc3 Nc6 12. Rc1 Rc8 13. cxd5 Nxd5 14. Bd2 Qd6 15. a4 Na5 16. c4 Nf4 { [%csl Gg2,Gd4,Gf3] } *
+
+
+[Event "Indian Game: Nf6 c4 e6 Nc3 Bb4 Bd2 c5 d5"]
+[Site "https://lichess.org/study/BcCgI02z/gGAVMIGN"]
+[Result "*"]
+[UTCDate "2019.06.21"]
+[UTCTime "19:21:27"]
+[Variant "Standard"]
+[ECO "E20"]
+[Opening "Nimzo-Indian Defense"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. Bd2 c5 5. d5 exd5 6. cxd5 O-O 7. a3 Ba5 8. Nf3 d6 9. e3 Bf5 10. Bc4 Nbd7 11. O-O a6 12. Nh4 Bg4 13. f3 Ne5 14. Be2 Bd7 15. Qe1 *
+
+
+[Event "Indian Game: d4 Nf6 Bf4 LC0 Line"]
+[Site "https://lichess.org/study/BcCgI02z/X2lTRMBZ"]
+[Result "*"]
+[UTCDate "2019.06.21"]
+[UTCTime "20:29:55"]
+[Variant "Standard"]
+[ECO "D02"]
+[Opening "Queen's Pawn Game: London System"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. d4 Nf6 2. Bf4 d5 3. Nf3 c5 4. e3 Nc6 5. Be2 cxd4 6. exd4 Bf5 7. c3 e6 8. Nbd2 Bd6 9. Bxd6 Qxd6 10. Nh4 O-O 11. O-O Be4 12. Nxe4 dxe4 13. f3 exf3 14. Nxf3 e5 15. dxe5 Qc5+ 16. Kh1 Ng4 17. Qe1 *
+
+
+[Event "Indian Game: Chapter 12"]
+[Site "https://lichess.org/study/BcCgI02z/JTImFxyv"]
+[Result "*"]
+[UTCDate "2019.06.21"]
+[UTCTime "22:42:00"]
+[Variant "Standard"]
+[ECO "A45"]
+[Opening "Indian Game"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. d4 Nf6 2. Bf4 d5 3. e3 c5 4. c3 Nc6 5. Nd2 Bf5 6. Qb3 Qd7 7. Ngf3 c4 8. Qd1 e6 9. Be2 b5 *
