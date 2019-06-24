@@ -152,3 +152,42 @@
 [Annotator "https://lichess.org/@/BlackSalt"]
 
 1. d4 Nf6 2. Bf4 d5 3. e3 c5 4. c3 Nc6 5. Nd2 Bf5 6. Qb3 Qd7 7. Ngf3 c4 8. Qd1 e6 9. Be2 b5 *
+
+
+[Event "Indian Game: Nf6 c4 e6 Nc3 Bb4 Qb3"]
+[Site "https://lichess.org/study/BcCgI02z/Pcoaaasm"]
+[Result "*"]
+[UTCDate "2019.06.24"]
+[UTCTime "00:00:39"]
+[Variant "Standard"]
+[ECO "E23"]
+[Opening "Nimzo-Indian Defense: Spielmann Variation, Romanovsky Gambit"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. Qb3 c5 5. dxc5 Nc6 6. a3 Nd4 7. Qd1 Bxc3+ 8. bxc3 Nc6 9. Bg5 Qa5 10. Bxf6 gxf6 11. Qd2 Qxc5 12. e4 b6 13. Qh6 Ke7 *
+
+
+[Event "Indian Game: Nf6 c4 e6 Nc3 Bb4 Qb3 Nd4 Qa4"]
+[Site "https://lichess.org/study/BcCgI02z/HbHN1bVi"]
+[Result "*"]
+[UTCDate "2019.06.24"]
+[UTCTime "00:09:57"]
+[Variant "Standard"]
+[ECO "E23"]
+[Opening "Nimzo-Indian Defense: Spielmann Variation, Romanovsky Gambit"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. Qb3 c5 5. dxc5 Nc6 6. a3 Nd4 7. Qa4 Bxc3+ 8. bxc3 Nc6 9. Nf3 Ne4 *
+
+
+[Event "Indian Game: Chapter 15"]
+[Site "https://lichess.org/study/BcCgI02z/c4txxNcN"]
+[Result "*"]
+[UTCDate "2019.06.24"]
+[UTCTime "00:23:48"]
+[Variant "Standard"]
+[ECO "E24"]
+[Opening "Nimzo-Indian Defense: Sämisch Variation, Accelerated"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. a3 Bxc3+ 5. bxc3 b6 6. f3 Nc6 7. e4 Na5 8. Bd3 Ba6 9. Qe2 c5 10. Bg5 h6 11. Bh4 cxd4 12. cxd4 Rc8 13. e5 g5 14. Bf2 Nh5 15. Nh3 Bxc4 16. O-O d5 17. exd6 Qxd6 *
