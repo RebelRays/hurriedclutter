@@ -122,3 +122,16 @@ var Gamee4d4Variatione6 = `[Event "sergeiroustamof: This is just a test"]
 [Annotator "https://lichess.org/@/BlackSalt"]
 
 1. e4  (1. d4) 1... e6 *`;
+
+
+var GameOfVariation = `[Event "Test variations: Chapter 1"]
+[Site "https://lichess.org/study/z0j8Wn9u/3WldVrZi"]
+[Result "*"]
+[UTCDate "2019.06.24"]
+[UTCTime "18:38:37"]
+[Variant "Standard"]
+[ECO "C78"]
+[Opening "Ruy Lopez: Morphy Defense, Neo-Arkhangelsk Variation"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 e5 2. Nf3 Nc6 3. Bb5 (3. Bc4 Nf6 4. Ng5 d5 5. exd5 Na5 6. Bb5+ c6 7. dxc6 bxc6 8. Bd3)  (3. Nc3 Nf6 4. d4 exd4 5. Nxd4) 3... a6 4. Ba4 Nf6 5. O-O Bc5 6. c3 (6. d3) *`

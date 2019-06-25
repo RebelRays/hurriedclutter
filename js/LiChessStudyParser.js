@@ -98,7 +98,13 @@ function ExtractSublinesFromGame(OneGame){
             AllMoves.push(newLine);
             currentMovelines = currentMovelines.slice(0, lastBraketPosition) + currentMovelines.slice(currentPointer+1, currentMovelines.length);
             //Reset parameters?
-            currentPointer=lastBraketPosition;
+            currentPointer=-1;//lastBraketPosition;
+            lastBraketPosition=-1;
+            lastDotPosition=-1;
+            lastDotBeforeParenthesesPosition=-1;
+            lookingForFirstDotAfterParentheses=false;
+            lookingForFirstDotAfterParenthesesPosition=-1;
+
         }else if(curChar == '.'){
             lastDotPosition=currentPointer;
             if(lookingForFirstDotAfterParentheses){
