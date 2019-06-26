@@ -57,11 +57,11 @@ function FilterComments(Moves){
         if(curChar === '{'){
             braketOpen=true;
         }
-        if(curChar === '}'){
-            braketOpen=false;
-        }
         if(!braketOpen){
             newLine += curChar;
+        }
+        if(curChar === '}'){
+            braketOpen=false;
         }
     }
     return newLine;
@@ -94,7 +94,21 @@ function ExtractSublinesFromGame(OneGame){
         }else if (curChar == ')'){
             //remove from currline, goto () position
             let copiedChars = currentMovelines.slice(lookingForFirstDotAfterParenthesesPosition, currentPointer);
-            let newLine = currentMovelines.slice(0, lastDotBeforeParenthesesPosition) + copiedChars;
+            let blackmoves = copiedChars.indexOf("...")!=-1;
+
+            let replacePosition = lastDotBeforeParenthesesPosition;
+            if(blackmoves){
+                //1. e4 d5
+                
+                for(var i=2; i<10;i++){
+                    let ichar = currentMovelines.charAt(replacePosition + i);
+                    if(ichar === ' '){
+                        replacePosition=replacePosition+i +1;
+                        break;
+                    }
+                }
+            }
+            let newLine = currentMovelines.slice(0, replacePosition) + copiedChars;
             AllMoves.push(newLine);
             currentMovelines = currentMovelines.slice(0, lastBraketPosition) + currentMovelines.slice(currentPointer+1, currentMovelines.length);
             //Reset parameters?
