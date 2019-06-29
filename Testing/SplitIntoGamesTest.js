@@ -1,6 +1,6 @@
 
 
-QUnit.test( "SimpleGame Split", function( assert ) {
+QUnit.test( "Exctract Sub Split", function( assert ) {
   let games = SplitIntoGames(SimpleGame);
 
   assert.ok( games.length == 1, "Length == 1" );
