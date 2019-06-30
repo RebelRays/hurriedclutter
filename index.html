@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="AddOn/chessboardjs-1.0.0/css/chessboard-1.0.0.min.css">
 </head>
 <body>
-        <div id="Info">No Of Subnodes:<span id="SubNodeCount"></span><span  id="HelpMovesSpan"></span></div>
+        <div id="Info">No Of Lines:<span id="SubLinesCount"></span> Subnodes:<span id="SubNodeCount"></span><span  id="HelpMovesSpan"></span></div>
         <div id="board2" style="width: 400px"></div>
         <button id="WhiteBtn" onclick="WhiteBtnClick()">Play White</button>
         <button id="BlackBtn" onclick="BlackBtnClick()">Play Black</button>
@@ -105,6 +105,7 @@ function onDrop (source, target, piece, newPos, oldPos, orientation) {
         return 'trash'
       }
       currentNodeInGameTree[currentMin]["PlayThrough"] = currentNodeInGameTree[currentMin]["PlayThrough"] + 1;
+      $('#SubLinesCount').text(currentNodeInGameTree[currentMin]["Lines"]);
       $('#SubNodeCount').text(currentNodeInGameTree[currentMin]["Weight"]);
       //make the move
       console.log("reply : " + currentMin);
@@ -146,14 +147,20 @@ var gameTree={};
 var WhiteGameTree={};
 var BlackGameTree={};
 
+var WhitePGNGameData;
 function MemWhiteGameTree(PGNgames){
+  WhitePGNGameData=PGNgames;
   var gameArray = SplitIntoGames(PGNgames);
   var extractedVariations = ExtractSublines(gameArray);
   WhiteGameTree=getMoveTree(extractedVariations);
 }
+
+var BlackPGNGameData;
 function MemBlackGameTree(PGNgames){
+  BlackPGNGameData=PGNgames;
   var gameArray = SplitIntoGames(PGNgames);
-  BlackGameTree=getMoveTree(gameArray);
+  var extractedVariations = ExtractSublines(gameArray);
+  BlackGameTree=getMoveTree(extractedVariations);
 }
 
 
