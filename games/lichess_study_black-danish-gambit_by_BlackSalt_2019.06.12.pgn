@@ -23,15 +23,3 @@
 
 1. e4 e5 2. d4 exd4 3. c3 Qe7 4. Qxd4 Nf6 5. Nd2 Nc6 6. Qe3 d5 7. Bd3 Bd7 8. Ngf3 O-O-O 9. O-O Re8 10. Re1 Qd8 11. Ng5 Ng4 12. Nxf7 Qh4 13. Qg3 Qxg3 14. hxg3 Bc5 15. Nxh8 Bxf2+ 16. Kf1 Nce5 17. Be2 Rf8 18. Bf3 Bb5+ 19. c4 dxc4 20. a4 Ba6 21. Re2 Bxg3 22. Nb1 Rxh8 *
 
-
-[Event "Black Danish Gambit: QXD4"]
-[Site "https://lichess.org/study/R6LyIGqC/vCz5tP2k"]
-[Result "*"]
-[UTCDate "2019.06.12"]
-[UTCTime "23:06:09"]
-[Variant "Standard"]
-[ECO "C21"]
-[Opening "Danish Gambit"]
-[Annotator "https://lichess.org/@/BlackSalt"]
-
-1. c4 e5 *
