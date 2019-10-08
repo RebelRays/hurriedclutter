@@ -133,6 +133,85 @@ function ExtractSublinesFromGame(OneGame){
     return AllMoves;
 }
 
+
+class BracketPositions {
+    constructor(start, bracketpos, end) {
+      this.start = start;
+      this.bracketpos=bracketpos;
+      this.end = end;
+    }
+  }
+
+function getPositionOfFirstBlankSpaceAfter(currentPointer, currentMovelines){
+    for(var i=currentPointer; i<currentMovelines.length;i++){
+        let ichar = currentMovelines.charAt(i);
+        if(ichar === ' '){
+            return i;
+        }
+    }
+    return -1;
+}
+
+function removeParanthesis(lineContainingPs, Braces){
+    for(var i=Braces.length-1; i>=0;i--){
+        var Brace = Braces[i];
+        let newMoveLine = lineContainingPs.slice(0, Brace.start) + lineContainingPs.slice(Brace.end);
+        lineContainingPs=newMoveLine;
+    }
+    return lineContainingPs;
+
+}
+function ExtractSublinesFromGame2(OneGame){
+    
+    let {Head, Moves} = SplitHeadFromMoves(OneGame);
+    let MovesWithoutComments = FilterComments(Moves);
+    let currentMovelines = MovesWithoutComments;
+    currentMovelines=currentMovelines.replace('  ','');
+
+    let currentPointer = 0;
+    var AllMoves = [];
+    var Braces = [];
+    let TwoSpacesBeforeNowPositon = -1
+    let OneSpacesBeforeNowPositon = -1
+    let OneSpaceAfterPosition = -1
+    while (true){
+        if(currentPointer >= currentMovelines.length){
+            AllMoves.push(currentMovelines);
+            break; //done
+        }
+
+        let curChar = currentMovelines.charAt(currentPointer);
+        if(curChar == ' '){
+            TwoSpacesBeforeNowPositon=OneSpacesBeforeNowPositon;
+            OneSpacesBeforeNowPositon=currentPointer;
+        }else if(curChar== '('){
+            OneSpaceAfterPosition=getPositionOfFirstBlankSpaceAfter(currentPointer, currentMovelines);
+            Braces.push(new BracketPositions(TwoSpacesBeforeNowPositon+1,OneSpacesBeforeNowPositon+1, OneSpaceAfterPosition));
+        }else if (curChar == ')'){
+            //remove from currline, goto () position
+            
+            //Copy line to now
+            let newMoveLines = currentMovelines.slice(0, currentPointer);
+            let newLine = removeParanthesis(newMoveLines, Braces);
+            AllMoves.push(newLine);
+
+            
+            LastParathesis = Braces.pop()
+            
+            let nextMoveLine= currentMovelines.slice(0, LastParathesis.bracketpos) + currentMovelines.slice(currentPointer+1);
+            currentMovelines=nextMoveLine.replace('  ',' ');
+            currentPointer=-1;
+            var Braces = [];
+            //LastParathesis.bracketpos-2;
+            //OneSpacesBeforeNowPositon=TwoSpacesBeforeNowPositon
+
+        }
+        currentPointer++;
+
+
+    }
+    return AllMoves;
+}
 /*
 function ExtractSublinesFromGame(OneGame){
     //Save header
