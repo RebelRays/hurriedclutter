@@ -20,7 +20,7 @@ function ExtractSublines(Games){
     var arr = [];
     for(var i=0; i<Games.length; i++){
         var currentGame = Games[i];
-        var ExtractedGames = ExtractSublinesFromGame(currentGame);
+        var ExtractedGames = ExtractSublinesFromGame2(currentGame);
         arr= arr.concat(ExtractedGames);
     }
     return arr;

@@ -151,7 +151,7 @@ var WhitePGNGameData;
 function MemWhiteGameTree(PGNgames){
   WhitePGNGameData=PGNgames;
   var gameArray = SplitIntoGames(PGNgames);
-  var extractedVariations = ExtractSublines2(gameArray);
+  var extractedVariations = ExtractSublines(gameArray);
   WhiteGameTree=getMoveTree(extractedVariations);
 }
 
@@ -159,7 +159,7 @@ var BlackPGNGameData;
 function MemBlackGameTree(PGNgames){
   BlackPGNGameData=PGNgames;
   var gameArray = SplitIntoGames(PGNgames);
-  var extractedVariations = ExtractSublines2(gameArray);
+  var extractedVariations = ExtractSublines(gameArray);
   BlackGameTree=getMoveTree(extractedVariations);
 }
 
