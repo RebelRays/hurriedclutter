@@ -1,0 +1,268 @@
+<HTML>
+<Head>
+
+        <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png" />
+        <title>Repeater</title>
+        <link rel="stylesheet" href="AddOn/chessboardjs-1.0.0/css/chessboard-1.0.0.min.css">
+        <link rel="stylesheet" href="main.css">
+</head>
+<body>
+        <div id="Info">No Of Lines:<span id="SubLinesCount"></span> Subnodes:<span id="SubNodeCount"></span><span  id="HelpMovesSpan"></span></div>
+        <div id="board2" style="width: 400px;margin-left: 30px;"></div>
+        <button id="WhiteBtn" onclick="WhiteBtnClick()">Play White</button>
+        <button id="BlackBtn" onclick="BlackBtnClick()">Play Black</button>
+        <button id="HelpBtn" onclick="HelpBtnClick()">Help</button>
+        <button id="HelpBtn2" onclick="HelpBtnClick()">Mem Tactics</button>
+
+
+        <script src="AddOn/jquery-3.4.1.js"></script>
+        <script src="AddOn/chessboardjs-1.0.0/js/chessboard-1.0.0.min.js"> </script>
+        <script src="AddOn/chess-0.10.2.js"></script>
+
+        <script src="js/PGNFileNames.js"></script>
+        <script src="js/PGNFetcher.js"></script>
+        <script src="js/LiChessStudyParser.js"></script>
+        <script src="js/GamesToTree.js"></script>
+        
+
+<script>
+
+
+
+function BackToStart(){
+  currentNodeInGameTree=gameTree;
+  board2.start();
+  CurentGame = new Chess();
+}
+
+var CurrMove=null;
+var CurentGame=null;
+function makeMove(){
+  console.log("Making delayed Move " + CurrMove);
+  CurentGame.move({
+    from: CurrMove.slice(0,2),
+    to: CurrMove.slice(3,5),
+    promotion: 'q' // NOTE: always promote to a queen for example simplicity
+  }); //need to update fen
+
+  board2.move(CurrMove);
+  board2.position(CurentGame.fen());
+}
+
+function onSnapEnd () {
+  console.log("OnSnapEnd FEN: " + CurentGame.fen());
+  board2.position(CurentGame.fen());
+}
+
+function onClicky (source, target, piece, newPos, oldPos, orientation) {
+  console.log("Clicky");
+}
+function onDrop (source, target, piece, newPos, oldPos, orientation) {
+  $('#HelpMovesSpan').text("");
+  console.log('Source: ' + source)
+  console.log('Target: ' + target)
+  console.log('Piece: ' + piece)
+  console.log('New position: ' + Chessboard.objToFen(newPos))
+  console.log('Old position: ' + Chessboard.objToFen(oldPos))
+  console.log('Orientation: ' + orientation)
+  console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
+  moveString = source+target;
+  if(moveString in currentNodeInGameTree){
+    CurentGame.move({
+    from: source,
+    to: target,
+    promotion: 'q' // NOTE: always promote to a queen for example simplicity
+  });
+
+    currentNodeInGameTree=currentNodeInGameTree[moveString];
+    if(!piece.startsWith(autoPlaySide)){ //the one that made the last move
+      let currentMin = null;
+      let MinValue = null;
+
+      for (var move in currentNodeInGameTree) {
+        if(move.length != 4) continue;
+        let cNode = currentNodeInGameTree[move];
+
+        let cMinValue=(cNode["RandomOffset"] + cNode["PlayThrough"]*1.0)/cNode["Lines"];
+        if(currentMin == null){
+          currentMin=move;//RandomOffset
+          MinValue=cMinValue;
+        }else{
+          //let cMinValue=cNode["PlayThrough"]*1.0/cNode["Lines"];
+          if(cMinValue < MinValue){
+            currentMin=move;
+            MinValue=cMinValue;
+          }
+        }
+      }
+
+      if(currentMin == null){
+          console.log("No more moves in this line");
+          BackToStart();
+          return;
+      }
+      if(currentNodeInGameTree["Weight"] == 1) {
+        console.log("No more moves in this line (3)");
+        BackToStart();
+        return 'trash'
+      }
+      currentNodeInGameTree[currentMin]["PlayThrough"] = currentNodeInGameTree[currentMin]["PlayThrough"] + 1;
+      $('#SubLinesCount').text(currentNodeInGameTree[currentMin]["Lines"]);
+      $('#SubNodeCount').text(currentNodeInGameTree[currentMin]["Weight"]);
+      //make the move
+      console.log("reply : " + currentMin);
+
+      CurrMove=currentMin.slice(0,2) + "-" + currentMin.slice(2,4);
+      window.setTimeout(makeMove, 250);
+      //board2.move(currentMin.slice(0,2) + "-" + currentMin.slice(2,4));
+      currentNodeInGameTree=currentNodeInGameTree[currentMin];
+    }
+  }else {
+    if(currentNodeInGameTree["Weight"] == 1) {
+      console.log("No more moves in this line (2)");
+      BackToStart();
+      return 'trash'
+    }
+    return 'snapback'
+  }
+}
+    
+    var board2 = Chessboard('board2', {
+      draggable: true,
+      position: 'start',
+      onDrop: onDrop,
+      onSnapEnd:onSnapEnd,
+      onClick:onClicky
+    })
+    board2.start();
+
+    
+     </script>
+
+
+
+<script>
+
+var currentNodeInGameTree={};
+var gameTree={};
+
+var WhiteGameTree={};
+var BlackGameTree={};
+
+var WhitePGNGameData;
+function MemWhiteGameTree(PGNgames){
+  WhitePGNGameData=PGNgames;
+  var gameArray = SplitIntoGames(PGNgames);
+  var extractedVariations = ExtractSublines(gameArray);
+  WhiteGameTree=getMoveTree(extractedVariations);
+}
+
+var BlackPGNGameData;
+function MemBlackGameTree(PGNgames){
+  BlackPGNGameData=PGNgames;
+  var gameArray = SplitIntoGames(PGNgames);
+  var extractedVariations = ExtractSublines(gameArray);
+  BlackGameTree=getMoveTree(extractedVariations);
+}
+
+
+function HelpBtnClick(){
+  let moveString = "";
+  for (var move in currentNodeInGameTree) {
+        if(move.length != 4) continue;
+        moveString += move + " ";
+  }
+
+  $('#HelpMovesSpan').text(" Help: " + moveString);
+  
+
+}
+
+var autoPlaySide= 'b';
+function WhiteBtnClick(){
+  autoPlaySide= 'b';
+  gameTree=WhiteGameTree;
+  currentNodeInGameTree=gameTree;
+  CurentGame = new Chess();
+  board2.position(CurentGame.fen());
+  board2.orientation('white');
+  
+}
+
+function BlackBtnClick(){
+  autoPlaySide= 'w';
+  gameTree=BlackGameTree;
+  currentNodeInGameTree=gameTree;
+  CurentGame = new Chess();
+  board2.position(CurentGame.fen());
+  board2.orientation('black');
+
+  //Need to make a white move
+    //if(!piece.startsWith(autoPlaySide)){ //the one that made the last move
+      let currentMin = null;
+      let MinValue = null;
+
+      for (var move in currentNodeInGameTree) {
+        if(move.length != 4) continue;
+        let cNode = currentNodeInGameTree[move];
+        let cMinValue=(cNode["RandomOffset"] + cNode["PlayThrough"]*1.0)/cNode["Lines"];
+        if(currentMin == null){
+          currentMin=move;
+          MinValue=cMinValue;
+          //MinValue=cNode["PlayThrough"]*1.0/cNode["Lines"];
+        }else{
+          //let cMinValue=cNode["PlayThrough"]*1.0/cNode["Lines"];
+          if(cMinValue < MinValue){
+            currentMin=move;
+            MinValue=cMinValue;
+          }
+        }
+      }
+    
+      currentNodeInGameTree[currentMin]["PlayThrough"] = currentNodeInGameTree[currentMin]["PlayThrough"] + 1;
+      $('#SubNodeCount').text(currentNodeInGameTree[currentMin]["Weight"]);
+      //make the move
+      console.log("StartingMove : " + currentMin);
+
+      CurrMove=currentMin.slice(0,2) + "-" + currentMin.slice(2,4);
+      window.setTimeout(makeMove, 250);
+      //board2.move(currentMin.slice(0,2) + "-" + currentMin.slice(2,4));
+      
+      currentNodeInGameTree=currentNodeInGameTree[currentMin];
+
+
+}
+
+
+//$('#WhiteBtn').on('click', WhiteBtnClick());
+//$('#BlackBtn').on('click', BlackBtnClick());
+
+</script>
+
+
+<script>
+    var WhitePGNFileName = GetWhiteFileNameList();
+    getGames(WhitePGNFileName, function(data) {MemWhiteGameTree(data)});
+
+    var BlackPGNFileName = GetBlackFileNameList();
+    getGames(BlackPGNFileName, function(data) {MemBlackGameTree(data)});
+
+    //var PGNgames = WhiteGames;
+    //gameArray = SplitIntoGames(PGNgames);
+    //gameTree=getMoveTree(gameArray);
+    //currentNodeInGameTree=gameTree;
+    //CurentGame = new Chess();
+    
+</script>
+
+
+<script>
+  //Fix for scrolling
+jQuery('#board2').on('scroll touchmove touchend touchstart contextmenu', function(e){
+  e.preventDefault();
+});
+</script>
+
+
+</body>
+</HTML>

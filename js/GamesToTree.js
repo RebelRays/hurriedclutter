@@ -18,7 +18,7 @@ function getMoveTree(gms){
                 currentMoveTreeNode[moveString]["Weight"]=movehistory.length-moveNo;
                 currentMoveTreeNode[moveString]["Lines"]=1;
                 currentMoveTreeNode[moveString]["PlayThrough"]=0;
-                currentMoveTreeNode[moveString]["RandomOffset"]=Math.floor(Math.random() * 3);;
+                currentMoveTreeNode[moveString]["RandomOffset"]=Math.random();//Math.floor(Math.random() * 3);;
                 currentMoveTreeNode=currentMoveTreeNode[moveString];
             }
         }

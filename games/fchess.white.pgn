@@ -1,0 +1,349 @@
+[Event "FanatikChess White: 1.d4 Nf6 2.Nf3 e6 3.c4 d5 4.Nc3 dxc4 5.Bg5 a6 6.Bxf6 gxf6"]
+[Site "https://lichess.org/study/VqDVSFND/xzf4ZuC4"]
+[Result "*"]
+[UTCDate "2019.11.19"]
+[UTCTime "18:44:03"]
+[Variant "Standard"]
+[ECO "D44"]
+[Opening "Queen's Gambit Declined: Vienna Variation"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. d4 Nf6 2. Nf3 e6 3. c4 d5 4. Nc3 dxc4 5. Bg5 a6 6. Bxf6 gxf6 $15 *
+
+
+[Event "FanatikChess White: 1.d4 Nf6 2.Nf3 e6 3.c4 d5 4.Nc3 dxc4 5.Bg5 a6 6.a4 c5"]
+[Site "https://lichess.org/study/VqDVSFND/ukrMelgp"]
+[Result "*"]
+[UTCDate "2019.11.19"]
+[UTCTime "20:05:57"]
+[Variant "Standard"]
+[ECO "D44"]
+[Opening "Queen's Gambit Declined: Vienna Variation"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. d4 Nf6 2. Nf3 e6 3. c4 d5 4. Nc3 dxc4 5. Bg5 a6 6. a4 c5 *
+
+
+[Event "FanatikChess White: 1.d4 Nf6 2.Nf3 e6 3.c4 d5 4.Nc3 dxc4 5.e4 Bb4 6.Bxc4 Nxe4 7.O-O Bxc3"]
+[Site "https://lichess.org/study/VqDVSFND/2u2rr9eI"]
+[Result "*"]
+[UTCDate "2019.11.19"]
+[UTCTime "20:08:29"]
+[Variant "Standard"]
+[ECO "D44"]
+[Opening "Queen's Gambit Declined: Vienna Variation"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. d4 Nf6 2. Nf3 e6 3. c4 d5 4. Nc3 dxc4 5. e4 Bb4 6. Bxc4 Nxe4 7. O-O Bxc3 *
+
+
+[Event "FanatikChess White: 1.d4 Nf6 2.Nf3 e6 3.c4 d5 4.Nc3 dxc4 5.e4 Bb4 6.Qc2 b5"]
+[Site "https://lichess.org/study/VqDVSFND/G21Qj8c6"]
+[Result "*"]
+[UTCDate "2019.11.19"]
+[UTCTime "20:15:58"]
+[Variant "Standard"]
+[ECO "D44"]
+[Opening "Queen's Gambit Declined: Vienna Variation"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. d4 Nf6 2. Nf3 e6 3. c4 d5 4. Nc3 dxc4 5. e4 Bb4 6. Qc2 b5 *
+
+
+[Event "FanatikChess White: 1.d4 Nf6 2.Nf3 e6 3.c4 d5 4.Nc3 dxc4 5.e4 Bb4 6.e5 Nd5"]
+[Site "https://lichess.org/study/VqDVSFND/6jcFVLd3"]
+[Result "*"]
+[UTCDate "2019.11.19"]
+[UTCTime "21:09:19"]
+[Variant "Standard"]
+[ECO "D44"]
+[Opening "Queen's Gambit Declined: Vienna Variation"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. d4 Nf6 2. Nf3 e6 3. c4 d5 4. Nc3 dxc4 5. e4 Bb4 6. e5 Nd5 *
+
+
+[Event "FanatikChess White: 1.d4 Nf6 2.Nf3 e6 3.c4 d5 4.Nc3 dxc4 5.e3 a6"]
+[Site "https://lichess.org/study/VqDVSFND/gPqTcVVa"]
+[Result "*"]
+[UTCDate "2019.11.19"]
+[UTCTime "21:14:52"]
+[Variant "Standard"]
+[ECO "D44"]
+[Opening "Queen's Gambit Declined: Vienna Variation, Quiet Variation"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. d4 Nf6 2. Nf3 e6 3. c4 d5 4. Nc3 dxc4 5. e3 a6 *
+
+
+[Event "FanatikChess White: 1.d4 Nf6 2.Nf3 e6 3.c4 d5 4.Nc3 dxc4 5.Qa4+ c6"]
+[Site "https://lichess.org/study/VqDVSFND/TR0PB26E"]
+[Result "*"]
+[UTCDate "2019.11.19"]
+[UTCTime "21:18:53"]
+[Variant "Standard"]
+[ECO "D44"]
+[Opening "Queen's Gambit Declined: Vienna Variation"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. d4 Nf6 2. Nf3 e6 3. c4 d5 4. Nc3 dxc4 5. Qa4+ c6 *
+
+
+[Event "FanatikChess White: 1.d4 Nf6 2.Nf3 e6 3.c4 d5 4.g3 Be7 5.Bg2 O-O 6.O-O dxc4 7.Ne5 Nc6 8.Nxc6 bxc6"]
+[Site "https://lichess.org/study/VqDVSFND/AfdUobOO"]
+[Result "*"]
+[UTCDate "2019.11.19"]
+[UTCTime "22:02:01"]
+[Variant "Standard"]
+[ECO "E06"]
+[Opening "Catalan Opening: Closed Variation"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. d4 Nf6 2. Nf3 e6 3. c4 d5 4. g3 Be7 5. Bg2 O-O 6. O-O dxc4 7. Ne5 Nc6 8. Nxc6 bxc6 9. Bxc6 (9. Qc2 Qxd4 10. Be3 Qe5) 9... Rb8 10. Qc2 (10. e3 Nd5) *
+
+
+[Event "FanatikChess White: 1.d4 Nf6 2.Nf3 e6 3.c4 d5 4.g3 Be7 5.Bg2 O-O 6.O-O dxc4 7.Qa4 a6 8.Qxc4 b5 9.Qc2"]
+[Site "https://lichess.org/study/VqDVSFND/USRSHosJ"]
+[Result "*"]
+[UTCDate "2019.11.19"]
+[UTCTime "22:26:47"]
+[Variant "Standard"]
+[ECO "E06"]
+[Opening "Catalan Opening: Closed Variation"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. d4 Nf6 2. Nf3 e6 3. c4 d5 4. g3 Be7 5. Bg2 O-O 6. O-O dxc4 7. Qa4 a6 8. Qxc4 b5 9. Qc2 Bb7 10. Bf4 (10. Rd1 Nbd7) *
+
+
+[Event "FanatikChess White: 1.d4 Nf6 2.Nf3 e6 3.c4 d5 4.g3 Be7 5.Bg2 O-O 6.O-O dxc4 7.Nd2 b5"]
+[Site "https://lichess.org/study/VqDVSFND/b2Iwnwfb"]
+[Result "*"]
+[UTCDate "2019.11.19"]
+[UTCTime "22:27:26"]
+[Variant "Standard"]
+[ECO "E06"]
+[Opening "Catalan Opening: Closed Variation"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. d4 Nf6 2. Nf3 e6 3. c4 d5 4. g3 Be7 5. Bg2 O-O 6. O-O dxc4 7. Nbd2 b5 *
+
+
+[Event "FanatikChess White: 1.d4 Nf6 2.Nf3 e6 3.g3 c5 4.c3 b6 5.Bg2 Bb7 6.O-O d5"]
+[Site "https://lichess.org/study/VqDVSFND/S9LKzEdu"]
+[Result "*"]
+[UTCDate "2019.11.19"]
+[UTCTime "23:10:52"]
+[Variant "Standard"]
+[ECO "A46"]
+[Opening "Indian Game: Knights Variation"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. d4 Nf6 2. Nf3 e6 3. g3 c5 4. c3 b6 5. Bg2 Bb7 6. O-O d5 *
+
+
+[Event "FanatikChess White: 1.d4 Nf6 2.Nf3 e6 3.c4 d5 4.g3 Be7 5.Bg2 O-O 6.O-O dxc4 7.Qc2 a6 8.Qxc4 b5 9.Qc2"]
+[Site "https://lichess.org/study/VqDVSFND/PFeu9wu8"]
+[Result "*"]
+[UTCDate "2019.11.19"]
+[UTCTime "22:47:28"]
+[Variant "Standard"]
+[ECO "E06"]
+[Opening "Catalan Opening: Closed Variation"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. d4 Nf6 2. Nf3 e6 3. c4 d5 4. g3 Be7 5. Bg2 O-O 6. O-O dxc4 7. Qc2 a6 8. Qxc4 b5 9. Qc2 *
+
+
+[Event "FanatikChess White: 1.d4 Nf6 2.Nf3 e6 3.c4 d5 4.g3 Be7 5.Nc3 O-O 6.Bg2 Nbd7 7.O-O dxc4"]
+[Site "https://lichess.org/study/VqDVSFND/UttTsuKh"]
+[Result "*"]
+[UTCDate "2019.11.19"]
+[UTCTime "22:52:29"]
+[Variant "Standard"]
+[ECO "E10"]
+[Opening "Indian Game: Anti-Nimzo-Indian"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. d4 Nf6 2. Nf3 e6 3. c4 d5 4. g3 Be7 5. Nc3 O-O 6. Bg2 Nbd7 7. O-O dxc4 *
+
+
+[Event "FanatikChess White: 1.d4 Nf6 2.Nf3 e6 3.c4 d5 4.Bg5 dxc4"]
+[Site "https://lichess.org/study/VqDVSFND/TJ11DQJa"]
+[Result "*"]
+[UTCDate "2019.11.19"]
+[UTCTime "22:55:26"]
+[Variant "Standard"]
+[ECO "?"]
+[Opening "?"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+ *
+
+
+[Event "FanatikChess White: 1.d4 Nf6 2.Nf3 e6 3.c4 d5 4.cxd5 exd5 5.Nc3 c6 6.Bg5 h6"]
+[Site "https://lichess.org/study/VqDVSFND/D5FOxEtT"]
+[Result "*"]
+[UTCDate "2019.11.19"]
+[UTCTime "23:00:24"]
+[Variant "Standard"]
+[ECO "E10"]
+[Opening "Indian Game: Anti-Nimzo-Indian"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. d4 Nf6 2. Nf3 e6 3. c4 d5 4. cxd5 exd5 5. Nc3 c6 6. Bg5 h6 *
+
+
+[Event "FanatikChess White: 1.d4 Nf6 2.Nf3 e6 3.c4 d5 4.cxd5 exd5 5.Bg5 h6"]
+[Site "https://lichess.org/study/VqDVSFND/HWumWhGD"]
+[Result "*"]
+[UTCDate "2019.11.19"]
+[UTCTime "23:02:13"]
+[Variant "Standard"]
+[ECO "E10"]
+[Opening "Indian Game: Anti-Nimzo-Indian"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. d4 Nf6 2. Nf3 e6 3. c4 d5 4. cxd5 exd5 5. Bg5 h6 *
+
+
+[Event "FanatikChess White: 1.d4 Nf6 2.Nf3 e6 3.c4 d5 4.cxd5 exd5 5.Bf4 Be7"]
+[Site "https://lichess.org/study/VqDVSFND/Mii5wdYx"]
+[Result "*"]
+[UTCDate "2019.11.19"]
+[UTCTime "23:03:37"]
+[Variant "Standard"]
+[ECO "E10"]
+[Opening "Indian Game: Anti-Nimzo-Indian"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. d4 Nf6 2. Nf3 e6 3. c4 d5 4. cxd5 exd5 5. Bf4 Be7 *
+
+
+[Event "FanatikChess White: 1.d4 Nf6 2.Nf3 e6 3.c4 d5 4.Nbd2 c5"]
+[Site "https://lichess.org/study/VqDVSFND/EferDZwa"]
+[Result "*"]
+[UTCDate "2019.11.19"]
+[UTCTime "23:04:47"]
+[Variant "Standard"]
+[ECO "E10"]
+[Opening "Indian Game: Anti-Nimzo-Indian"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. d4 Nf6 2. Nf3 e6 3. c4 d5 4. Nbd2 c5 *
+
+
+[Event "FanatikChess White: 1.d4 Nf6 2.Nf3 e6 3.c4 d5 4.Bf4 dxc4"]
+[Site "https://lichess.org/study/VqDVSFND/VXQ8MkQI"]
+[Result "*"]
+[UTCDate "2019.11.19"]
+[UTCTime "23:08:04"]
+[Variant "Standard"]
+[ECO "E10"]
+[Opening "Indian Game: Anti-Nimzo-Indian"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. d4 Nf6 2. Nf3 e6 3. c4 d5 4. Bf4 dxc4 *
+
+
+[Event "FanatikChess White: 1.d4 Nf6 2.Nf3 e6 3.g3 c5 4.Bg2 cxd4 5.Nxd4 d5"]
+[Site "https://lichess.org/study/VqDVSFND/DuBfPMwj"]
+[Result "*"]
+[UTCDate "2019.11.19"]
+[UTCTime "23:13:04"]
+[Variant "Standard"]
+[ECO "A46"]
+[Opening "Indian Game: Knights Variation"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. d4 Nf6 2. Nf3 e6 3. g3 c5 4. Bg2 cxd4 5. Nxd4 d5 *
+
+
+[Event "FanatikChess White: 1.d4 Nf6 2.Nf3 e6 3.g3 c5 4.Bg2 cxd4 5.O-O d5"]
+[Site "https://lichess.org/study/VqDVSFND/YokqMZla"]
+[Result "*"]
+[UTCDate "2019.11.19"]
+[UTCTime "23:15:00"]
+[Variant "Standard"]
+[ECO "A46"]
+[Opening "Indian Game: Knights Variation"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. d4 Nf6 2. Nf3 e6 3. g3 c5 4. Bg2 cxd4 5. O-O d5 *
+
+
+[Event "FanatikChess White: 1.d4 Nf6 2.Nf3 e6 3.g3 c5 4.c4 cxd4 5.Nxd4 d5 6.Bg2 e5 7.Nb5 d4"]
+[Site "https://lichess.org/study/VqDVSFND/YINaIHS1"]
+[Result "*"]
+[UTCDate "2019.11.19"]
+[UTCTime "23:18:36"]
+[Variant "Standard"]
+[ECO "A46"]
+[Opening "Indian Game: Knights Variation"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. d4 Nf6 2. Nf3 e6 3. g3 c5 4. c4 cxd4 5. Nxd4 d5 6. Bg2 e5 7. Nb5 d4 *
+
+
+[Event "FanatikChess White: 1.d4 Nf6 2.Nf3 e6 3.Bg5 c5 4.c3 Nc6 5.e3 h6"]
+[Site "https://lichess.org/study/VqDVSFND/Namty8C8"]
+[Result "*"]
+[UTCDate "2019.11.19"]
+[UTCTime "23:23:38"]
+[Variant "Standard"]
+[ECO "A46"]
+[Opening "Torre Attack"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. d4 Nf6 2. Nf3 e6 3. Bg5 c5 4. c3 Nc6 5. e3 h6 *
+
+
+[Event "FanatikChess White: 1.d4 Nf6 2.Nf3 e6 3.Bg5 c5 4.e3 h6"]
+[Site "https://lichess.org/study/VqDVSFND/5lJO6nTz"]
+[Result "*"]
+[UTCDate "2019.11.19"]
+[UTCTime "23:24:52"]
+[Variant "Standard"]
+[ECO "A46"]
+[Opening "Torre Attack"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. d4 Nf6 2. Nf3 e6 3. Bg5 c5 4. e3 h6 *
+
+
+[Event "FanatikChess White: 1.d4 Nf6 2.Nf3 e6 3.c3 c5 4.Bg5 Nc6 5.e3 h6 *"]
+[Site "https://lichess.org/study/VqDVSFND/oJWPzKbX"]
+[Result "*"]
+[UTCDate "2019.11.19"]
+[UTCTime "23:27:54"]
+[Variant "Standard"]
+[ECO "A46"]
+[Opening "Indian Game: Knights Variation"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. d4 Nf6 2. Nf3 e6 3. c3 c5 4. Bg5 Nc6 5. e3 h6 *
+
+
+[Event "FanatikChess White: 1.d4 Nf6 2.Nf3 e6 3.a3 d5 4.Bg5 c5"]
+[Site "https://lichess.org/study/VqDVSFND/aZsvXKOq"]
+[Result "*"]
+[UTCDate "2019.11.19"]
+[UTCTime "23:37:59"]
+[Variant "Standard"]
+[ECO "A46"]
+[Opening "Indian Game: Knights Variation"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. d4 Nf6 2. Nf3 e6 3. a3 d5 4. Bg5 c5 *
+
+
+[Event "FanatikChess White: 1.d4 Nf6 2.c4 e6 3.Nc3 Bb4 4.e3 O-O 5.Bd3 d5 6.Ne2 c5 7.dxc5"]
+[Site "https://lichess.org/study/VqDVSFND/zFWkV4d1"]
+[Result "*"]
+[UTCDate "2019.11.19"]
+[UTCTime "23:42:04"]
+[Variant "Standard"]
+[ECO "E48"]
+[Opening "Nimzo-Indian Defense: Normal Variation, Bishop Attack, Classical Defense"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. e3 d5 5. Bd3 O-O 6. Ne2 c5 7. dxc5 *
