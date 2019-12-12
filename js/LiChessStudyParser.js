@@ -67,10 +67,76 @@ function FilterComments(Moves){
     return newLine;
 }
 
+function StringToMoveLines()
+{
+    let {Head, Moves} = SplitHeadFromMoves(OneGame);
+    let MovesWithoutComments = FilterComments(Moves);
+    MovesWithoutComments=MovesWithoutComments.replace('  ',' ');
+    MovesWithoutComments=MovesWithoutComments.replace('\n','');
+    MovesWithoutComments=MovesWithoutComments.replace('\r','');
+    MovesWithoutComments=MovesWithoutComments.replace(' 1.','1.');
+    return ExtractSublinesFromGame(MovesWithoutComments);
+}
+
+function combineTwoMovesLines(line1, line2){
+    var startLine2 = -1;
+    var line2FirstMove = "";
+    var afterLine2FirstMove="";
+    for(var i=0; i<line2.length; i++){
+        if(line2[i]!=''){
+            if(i==-1){
+                startLine2=i;
+            }
+        }else if(line2[i]!=' '){
+            if(startLine2>-1){
+                line2FirstMove=line2.slice(startLine2,i);
+                afterLine2FirstMove=line2.slice(i+1);
+                break;
+            }
+        }
+
+    }
+    var line1HasMoves=false;
+    for(var startLine1=0; startLine1<line1.length; startLine1++){
+        if(line1[startLine1]!=''){
+            line1HasMoves=true;
+            break;
+        }
+    }
+    if(line1HasMoves && line2FirstMove.endsWith("...")){
+        return line1 + afterLine2FirstMove;
+    }
+    return line1+line2.slice(startLine2);
+}
+
+function ExtractSublinesFromGame(currentMoveline){
+    var AllMoves = [];
+    var OpenBraketCount = 0;
+    var firstOpenBraketPosition = 0;
+    var currentPointer = 0;
+
+    var OneSpaceBack=0;
+    var TwoSpacesBack=0;
+    var replacedPosition=0;
+    while (true){
+        if(currentPointer >= currentMoveline.length){
+            AllMoves.push(currentMoveline);
+            break;
+        }
+
+        var curChar = currentMoveline.charAt(currentPointer);
+        if(curChar== '('){
+            OpenBraketCount++;
+            firstOpenBraketPosition=currentPointer;
+            replacedPosition=TwoSpacesBack;
+
+        }
+} 
 function ExtractSublinesFromGame(OneGame){
     
     let {Head, Moves} = SplitHeadFromMoves(OneGame);
     let MovesWithoutComments = FilterComments(Moves);
+    MovesWithoutComments=MovesWithoutComments.replace('  ',' ');
     let currentMovelines = MovesWithoutComments;
 
     let currentPointer = 0;

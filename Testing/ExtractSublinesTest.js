@@ -23,7 +23,7 @@ QUnit.test( "ExtractSublinesFromGame from Gamee4d4Variatione6", function( assert
 
   assert.ok( games.length == 2, "Length == 2" );
   assert.ok( games[0].trim() == "1. d4", "Variation");
-  assert.ok( games[1].trim() == "1. e4   1... e6 *", "MainLine");
+  assert.ok( games[1].trim() == "1. e4 1... e6 *", "MainLine");
   
 });
 

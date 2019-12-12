@@ -21,7 +21,12 @@
 
         <script src="js/PGNFileNames.js"></script>
         <script src="js/PGNFetcher.js"></script>
-        <script src="js/LiChessStudyParser.js"></script>
+        <script src="js/LiChessStudyParser/SplitHeadFromMoves.js"></script>
+        <script src="js/LiChessStudyParser/SplitIntoGamesArray.js"></script>
+        <script src="js/LiChessStudyParser/combineTwoMovesLines.js"></script>
+        <script src="js/LiChessStudyParser/ExtractMovelinesFromGame.js"></script>
+        <script src="js/LiChessStudyParser/PGNtoMoveLines.js"></script>
+        <!--<script src="js/LiChessStudyParser.js"></script> -->
         <script src="js/GamesToTree.js"></script>
         
 
@@ -113,7 +118,7 @@ function onDrop (source, target, piece, newPos, oldPos, orientation) {
       console.log("reply : " + currentMin);
 
       CurrMove=currentMin.slice(0,2) + "-" + currentMin.slice(2,4);
-      window.setTimeout(makeMove, 250);
+      window.setTimeout(makeMove, 150);
       //board2.move(currentMin.slice(0,2) + "-" + currentMin.slice(2,4));
       currentNodeInGameTree=currentNodeInGameTree[currentMin];
     }
@@ -129,6 +134,9 @@ function onDrop (source, target, piece, newPos, oldPos, orientation) {
     
     var board2 = Chessboard('board2', {
       draggable: true,
+      moveSpeed: 50,
+      snapbackSpeed: 50,
+      snapSpeed: 50,
       position: 'start',
       onDrop: onDrop,
       onSnapEnd:onSnapEnd,
@@ -152,16 +160,16 @@ var BlackGameTree={};
 var WhitePGNGameData;
 function MemWhiteGameTree(PGNgames){
   WhitePGNGameData=PGNgames;
-  var gameArray = SplitIntoGames(PGNgames);
-  var extractedVariations = ExtractSublines(gameArray);
+  var gameArray = SplitIntoGamesArray(PGNgames);
+  var extractedVariations = PGNtoMoveLines(gameArray);
   WhiteGameTree=getMoveTree(extractedVariations);
 }
 
 var BlackPGNGameData;
 function MemBlackGameTree(PGNgames){
   BlackPGNGameData=PGNgames;
-  var gameArray = SplitIntoGames(PGNgames);
-  var extractedVariations = ExtractSublines(gameArray);
+  var gameArray = SplitIntoGamesArray(PGNgames);
+  var extractedVariations = PGNtoMoveLines(gameArray);
   BlackGameTree=getMoveTree(extractedVariations);
 }
 
