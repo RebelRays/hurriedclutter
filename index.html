@@ -5,6 +5,14 @@
         <title>Repeater</title>
         <link rel="stylesheet" href="AddOn/chessboardjs-1.0.0/css/chessboard-1.0.0.min.css">
         <link rel="stylesheet" href="main.css">
+        <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/base.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"
+/>
 </head>
 <body>
         <div id="Info">No Of Lines:<span id="SubLinesCount"></span> Subnodes:<span id="SubNodeCount"></span><span  id="HelpMovesSpan"></span></div>
@@ -28,16 +36,112 @@
         <script src="js/LiChessStudyParser/PGNtoMoveLines.js"></script>
         <!--<script src="js/LiChessStudyParser.js"></script> -->
         <script src="js/GamesToTree.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
         
 
+      </p>
+      <hr />
+      <h2>Loaded files</h2>
+      <label for="choices-multiple-labels">User Playing Black Books</label>
+      <p id="message"></p>
+      <select id="choices-multiple-labels" placeholder="Enter something" multiple ></select>
+
+      <label for="choices-multiple-labels2">User Playing White Books</label>
+      <p id="message"></p>
+      <select id="choices-multiple-labels2" placeholder="Enter something" multiple ></select>
+      <hr />
 <script>
 
+var choicy = null;
+function loadChoiceSelect(choicesSelect, PGNFileNames){
+  var foo = [];
+  for(var i=0;i<PGNFileNames.length; i++){
+    var name = PGNFileNames[i];
+    foo.push({value: name, label: name, selected: true});
+  }
+  choicesSelect.setChoices(
+          foo,
+          'value',
+          'label',
+          false
+        );
 
+  
+}
+var userSelctedWhiteFiles = [];
+var userSelctedBlackFiles = [];
+var whiteSelect = null;
+function loadWhiteSelect(pgnNames){
+  //userSelctedWhiteFiles=pgnNames;
+  var choicesSelect = new Choices('#choices-multiple-labels2', {
+          removeItemButton: true
+        });
+        whiteSelect=choicesSelect.passedElement.element.childNodes;
+
+        choicesSelect.passedElement.element.addEventListener(
+          'addItem',
+          function(event) {
+            console.log("add " +event.detail.label);
+            userSelctedWhiteFiles.push(event.detail.label);
+            //document.getElementById('message').innerHTML =
+            //  'You just added "' + event.detail.label + '"';
+          }
+        );
+        choicesSelect.passedElement.element.addEventListener(
+          'removeItem',
+          function(event) {
+            console.log("Remove " +event.detail.label);
+            //userSelctedWhiteFiles.push(event.detail.label);
+            var index = userSelctedWhiteFiles.indexOf(event.detail.label);
+            if (index !== -1) userSelctedWhiteFiles.splice(index, 1);
+          }
+        );
+      
+        loadChoiceSelect(choicesSelect, pgnNames);
+}
+
+var blackSelect = null;
+function loadBlackSelect(pgnNames){
+  //userSelctedBlackFiles=pgnNames;
+  var choicesSelect = new Choices('#choices-multiple-labels', {
+          removeItemButton: true
+        });
+        blackSelect=choicesSelect.passedElement.element.childNodes;
+
+        choicesSelect.passedElement.element.addEventListener(
+          'addItem',
+          function(event) {
+            console.log("add " + event.detail.label);
+            userSelctedBlackFiles.push(event.detail.label);
+          }
+        );
+        choicesSelect.passedElement.element.addEventListener(
+          'removeItem',
+          function(event) {
+            console.log("Remove " + event.detail.label);
+            var index = userSelctedBlackFiles.indexOf(event.detail.label);
+            if (index !== -1) userSelctedBlackFiles.splice(index, 1);
+          }
+        );
+        //removeItem
+        loadChoiceSelect(choicesSelect, pgnNames);
+}
+
+
+//loadChoiceSelect();
 
 function BackToStart(){
   currentNodeInGameTree=gameTree;
   board2.start();
   CurentGame = new Chess();
+  board2.position(CurentGame.fen());
+  if(autoPlaySide == 'b'){
+    board2.orientation('white');
+  }else{
+    board2.orientation('black');
+    makeAutoMove();
+  }
+
 }
 
 var CurrMove=null;
@@ -158,6 +262,7 @@ var WhiteGameTree={};
 var BlackGameTree={};
 
 var WhitePGNGameData;
+
 function MemWhiteGameTree(PGNgames){
   WhitePGNGameData=PGNgames;
   var gameArray = SplitIntoGamesArray(PGNgames);
@@ -188,6 +293,17 @@ function HelpBtnClick(){
 
 var autoPlaySide= 'b';
 function WhiteBtnClick(){
+  getGames(userSelctedWhiteFiles, function(data) {MemWhiteGameTree(data); ContinueWithWhiteBtnClick(); });
+  //autoPlaySide= 'b';
+  //gameTree=WhiteGameTree;
+  //currentNodeInGameTree=gameTree;
+  //CurentGame = new Chess();
+  //board2.position(CurentGame.fen());
+  //board2.orientation('white');
+  
+}
+function ContinueWithWhiteBtnClick(){
+  console.log("Continue");
   autoPlaySide= 'b';
   gameTree=WhiteGameTree;
   currentNodeInGameTree=gameTree;
@@ -197,7 +313,55 @@ function WhiteBtnClick(){
   
 }
 
+
+function makeAutoMove(){
+  let currentMin = null;
+  let MinValue = null;
+
+  for (var move in currentNodeInGameTree) {
+        if(move.length != 4) continue;
+        let cNode = currentNodeInGameTree[move];
+        let cMinValue=(cNode["RandomOffset"] + cNode["PlayThrough"]*1.0)/cNode["Lines"];
+        if(currentMin == null){
+          currentMin=move;
+          MinValue=cMinValue;
+          //MinValue=cNode["PlayThrough"]*1.0/cNode["Lines"];
+        }else{
+          //let cMinValue=cNode["PlayThrough"]*1.0/cNode["Lines"];
+          if(cMinValue < MinValue){
+            currentMin=move;
+            MinValue=cMinValue;
+          }
+        }
+      }
+
+
+      currentNodeInGameTree[currentMin]["PlayThrough"] = currentNodeInGameTree[currentMin]["PlayThrough"] + 1;
+      $('#SubNodeCount').text(currentNodeInGameTree[currentMin]["Weight"]);
+      //make the move
+      console.log("StartingMove : " + currentMin);
+
+      CurrMove=currentMin.slice(0,2) + "-" + currentMin.slice(2,4);
+      window.setTimeout(makeMove, 250);
+      //board2.move(currentMin.slice(0,2) + "-" + currentMin.slice(2,4));
+      
+      currentNodeInGameTree=currentNodeInGameTree[currentMin];
+
+}
+
+//getGames(BlackPGNFileName, function(data) {MemBlackGameTree(data)});
 function BlackBtnClick(){
+  getGames(userSelctedBlackFiles, function(data) {MemBlackGameTree(data); BlackBtnClickContinue(); });
+  //autoPlaySide= 'b';
+  //gameTree=WhiteGameTree;
+  //currentNodeInGameTree=gameTree;
+  //CurentGame = new Chess();
+  //board2.position(CurentGame.fen());
+  //board2.orientation('white');
+  
+}
+
+function BlackBtnClickContinue(){
   autoPlaySide= 'w';
   gameTree=BlackGameTree;
   currentNodeInGameTree=gameTree;
@@ -205,6 +369,8 @@ function BlackBtnClick(){
   board2.position(CurentGame.fen());
   board2.orientation('black');
 
+  makeAutoMove(currentNodeInGameTree);
+  /*
   //Need to make a white move
     //if(!piece.startsWith(autoPlaySide)){ //the one that made the last move
       let currentMin = null;
@@ -238,6 +404,7 @@ function BlackBtnClick(){
       
       currentNodeInGameTree=currentNodeInGameTree[currentMin];
 
+    */
 
 }
 
@@ -250,10 +417,12 @@ function BlackBtnClick(){
 
 <script>
     var WhitePGNFileName = GetWhiteFileNameList();
-    getGames(WhitePGNFileName, function(data) {MemWhiteGameTree(data)});
+    loadWhiteSelect(WhitePGNFileName);
+    //getGames(WhitePGNFileName, function(data) {MemWhiteGameTree(data)});
 
     var BlackPGNFileName = GetBlackFileNameList();
-    getGames(BlackPGNFileName, function(data) {MemBlackGameTree(data)});
+    loadBlackSelect(BlackPGNFileName);
+    //getGames(BlackPGNFileName, function(data) {MemBlackGameTree(data)});
 
     //var PGNgames = WhiteGames;
     //gameArray = SplitIntoGames(PGNgames);

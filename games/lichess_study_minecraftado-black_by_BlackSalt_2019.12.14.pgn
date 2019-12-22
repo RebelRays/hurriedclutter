@@ -1,0 +1,245 @@
+[Event "Minecraftado Black: e4 e5 Nf3 Nc6 d4 exd4 Nxd4 d5?"]
+[Site "https://lichess.org/study/XJou8VEn/Q0VEgarL"]
+[Result "*"]
+[UTCDate "2019.12.14"]
+[UTCTime "20:59:58"]
+[Variant "Standard"]
+[ECO "C45"]
+[Opening "Scotch Game"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 e5 2. Nf3 Nc6 3. d4 exd4 4. Nxd4 d5 5. Nxc6 bxc6 6. exd5 cxd5 (6... Qxd5 7. Bd3 Nf6 (7... Qxg2 8. Qe2+ Be6 9. Be4 Qh3 10. Bxc6+)  (7... Bd6 8. O-O Ne7 9. Re1 Be6 10. Nc3 Qc5 11. Ne4 Qe5 12. f4 Qa5 13. Bd2 Qb5)  (7... Qe5+ 8. Qe2 { [%csl Gc6,Gc7] }) 8. O-O Be7 9. Nc3 Qd6 10. h3 O-O 11. Re1)  (6... Nf6 7. dxc6 Qxd1+ 8. Kxd1 Ng4 9. Be3 Nxe3+ 10. fxe3 Rb8 11. Bc4 Bc5 12. Nc3 Bxe3 13. Nd5 Bb6 14. c3 O-O 15. Ne7+ Kh8 16. Nxc8 Rbxc8 17. Kc2 Rcd8 18. Rad1 f5 19. Rd7 g6 20. Rhd1 Rde8 21. b4 a5 22. a4 f4 23. R1d5)  (6... Bb4+ { Love that not a single game moved in this direction, comp 2nd choice } 7. Bd2 Qe7+ 8. Be2 cxd5 9. O-O) 7. Bb5+ Bd7 (7... Ke7 8. O-O Be6 9. Re1 Nf6 10. c4 dxc4 11. Qa4 a6 12. Bc6 Rb8 13. Rd1 Qc8 14. Qa3+) 8. Qxd5 Nf6 (8... Bxb5 9. Qxb5+ Qd7 10. Nc3 Qxb5 11. Nxb5 Bd6 12. Nxd6+ cxd6 13. Bf4 O-O-O 14. O-O-O Kc7 15. Rd3 Nf6 16. Rhd1 Ne8 17. Ra3 Kb7 18. Rb3+ Kc6 19. Rc3+ Kb7 20. Rd5 h6 21. Rb5+ Ka8 (21... Ka6 22. Rb4 Ka5 23. Rcb3 { [%cal Gc2c3,Gb3a3] }) 22. Be3 Nf6 23. Bxa7) 9. Bxd7+ Nxd7 10. O-O Be7 (10... Nb6 11. Re1+ Be7 12. Qe5 f6)  (10... Bd6 11. Re1+ Be7 12. Bg5 f6 13. Bf4) 11. Rd1 Bd6 (11... Nf6 12. Qc6+)  (11... Nb6 12. Qc6+ Nd7 13. Rxd7 Qxd7 14. Qxa8+ Bd8 15. Nc3) 12. Re1+ Be7 13. Bg5 f6 (13... Nf6 14. Qc6+ Kf8 15. Nc3 Rb8 16. Rad1 Bd6 17. Nd5 Qd7 18. Qxd7 Nxd7 19. Nxc7 Bxc7 20. Rxd7) 14. Bf4 Ne5 15. Nc3 Qxd5 16. Nxd5 Bd6 17. Bxe5 fxe5 *
+
+
+[Event "Minecraftado Black: e4 e5 Nf3 Nc6 d4 exd4 Nxd4 Qe7 Nc3 f5"]
+[Site "https://lichess.org/study/XJou8VEn/IgJG8qMU"]
+[Result "*"]
+[UTCDate "2019.12.15"]
+[UTCTime "18:13:26"]
+[Variant "Standard"]
+[ECO "C45"]
+[Opening "Scotch Game"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 e5 2. Nf3 Nc6 3. d4 exd4 4. Nxd4 Qe7 5. Nc3 f5 (5... Nf6 6. Be2 Nxe4 7. Nd5 Qd8 8. Nb5 Bd6 9. Nxd6+ Nxd6 10. Bf4 { [%csl Gc7] } 10... O-O 11. Nxc7 Qxc7 12. Bxd6 Qa5+ 13. b4 Nxb4 14. O-O Re8 15. Bc4) 6. Nxf5 Qf6 7. Nd5 Qe5 8. Bd3 Bd6 9. f4 Qe6 10. Nxg7+ *
+
+
+[Event "Minecraftado Black: e4 e5 Nf3 Nc6 d4 exd4 Nxd4 Nxe4 Qxe4 Bd6"]
+[Site "https://lichess.org/study/XJou8VEn/v53TAeo1"]
+[Result "*"]
+[UTCDate "2019.12.15"]
+[UTCTime "18:31:12"]
+[Variant "Standard"]
+[ECO "C45"]
+[Opening "Scotch Game"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 e5 2. Nf3 Nc6 3. d4 exd4 4. Nxd4 Nxd4 5. Qxd4 Bd6 6. Qxg7 Qf6 7. Qxf6 Nxf6 8. Nc3 Bb4 9. Bd2 Bxc3 10. Bxc3 Ke7 11. f3 *
+
+
+[Event "Minecraftado Black: Normal line"]
+[Site "https://lichess.org/study/XJou8VEn/TABu4eMI"]
+[Result "*"]
+[UTCDate "2019.12.15"]
+[UTCTime "18:38:25"]
+[Variant "Standard"]
+[ECO "C45"]
+[Opening "Scotch Game: Classical Variation, Intermezzo Variation"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 e5 2. Nf3 Nc6 3. d4 exd4 4. Nxd4 Bc5 (4... Nf6 5. Nxc6 bxc6 6. Bd3 d5 7. exd5 cxd5 8. O-O Be7 9. c4 O-O 10. cxd5 Nxd5 11. Qf3 Bb7 12. Rd1 Qc8 13. Be4 Rd8 14. Bxd5)  (4... Qh4 5. Nc3 Bb4 6. Be2 Qxe4 7. Nb5 Bxc3+ 8. bxc3 Kd8 9. O-O a6 10. Nd4 Nxd4 11. cxd4 Nf6 12. c4)  (4... Bb4+ 5. c3 Bc5 6. Be3 Bb6 7. Nf5 Bxe3 8. Nxe3 Nf6 9. f3 O-O 10. c4 d6 11. Nc3 Be6 12. Qd2 a6 13. Be2 Nd7 14. O-O Nc5 15. f4)  (4... Ne5 5. Nc3 Nf6 6. f4 Ng6 7. e5 Ng8 8. Qf3 Bc5 9. Be3 d6 10. O-O-O Nh6 11. Bb5+)  (4... Nge7 5. Nc3 Nxd4 6. Qxd4 Nc6 7. Qe3 Bb4 8. Bd2 O-O 9. a3 Ba5 10. O-O-O d6 11. f4 f5 12. Bd3 fxe4 13. Qxe4 Bf5 14. Qd5+ Kh8 15. Bxf5)  (4... g6 5. Nc3 Bg7 6. Be3 Nge7 7. Qd2 O-O 8. O-O-O d6 9. h4 h5 10. f3 Nxd4 11. Bxd4 Bxd4 12. Qxd4 Nc6 13. Qd2 Be6 14. Be2 Ne5 15. g4 hxg4 16. f4 Nf3 17. Bxf3 gxf3 18. f5 gxf5 19. Qh6 f2 20. Rhg1+) 5. Nxc6 Qf6 6. Qf3 dxc6 7. Nc3 Be6 8. Be3 Bb4 9. O-O-O Bxc3 10. bxc3 Qxc3 11. Bd4 Qxf3 12. gxf3 f6 13. Rg1 Kf7 14. f4 g6 15. f5 gxf5 16. exf5 Bxf5 17. Bc4+ Be6 18. Bxe6+ Kxe6 19. Rg7 Rc8 20. Re1+ Kd5 21. Rd7+ Kc4 22. Re3 h5 23. a4 Rh6 24. Rc3+ Kb4 25. Rb3+ Kxa4 26. Rxb7 *
+
+
+[Event "Minecraftado Black: petroff"]
+[Site "https://lichess.org/study/XJou8VEn/RGt9T6cB"]
+[Result "*"]
+[UTCDate "2019.12.15"]
+[UTCTime "21:35:26"]
+[Variant "Standard"]
+[ECO "C43"]
+[Opening "Petrov: Modern Attack"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 e5 2. Nf3 Nf6 3. d4 exd4 (3... Nxe4 4. Bd3 d5 5. Nxe5 Bd6) 4. e5 Qe7 (4... Ne4 5. Qxd4 d5 6. exd6 Nxd6 7. Nc3 Nc6 8. Qf4 Be7 9. Bd3 O-O 10. Bd2 Be6 11. O-O-O Bf6 12. Rhe1 Re8 13. Ne4)  (4... Nd5 5. Qxd4 Nb6 6. Nc3 Nc6 7. Qe4 Be7 8. Be3 O-O 9. O-O-O d6 10. h4) 5. Be2 Ng4 6. Qxd4 { [%csl Gg4] } 6... d6 7. exd6 Qxd6 8. O-O Qxd4 9. Nxd4 Bc5 10. Nb5 Bb6 11. Bf4 Na6 12. N1c3 Be6 13. a4 *
+
+
+[Event "Minecraftado Black: Chapter 6"]
+[Site "https://lichess.org/study/XJou8VEn/FdiYK27h"]
+[Result "*"]
+[UTCDate "2019.12.16"]
+[UTCTime "00:36:38"]
+[Variant "Standard"]
+[ECO "C40"]
+[Opening "King's Pawn Game: Busch-Gass Gambit"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 e5 2. Nf3 Bc5 3. Nxe5 Qh4 (3... d6 4. Nf3 Bg4 5. d4 Bb6 6. a4 Nc6 7. c3)  (3... Bxf2+ 4. Kxf2 Qh4+ 5. Kg1 Qxe4 6. d4 d6 7. Nc3 Qf5 8. Bd3 Qe6 9. Bc4 Qf5 10. g4 Qf6 11. Ne4 Qd8 12. Nxf7)  (3... Qe7 4. d4 Bd6 5. Nf3 Qxe4+ 6. Be2 Nf6 7. O-O O-O 8. Bg5 Be7 9. Re1) 4. Qe2 Nf6 5. Nc3 d6 6. g3 Qg5 7. d4 Qh5 8. Qxh5 Nxh5 9. Nxf7 Kxf7 10. dxc5 dxc5 *
+
+
+[Event "Minecraftado Black: Scandi"]
+[Site "https://lichess.org/study/XJou8VEn/SYssFgzL"]
+[Result "*"]
+[UTCDate "2019.12.16"]
+[UTCTime "01:14:22"]
+[Variant "Standard"]
+[ECO "B01"]
+[Opening "Scandinavian Defense: Blackburne Gambit"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 d5 2. exd5 c6 (2... e6 3. Bb5+ Bd7 (3... c6 4. dxc6 bxc6 5. Be2 Nf6 6. d4 Bd6 7. Nf3 O-O 8. O-O Bb7 9. c4 Nbd7 10. c5 Bb8 11. Nc3 Qc7 12. Re1) 4. dxe6 Bxb5 5. exf7+ { [%csl Gg8] } 5... Kxf7 6. Qh5+ g6 7. Qxb5)  (2... Qxd5 3. Nc3 Qc6 4. Bb5)  (2... Nf6 3. d4 Nxd5 4. Nf3 Bg4 5. Be2 e6 6. O-O Be7 7. c4 Nb6 8. Nc3 O-O 9. h3 Bh5 10. Bf4 Nc6 11. g4 Bg6 12. Qd2 { [%cal Gf4g3,Gh3h4,Gh4h5] }) 3. dxc6 Nxc6 (3... Nf6 4. cxb7 Bxb7 5. Nf3 e6 6. d4) 4. Nf3 Nf6 (4... Bf5 5. d4)  (4... Bg4 5. Be2 Nf6 6. h3 Bh5 7. O-O e6 8. d4 Bd6 9. Nbd2 Qc7 10. Nc4) 5. d4 Bf5 6. Bd3 Bg6 7. O-O e6 8. c3 Bd6 9. Re1 Qc7 10. h3 *
+
+
+[Event "Minecraftado Black: e4 g5 Borg"]
+[Site "https://lichess.org/study/XJou8VEn/vUe49SdO"]
+[Result "*"]
+[UTCDate "2019.12.18"]
+[UTCTime "20:36:21"]
+[Variant "Standard"]
+[ECO "B00"]
+[Opening "Borg Defense: Borg Gambit"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 g5 2. d4 Bg7 (2... h6 3. Nc3 Bg7 4. Be3) 3. Bxg5 d5 (3... c5 4. c3 cxd4 (4... Qb6 5. Nf3 Qxb2 6. Nbd2 Qxc3 7. Rc1 Qa5 8. Rxc5 Qd8 9. Nc4 b6 10. Nd6+ Kf8 11. Rxc8) 5. cxd4 Qb6 6. Ne2 Qxb2 7. Nbc3 { [%csl Gc7][%cal Gb1b3,Gc3b5,Gd6b6,Gg5e3,Ge2c3,Gc3d5] } 7... Bxd4 8. Bd2 Qb6 9. Nxd4 Qxd4 10. Nb5 Qxe4+ 11. Be2 Na6 12. O-O Nf6 13. Re1 Qg6 14. Nd6+ Kd8 15. Bxa6 bxa6 (15... exd6 16. Qf3 { [%cal Gc3h8,Gf3a8] } 16... Rg8 { [%csl Gb7] } 17. Bxb7 Bxb7 18. Ba5+ Kc8 19. Rac1+ Kb8 20. Bc7+ Kc8 21. Bxd6+ Kd8 22. Be7+ Ke8 23. Bxf6+ Kf8 24. Qa3+) 16. Ba5#) 4. exd5 Qxd5 5. Nf3 Bg4 6. Nc3 Qe6+ 7. Be3 *
+
+
+[Event "Minecraftado Black: sicilian"]
+[Site "https://lichess.org/study/XJou8VEn/f44rWAln"]
+[Result "*"]
+[UTCDate "2019.12.18"]
+[UTCTime "23:31:02"]
+[Variant "Standard"]
+[ECO "B90"]
+[Opening "Sicilian Defense: Najdorf Variation, English Attack"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 c5 2. Nf3 (2. d4 Nc6 (2... b6 3. d5) 3. d5 Ne5 4. f4 Ng6 5. Nf3 d6 6. Nc3 Bd7 7. Bc4 a6 8. a4 Nf6 9. e5) 2... d6 (2... g6 3. d4 Bg7 4. dxc5 Nc6 (4... Qa5+ 5. c3 Qxc5 6. Na3 d6 7. Be3 Qa5 8. e5 dxe5 9. Nb5) 5. c3 Nf6 6. Bd3 b6 7. cxb6)  (2... Nc6 3. Bb5 Qb6 4. Nc3 e6 5. Bxc6 Qxc6 6. O-O Nf6 7. Re1)  (2... e6 3. d4 Nc6 (3... h6 4. d5) 4. d5 exd5 5. exd5 Nd4 6. Nxd4 cxd4 7. Qxd4 Nf6 8. Nc3 Bd6 9. Bf4 Qc7 (9... Bxf4 10. Qxf4 O-O 11. O-O-O d6 12. Be2 Re8 13. g4) 10. Nb5 Qa5+ 11. Bd2)  (2... h6 3. c3 d5 4. exd5 Qxd5 5. d4) 3. d4 cxd4 (3... Nc6 4. d5 Nd4 5. Nfd2 a6 (5... Bg4 6. Qxg4 Nxc2+ 7. Kd1 Nxa1 8. Bb5+ Qd7 9. Qxd7#) 6. a4 b5 7. c3) 4. Nxd4 Nf6 (4... a6 5. c4 Nf6 6. f3 e5 7. Nc2 Be7 8. Nc3 O-O 9. Be3 Nc6 10. Be2) 5. Nc3 a6 (5... Nc6 6. Bg5)  (5... e5 6. Bb5+ Bd7 7. Bxd7+ Qxd7 8. Nde2 Be7 9. Bg5 O-O 10. Qd3 Nc6 11. Bxf6) 6. Be3 e5 (6... e6 7. Be2 Be7 8. g4 O-O 9. g5) 7. Nb3 Be7 8. Be2 O-O 9. g4 *
+
+
+[Event "Minecraftado Black: Nf6"]
+[Site "https://lichess.org/study/XJou8VEn/octfTCaS"]
+[Result "*"]
+[UTCDate "2019.12.19"]
+[UTCTime "22:41:48"]
+[Variant "Standard"]
+[ECO "B02"]
+[Opening "Alekhine Defense: Brooklyn Variation"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 Nf6 2. e5 Ng8 3. d4 f6 (3... Nc6 4. Nf3 d6 5. Bd3 (5. Bb5 dxe5 6. Nxe5 Bd7 7. Nxd7 Qxd7 8. d5 a6 9. dxc6 Qxd1+ 10. Kxd1) 5... dxe5 6. dxe5 Bg4 7. h3 Bxf3 8. Qxf3 e6) 4. Bd3 g6 5. Nf3 Nc6 6. O-O *
+
+
+[Event "Minecraftado Black: f5"]
+[Site "https://lichess.org/study/XJou8VEn/ATHPQCyd"]
+[Result "*"]
+[UTCDate "2019.12.20"]
+[UTCTime "20:11:46"]
+[Variant "Standard"]
+[ECO "B00"]
+[Opening "Duras Gambit"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 f5 2. exf5 Nf6 3. d4 d5 (3... c5 4. d5 d6 5. Bd3) 4. Bd3 c5 5. c3 Nc6 6. Nf3 Ne4 7. Nh4 e5 8. Qh5+ Kd7 9. Qf7+ Qe7 (9... Be7 10. Qxd5+ Kc7 11. Qxe4 Bxh4 12. d5 Nb8 13. O-O Bf6 14. Na3 a6 15. Nc4 Re8 16. d6+ Kd7 17. Qd5 Ra7 18. Rd1 b5 19. Qf7+ Be7 20. Qe6+ Kc6 21. Be4#) 10. Qxd5+ *
+
+
+[Event "Minecraftado Black: Nc6"]
+[Site "https://lichess.org/study/XJou8VEn/NJRo7aiq"]
+[Result "*"]
+[UTCDate "2019.12.20"]
+[UTCTime "20:41:37"]
+[Variant "Standard"]
+[ECO "B00"]
+[Opening "King's Pawn Game: Nimzowitsch Defense"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 Nc6 2. d4 b6 (2... e6 3. Nf3 d5 4. e5 f6 5. Bb5 fxe5 (5... Bd7 6. O-O fxe5 7. Bxc6 Bxc6 8. Nxe5 Qh4 9. Nd2 Qxd4 10. Qh5+ g6 11. Nxc6 Qf6 12. Qe5 bxc6 13. Qxc7 e5 14. Re1 Bd6 15. Qxc6+) 6. Nxe5 Bd7 7. Bxc6 Bxc6 8. Qh5+ Ke7 9. Qf7+ Kd6 10. Nc4+ dxc4 11. Bf4+ Kd5 12. Nc3+ Kxd4 13. Be3+ Ke5 14. Qf4#)  (2... d5 3. e5 f6 4. f4 fxe5 5. fxe5 e6 6. Nf3 h5 7. Bd3) 3. d5 Ne5 4. f4 Ng6 5. f5 Ne5 (5... e6 6. fxg6 Qh4+ { [%cal Ge1d2] } 7. Kd2 Nf6 8. gxf7+ Kxf7 9. Bd3 Nxe4+ 10. Bxe4 Qxe4 11. Qf3+) 6. Bf4 d6 7. Nf3 Nxf3+ 8. Qxf3 *
+
+
+[Event "Minecraftado Black: c6"]
+[Site "https://lichess.org/study/XJou8VEn/zYlMXjgt"]
+[Result "*"]
+[UTCDate "2019.12.20"]
+[UTCTime "21:24:05"]
+[Variant "Standard"]
+[ECO "B15"]
+[Opening "Caro-Kann Defense: Forgacs Variation"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 c6 2. d4 d5 3. Nd2 dxe4 4. Nxe4 Nf6 5. Nxf6+ exf6 6. Bc4 Be7 7. Ne2 O-O 8. O-O Re8 9. c3 Be6 10. Bxe6 fxe6 11. Qb3 Qd7 12. Nf4 Kf7 13. Re1 Bd6 14. Nxe6 Rxe6 15. Bf4 Bxf4 16. Rxe6 Qxe6 17. Qxb7+ *
+
+
+[Event "Minecraftado Black: d6"]
+[Site "https://lichess.org/study/XJou8VEn/lScTDgXo"]
+[Result "*"]
+[UTCDate "2019.12.20"]
+[UTCTime "21:53:36"]
+[Variant "Standard"]
+[ECO "B07"]
+[Opening "Pirc Defense"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 d6 2. d4 Nf6 (2... e5 3. Nf3) 3. Nc3 e5 4. Nf3 exd4 5. Nxd4 Be7 *
+
+
+[Event "Minecraftado Black: e3"]
+[Site "https://lichess.org/study/XJou8VEn/GR41BDFq"]
+[Result "*"]
+[UTCDate "2019.12.20"]
+[UTCTime "21:59:39"]
+[Variant "Standard"]
+[ECO "C02"]
+[Opening "French Defense: Advance Variation"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 e6 2. d4 d5 3. e5 c5 4. c3 cxd4 5. cxd4 f6 6. Bd3 fxe5 7. Qh5+ Ke7 8. Bg5+ Nf6 9. dxe5 *
+
+
+[Event "Minecraftado Black: f6"]
+[Site "https://lichess.org/study/XJou8VEn/xEefCcmg"]
+[Result "*"]
+[UTCDate "2019.12.20"]
+[UTCTime "22:13:02"]
+[Variant "Standard"]
+[ECO "B00"]
+[Opening "Barnes Defense"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 f6 2. d4 e5 3. dxe5 fxe5 4. Qh5+ g6 5. Qxe5+ Qe7 6. Qxh8 Nf6 7. Bg5 Qxe4+ 8. Kd1 Qd5+ 9. Bd3 Qxg5 10. Nf3 Qxg2 11. Re1+ Kf7 12. Ne5+ Ke6 13. Qxf8 Kd5 14. Bc4+ Kd4 15. c3# *
+
+
+[Event "Minecraftado Black: g6"]
+[Site "https://lichess.org/study/XJou8VEn/wWf7HXjz"]
+[Result "*"]
+[UTCDate "2019.12.20"]
+[UTCTime "22:19:05"]
+[Variant "Standard"]
+[ECO "B06"]
+[Opening "Modern Defense: Standard Defense"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 g6 2. d4 d6 (2... Bg7 3. c4 d6 4. Nc3 f5 5. exf5 Bxf5 6. Nf3 Nf6 7. Be2 O-O 8. O-O Nc6 9. d5) 3. Nc3 Bg7 4. Be3 Nf6 5. Qd2 *
+
+
+[Event "Minecraftado Black: b5"]
+[Site "https://lichess.org/study/XJou8VEn/TixFMwda"]
+[Result "*"]
+[UTCDate "2019.12.20"]
+[UTCTime "22:21:48"]
+[Variant "Standard"]
+[ECO "B00"]
+[Opening "King's Pawn"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 b5 2. Bxb5 Nf6 3. e5 Ng8 4. d4 c6 5. Bd3 Qa5+ 6. Bd2 Qd5 7. Nf3 *
+
+
+[Event "Minecraftado Black: a6"]
+[Site "https://lichess.org/study/XJou8VEn/yk553QzH"]
+[Result "*"]
+[UTCDate "2019.12.21"]
+[UTCTime "12:07:13"]
+[Variant "Standard"]
+[ECO "B00"]
+[Opening "St. George Defense"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 a6 2. d4 b6 3. c4 Bb7 4. Nc3 g6 5. h4 h6 6. h5 g5 7. f4 *
