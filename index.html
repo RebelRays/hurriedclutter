@@ -13,6 +13,10 @@
   rel="stylesheet"
   href="AddOn/choicesjs/choices.min.css"
 />
+<link
+  rel="stylesheet"
+  href="AddOn/choicesjs/choices-custom.css"
+/>
 </head>
 <body>
         <div id="Info">No Of Lines:<span id="SubLinesCount"></span> Subnodes:<span id="SubNodeCount"></span><span  id="HelpMovesSpan"></span></div>
@@ -57,7 +61,8 @@ function loadChoiceSelect(choicesSelect, PGNFileNames){
   var foo = [];
   for(var i=0;i<PGNFileNames.length; i++){
     var name = PGNFileNames[i];
-    foo.push({value: name, label: name, selected: true});
+    var altName = simplerName(name);
+    foo.push({value: name, label: altName, selected: true});
   }
   choicesSelect.setChoices(
           foo,
@@ -71,6 +76,14 @@ function loadChoiceSelect(choicesSelect, PGNFileNames){
 var userSelctedWhiteFiles = [];
 var userSelctedBlackFiles = [];
 var whiteSelect = null;
+
+function simplerName(filename){
+  var withoutPrefix = filename.replace("games/lichess_study_","");
+  var withoutPrefixAndSufix = withoutPrefix.split("_by_")[0];
+  return withoutPrefixAndSufix;
+}
+
+
 function loadWhiteSelect(pgnNames){
   //userSelctedWhiteFiles=pgnNames;
   var choicesSelect = new Choices('#choices-multiple-labels2', {
@@ -81,8 +94,8 @@ function loadWhiteSelect(pgnNames){
         choicesSelect.passedElement.element.addEventListener(
           'addItem',
           function(event) {
-            console.log("add " +event.detail.label);
-            userSelctedWhiteFiles.push(event.detail.label);
+            console.log("add " +event.detail.value);
+            userSelctedWhiteFiles.push(event.detail.value);
             //document.getElementById('message').innerHTML =
             //  'You just added "' + event.detail.label + '"';
           }
@@ -90,9 +103,9 @@ function loadWhiteSelect(pgnNames){
         choicesSelect.passedElement.element.addEventListener(
           'removeItem',
           function(event) {
-            console.log("Remove " +event.detail.label);
+            console.log("Remove " +event.detail.value);
             //userSelctedWhiteFiles.push(event.detail.label);
-            var index = userSelctedWhiteFiles.indexOf(event.detail.label);
+            var index = userSelctedWhiteFiles.indexOf(event.detail.value);
             if (index !== -1) userSelctedWhiteFiles.splice(index, 1);
           }
         );
