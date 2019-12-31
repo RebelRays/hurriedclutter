@@ -2,6 +2,7 @@
 function GetWhiteFileNameList(){
     return ['games/lichess_study_minecraftado-black_by_BlackSalt_2019.12.14.pgn','games/fchess.black.pgn','games/lichess_study_myopeninglibrary_by_BlackSalt_2019.06.16.pgn', 
     'games/lichess_study_caro-can_by_BlackSalt_2019.06.14.pgn',
+    'games/lichess_study_barnes_by_BlackSalt_2019.12.30.pgn',
     'games/lichess_study_counter-scandi_by_BlackSalt_2019.06.19.pgn', 'games/lichess_study_whiteopeningbook_by_BlackSalt_2019.10.07.pgn'];
 }
 

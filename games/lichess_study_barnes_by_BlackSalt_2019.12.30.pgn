@@ -1,0 +1,11 @@
+[Event "Barnes: g6 line"]
+[Site "https://lichess.org/study/f9QSRNjg/F9Ug5HFv"]
+[Result "*"]
+[UTCDate "2019.12.30"]
+[UTCTime "23:32:29"]
+[Variant "Standard"]
+[ECO "B00"]
+[Opening "Barnes Defense"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 f6 2. d4 e5 3. dxe5 fxe5 4. Qh5+ g6 5. Qxe5+ Qe7 (5... Ne7 6. Qxh8 Nbc6 (6... d6 7. Bh6 Kd7 8. Bxf8 Kc6 { [%cal Gh8g7,Gh8f6,Gf8g7] } 9. Qg7)  (6... d5 7. Bh6 Nd7 8. Nc3 d4 9. Nb5 c5 (9... a6 10. Nxd4 c5 11. Ne6 Qa5+ 12. c3) 10. Nd6#)  (6... c6 7. Bh6 Qa5+ 8. Nd2 d5 9. Qxf8+ Kd7 10. e5 c5 (10... Qd8 11. e6+ Kc7 12. Bf4+ Kb6 13. Qxd8+ Kc5 14. Qxe7+ Kb6 15. Bc7# { [%csl Gc5][%cal Gf1a6,Gc7a5] } (15. Qb4# { [%csl Ga6,Gc7,Gc6,Gb7,Ga7] })) 11. e6+ Kxe6 12. Bg5 Nbc6 13. O-O-O Qc7 14. Re1+ Kd6 15. Qf6+ Kd7 16. Rxe7+ Nxe7 17. Bb5+ Kd8 18. Qf8#)  (6... h5 7. Bh6 Kf7 8. Nf3 Nbc6 (8... d6 9. Bc4+ Be6 10. Ng5+ Ke8 11. Qxf8+ Kd7 12. Bxe6+ Kc6 13. Qxd8) 9. Ng5+ Ke8 10. Qxf8#) 7. Bh6 Kf7 8. Qxh7+ Kf6 9. Bg5+ Kxg5 (9... Ke5 10. Qf7 d5 11. Qf6+ Kxe4 { [%cal Gb1c3,Gb1d2,Gf2f3,Gf1d3,Gf6f4] }) 10. Qh8 { [%cal Gh2h4] } 10... d5 11. h4+ Kg4 (11... Kf4 12. g3+ Kxe4 13. Bd3#) 12. g3 Ne5 13. Bh3#)  (5... Kf7 6. Bc4+ d5 7. Bxd5+ Be6 (7... Qxd5 8. Qxd5+ Kg7 9. Qe5+ Nf6 10. Bg5 Nd7 11. Bxf6+ Nxf6 12. Qxc7+ Bd7 13. e5) 8. Qxe6+ Kg7 9. Qf7#)  (5... Be7 6. Qxh8 Kf8 7. Bh6+ Kf7 8. Bc4+ d5 9. Bxd5+ Be6 10. Qxh7+ Ke8 11. Qxg6+ Kd7 12. Qxe6+ Ke8 13. Qg6+ Kd7 14. Qf5+ Kd6 15. b4 Bf6 (15... c6 16. Bf4# { [%csl Gc5][%cal Gf5d7,Gf4c7] }) 16. Qe6# { [%csl Gc7,Gc5] }) 6. Qxh8 Qxe4+ (6... Nf6 7. Bg5 Qxe4+ 8. Kd1 (8. Be2 Qxg2 9. Bh6) 8... Qd5+ 9. Bd3 Qxg5 10. Nf3 Qxg2 11. Re1+ Kf7 12. Ne5+ Ke6)  (6... Qg7 7. Qxg7 Bxg7 8. Nc3 Bxc3+ 9. bxc3 Nc6 10. Nf3 (10. Ne2 b6 11. Bf4 d6 12. Nd4 Bd7 13. Ba6))  (6... Qf7 7. Qe5+ Be7 8. Qxc7 Nc6 9. Nc3 Nf6 10. Bd2 Qe6 11. O-O-O Bd6 { [%cal Gc3b5,Gb5c7,Gc7e6] } (11... Nxe4 12. Nxe4 Qxe4 13. Re1 Qf5 14. Bd3 Qc5 15. Nf3) 12. Nb5)  (6... d6 7. Qxg8 Be6 8. Qh8 Nc6 9. Nf3 O-O-O 10. Bg5 Qd7) *
