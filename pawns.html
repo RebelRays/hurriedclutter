@@ -1,0 +1,62 @@
+<HTML>
+<Head>
+
+        <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png" />
+        <title>Repeater</title>
+        <link rel="stylesheet" href="AddOn/chessboardjs-1.0.0/css/chessboard-1.0.0.min.css">
+        <link rel="stylesheet" href="main.css">
+        <link
+  rel="stylesheet"
+  href="AddOn/choicesjs/base.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="AddOn/choicesjs/choices.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="AddOn/choicesjs/choices-custom.css"
+/>
+</head>
+<body>
+        <div id="Info">No Of Lines:<span id="SubLinesCount"></span> Subnodes:<span id="SubNodeCount"></span><span  id="HelpMovesSpan"></span></div>
+        <div id="UIChessBoard" style="width: 400px;margin-left: 30px;"></div>
+        
+        <script src="AddOn/jquery-3.4.1.js"></script>
+        <script src="AddOn/chessboardjs-1.0.0/js/chessboard-1.0.0.js"> </script>
+        <script src="AddOn/chess-0.10.2.js"></script>
+        <button type="button" onclick="winClick(gamestate)">Win</button>
+        <button type="button" onclick="drawClick(gamestate)">Draw</button>
+        <button type="button">Loose</button>
+        <button type="button" onclick=syzygyClick()>To syzygy-tables</button>
+        <!--<script src="js/LiChessStudyParser.js"></script> -->
+        <script type="module"  src="pawns/combine.js"></script>
+
+      </p>
+<script>
+
+  //import { hello } from './abc.js';
+//let val = hello();  // val is "Hello";
+
+  $(document).ready(function() {
+    genNewBoardGame('UIChessBoard');
+  });
+
+  
+
+  //
+
+</script>
+
+
+
+<script>
+  //Fix for scrolling
+  jQuery('#UIChessBoard').on('scroll touchmove touchend touchstart contextmenu', function(e){
+    e.preventDefault();
+  });
+  
+</script>
+
+</body>
+</HTML>
