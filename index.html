@@ -124,15 +124,15 @@ function loadBlackSelect(pgnNames){
         choicesSelect.passedElement.element.addEventListener(
           'addItem',
           function(event) {
-            console.log("add " + event.detail.label);
-            userSelctedBlackFiles.push(event.detail.label);
+            console.log("add " + event.detail.value);
+            userSelctedBlackFiles.push(event.detail.value);//label
           }
         );
         choicesSelect.passedElement.element.addEventListener(
           'removeItem',
           function(event) {
-            console.log("Remove " + event.detail.label);
-            var index = userSelctedBlackFiles.indexOf(event.detail.label);
+            console.log("Remove " + event.detail.value);
+            var index = userSelctedBlackFiles.indexOf(event.detail.value);
             if (index !== -1) userSelctedBlackFiles.splice(index, 1);
           }
         );

@@ -4,13 +4,19 @@
 import * as chess from '../AddOn/chess-0.10.2.js';
 import * as boardinteraction from './uilogic/boardinteractions.js';
 import * as db from './database/onepawn.js';
+import * as e5vse7 from './database/e5vse7.js';
+
+
 
 
 
 function getFen(){
   //randome
-  var win = db.win[Math.floor(Math.random() * db.win.length)];
-  var draw = db.draw[Math.floor(Math.random() * db.draw.length)];
+  var wins = window.totWin;
+  var draws = window.totDraw;
+
+  var win = wins[Math.floor(Math.random() * wins.length)];
+  var draw = draws[Math.floor(Math.random() * draws.length)];
 
   if(Math.floor(Math.random() * 2) == 0 )
     return ['win', win];
@@ -34,6 +40,13 @@ window.gamestate = new GameState(null, null, null, null, 'None');
 
 
 window.genNewBoardGame = function genNewBoardGame(uiChessBoardId){
+
+  window.totWin = db.win;
+  window.totWin.push(...e5vse7.win);
+
+  window.totDraw = db.draw;
+  window.totDraw.push(...e5vse7.draw);
+
   //console.log("This is running");
   //removeGreySquares();
   
