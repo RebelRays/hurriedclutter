@@ -1,0 +1,11 @@
+[Event "Nf6 book: Trident"]
+[Site "https://lichess.org/study/GMTv2RS6/83PHF3wO"]
+[Result "*"]
+[UTCDate "2020.08.14"]
+[UTCTime "18:44:58"]
+[Variant "Standard"]
+[ECO "B02"]
+[Opening "Alekhine Defense: Two Pawn Attack"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 Nf6 2. e5 Nd5 3. c4 Nb6 4. a4 a5 5. c5 (5. d4 d6 6. exd6 exd6 7. Nf3 Nc6 8. b3 Be7 9. Be2 Bf5 10. Be3 Nb4 11. Na3 (11. O-O Bc2) 11... O-O 12. h4 Re8 13. Ng5 h6 14. g4 Bd7 15. Qd2 hxg5 16. hxg5 c5 17. d5 f5 18. Nc2 Nxc2+ 19. Qxc2 Bxg5)  (5. Nc3 d6 6. exd6 exd6 7. d4 Nc6 8. Nf3 Be7 9. Bd3 Bg4 10. Be3 Nb4 11. Be2 Bxf3 12. Bxf3 Nxc4 13. Bxb7 Rb8 14. Bf3 Nxb2 15. Qe2 N2d3+)  (5. Ra3 e6 6. Rg3 Nc6 7. d4 d6 8. exd6 Bxd6 9. Rxg7 Qf6 10. Rg4 (10. Qg4 Bb4+ 11. Bd2 Kf8 12. Rg5 h6 13. Rh5 e5 14. Qh4 Qg6 15. Nc3 exd4 16. Nb5 Qc2 17. Nf3 Bg4 18. Qxg4 Re8+) 10... Bb4+ 11. Nc3 e5 12. Re4 Bf5 13. dxe5 Qe6 14. Re3 Rd8 15. Bd3 Nxc4 16. Rf3 N6xe5)  (5. Nf3 d6 6. exd6 exd6 7. d4 Nc6 8. Nc3 (8. d5 Nb4) 8... Be7 9. Bd3 Bg4 10. Be3 Nb4 11. Be2 Bxf3 12. Bxf3 Nxc4 13. Bxb7 Rb8 14. Bf3 Nxe3 15. fxe3 Bg5)  (5. Qf3 d6 6. exd6 Qxd6 7. Nc3 e5 8. Nb5 Qe7 9. Bd3 Na6 10. Ne2 c6 11. Nbc3 Nb4)  (5. b4 axb4 6. a5 Nc6 7. axb6 (7. c5 Nd5 8. Bc4 Nxe5 9. Bxd5 Nd3+ 10. Ke2 (10. Kf1 e6 11. Bc4 Nxf2 12. Kxf2 Qf6+) 10... Nf4+) 7... Rxa1 8. Qc2 d6 9. Bb2 Ra5 10. d4 dxe5 11. Nf3 Nxd4 12. Nxd4 exd4)  (5. b3 d6 6. exd6 Qxd6 7. Bb2 Nc6 8. Nf3 Bg4 9. Be2 O-O-O 10. O-O h5 11. d4 Bxf3 12. Bxf3 Nxd4)  (5. f4 d6 6. Nf3 Nc6 7. d4 Bg4 8. d5 Nb4 9. Be2 e6 10. Nc3 dxe5 11. fxe5 Bxf3 12. Bxf3 Qh4+ 13. g3 Qxc4 14. Be2 Qc5)  (5. Qb3 d6 6. d4 dxe5 7. dxe5 Bf5 8. c5 Qd5 9. Bc4 Qxc4) 5... Nd5 6. Bc4 (6. Nc3 Nb4 7. d4 d6 8. cxd6 exd6 9. Nf3 Bf5 10. Bg5 Be7 11. Bxe7 Qxe7 12. Rc1 dxe5 13. Nxe5 (13. dxe5 N8c6 14. Bb5 Rd8 15. Qe2 Nd3+ 16. Bxd3 Bxd3 17. Qe3 O-O) 13... N8c6 14. Bb5 f6 15. Qf3 Bd7) 6... Nb4 7. d4 (7. Qb3 e6 8. d4 b6 9. cxb6 c5 10. Nf3 Qxb6 11. Be3 N8c6 12. dxc5 Bxc5 13. Na3 Bxe3 14. fxe3) 7... d5 8. Be2 (8. cxd6 exd6 9. Nf3 d5 10. Bd3 Nxd3+ 11. Qxd3 b6 12. O-O Ba6) 8... Bf5 9. Na3 e6 10. Nf3 (10. g4 Be4 11. f3 Qh4+ 12. Kd2) 10... c6 11. O-O Be7 12. Bd2 b6 13. cxb6 (13. Rc1 bxc5 14. dxc5 O-O 15. Bxb4 axb4 16. Nc2 Bxc2 17. Qxc2 Nd7 18. Bd3 h6 19. Rfe1 Nxc5) 13... Qxb6 *
