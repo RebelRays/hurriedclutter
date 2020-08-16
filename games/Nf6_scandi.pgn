@@ -1,0 +1,12 @@
+[Event "Nf6 book: Scandi"]
+[Site "https://lichess.org/study/GMTv2RS6/koH1g7Ec"]
+[Result "*"]
+[UTCDate "2020.08.16"]
+[UTCTime "12:13:14"]
+[Variant "Standard"]
+[ECO "B02"]
+[Opening "Alekhine Defense: Scandinavian Variation"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+{ 68 games }
+1. e4 Nf6 2. Nc3 d5 3. exd5 Nxd5 4. Nxd5 (4. d4 Nxc3 5. bxc3 g6 6. Nf3 Bg7 7. Bc4 c5 8. O-O O-O 9. Be3 Qc7 10. Qe2 Bg4 11. Bd3 Nc6 12. h3 Bxf3 13. Qxf3 cxd4 14. cxd4 Nxd4 15. Qe4 f5 16. Qd5+ e6 17. Qc4 Qxc4 18. Bxc4 Rac8 19. Bxd4 Rxc4)  (4. Bc4 Nb6 5. Bb3 Nc6 6. Qf3 e6 7. Nge2 Be7 8. O-O O-O 9. d3 Ne5 10. Qg3 Ng6 11. Be3 Nd5 12. Nxd5 exd5 13. Nf4 Bd6 14. Qf3 c6 15. Nxg6 fxg6 16. Qd1 Qh4 17. g3 Qf6 18. c3 Bh3 19. Re1 h6 20. d4 Rae8 21. Bc2 Rxe3)  (4. Nf3 Nxc3 5. bxc3 g6 6. d4 Bg7)  (4. Nge2 Nc6 5. Nxd5 Qxd5 6. Nc3 Qd6 7. Bb5 a6 8. Ba4 (8. Bxc6+ Qxc6 9. O-O Bf5 10. d3 O-O-O 11. Be3 h5 12. h4 e5) 8... b5 9. Bb3 Bb7 10. O-O Nd4 11. d3 f5 12. Be3 Nxb3 13. axb3 O-O-O { [%cal Gh7h6,Gg7g5,Ge7e5] }) 4... Qxd5 5. Nf3 (5. d4 Nc6 6. Nf3 Bg4 7. Be2 O-O-O 8. c3 e5 9. dxe5 Qe4 10. Qb3 Nxe5 11. Be3 Bxf3 12. gxf3 Nxf3+ 13. Bxf3 Qxf3 14. Rg1 Bc5 15. Bxc5 Rhe8+ 16. Kf1 (16. Be3 Rxe3+ 17. fxe3 Qxe3+ 18. Kf1 Rd2 19. Rg2 Qf3+ 20. Ke1 Qxg2) 16... Qe2+ 17. Kg2 Re6 18. Rae1 Rg6+ 19. Kh3 (19. Kh1 Qf3+) 19... Qh5#)  (5. Qf3 Be6 6. Qxd5 Bxd5 7. f3 Nc6 8. Bb5 O-O-O 9. Bxc6 Bxc6 10. d3 e5 11. Be3 f5 12. O-O-O Rd6 { [%cal Gd6g6,Gg6g2] })  (5. c4 Qe4+ 6. Qe2 Qg6 7. Nf3 Bg4 8. h3 Bxf3 9. Qxf3 Nc6 10. Bd3 Ne5 11. Bxg6 (11. Qxb7 Nxd3+ 12. Ke2 (12. Kf1 Rd8) 12... Rd8 13. b3 Qe6+ 14. Kd1 Nxf2+) 11... Nxf3+ 12. gxf3 hxg6 13. d4 e6)  (5. d3 Nc6 6. Nf3 Bf5 7. Be2 e5 8. O-O O-O-O 9. Be3 f6 10. a3 Qf7 11. b4 e4 12. Nd2 exd3 13. Bxd3 Bxd3 14. cxd3 Rxd3)  (5. Ne2 e5 6. Nc3 Qe6 7. Bb5+ Bd7 8. Bxd7+ Qxd7 9. O-O Nc6 10. d3 O-O-O 11. Be3 f5 12. f4 exf4 13. Bxf4 h6)  (5. h3 Bf5 6. Nf3 Qe4+ 7. Be2 Qxc2 8. Qxc2 Bxc2)  (5. Be2 Qxg2 6. Bf3 Qg6 7. d3 Nc6 8. Be3 e5 9. Qd2 Bd7 10. O-O-O O-O-O 11. Bxc6 Bxc6 12. Bxa7 Bxh1 13. Qe2 b6 14. Qxe5 Bd6 15. Qe3 Rhe8)  (5. c3 e5 6. Nf3 Nc6 7. d3 Bf5 8. Be2 O-O-O 9. O-O Bxd3 10. Bxd3 Qxd3 11. Qxd3 Rxd3 12. Be3 Be7 13. Rad1 Rxd1 14. Rxd1 Rd8)  (5. Qe2 Nc6 6. Nf3 e5 7. d3 Bf5 8. Bd2 O-O-O 9. O-O-O Qxa2 10. Bc3 e4 11. Nh4 exd3 12. cxd3 Be6 13. Qe3 Bb3 14. Re1 Bb4 15. Bxb4 Qa1+ 16. Kd2 Qxb2#)  (5. f3 Nc6 6. Ne2 e5 7. Nc3 Qd4 8. Bb5 Bd7 9. d3 O-O-O) 5... Nc6 6. Be2 e5 *
