@@ -1,0 +1,11 @@
+[Event "Nf6 book: 4.Nf3 Take My Pawns"]
+[Site "https://lichess.org/study/GMTv2RS6/UyTNyNZB"]
+[Result "*"]
+[UTCDate "2020.08.17"]
+[UTCTime "16:56:47"]
+[Variant "Standard"]
+[ECO "B04"]
+[Opening "Alekhine Defense: Modern Variation, Larsen Variation"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 Nf6 2. e5 Nd5 3. d4 d6 4. Nf3 dxe5 5. Bc4 (5. Be2 exd4 6. Nxd4 e5 7. Nf3 Nc6 8. O-O Bf5 9. Bb5 f6 10. Qe2 Qd7 11. Rd1 O-O-O 12. c4 Nf4 13. Qd2 Qf7 14. Qe1 Bb4 15. Nc3 Nxg2 16. Kxg2 Bxc3 17. bxc3 Qh5 18. Rxd8+ Rxd8 19. Qe3 Bh3+ 20. Kg1 Qg4+ 21. Kh1 Qg2#) 5... exd4 6. Qxd4 (6. O-O Bg4 7. Qxd4 Bxf3 8. gxf3 e6 9. Re1 Nb6)  (6. c3 Bg4 7. cxd4 e6 8. O-O Nc6 9. h3 Bxf3 10. Qxf3 Nxd4)  (6. Ne5 e6 7. Nxf7 (7. Qh5 g6 8. Qf3 Qf6 9. Bxd5 Qxe5+) 7... Kxf7 8. Qf3+ Qf6 9. Bxd5 exd5 10. Qxd5+ Be6 11. Qxb7 Qe5+)  (6. Qe2 Bg4 7. Qe4 Bxf3 8. Qxf3 e6 9. O-O Be7 10. Rd1 c5 11. c3 Nc6 12. Nd2 O-O 13. Nb3 (13. Ne4 Ne5 14. Qe2 Nxc4) 13... Ne5 14. Qe2 Nxc4 15. Qxc4 dxc3)  (6. Nxd4 Nb6 7. Bb3 c5 8. Nf3 Qxd1+ 9. Kxd1 c4) 6... e6 7. O-O Nc6 8. Qg4 (8. Qe4 Nf6 9. Qh4 Bd7 10. Rd1 Qe7 11. Nc3 O-O-O)  (8. Qd1 Bd6 9. Bg5 Nf6 10. Nc3 h6 11. Bh4 g5 12. Bg3 Bxg3 13. hxg3 Qxd1 14. Raxd1 Bd7 15. Rd2 O-O-O 16. Rfd1 g4)  (8. Bb5 Bd7 9. Bxc6 Bxc6 10. Rd1 Nb4 11. Qxd8+ Rxd8 12. Rxd8+ Kxd8 13. Na3 Bxf3 14. gxf3 Nc6 { [%cal Gc6d4] } 15. Be3 Bxa3 16. bxa3) 8... Nf6 9. Qg3 Ne4 10. Qg4 Nd6 11. Bb3 h5 12. Qg3 h4 13. Qf4 h3 14. Nc3 Qf6 15. Qxf6 gxf6 *
