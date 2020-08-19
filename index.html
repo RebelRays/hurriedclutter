@@ -19,13 +19,17 @@
 />
 </head>
 <body>
-        <div id="Info">No Of Lines:<span id="SubLinesCount"></span> Subnodes:<span id="SubNodeCount"></span><span  id="HelpMovesSpan"></span></div>
-        <div id="board2" style="width: 400px;margin-left: 30px;"></div>
-        <button id="WhiteBtn" onclick="WhiteBtnClick()">Play White</button>
-        <button id="BlackBtn" onclick="BlackBtnClick()">Play Black</button>
-        <button id="HelpBtn" onclick="HelpBtnClick()">Help</button>
-        <button id="HelpBtn2" onclick="HelpBtnClick()">Mem Tactics</button>
-
+        <div id="Info">
+          No Of Lines:<span id="SubLinesCount">
+          </span> Subnodes:<span id="SubNodeCount">
+          </span><span  id="HelpMovesSpan"></span>  </div>
+        <div id="board2" style="width: 400px;margin-left: 15px;"></div>
+        <div id="userbuttons" style="margin-top: 15px;">
+          <button id="WhiteBtn" onclick="WhiteBtnClick()">Play White</button>
+          <button id="BlackBtn" onclick="BlackBtnClick()">Play Black</button>
+          <button id="HelpBtn" onclick="HelpBtnClick()">Help</button>
+          <button id="HelpBtn2" onclick="HelpBtnClick()">Mem Tactics</button>
+        </div>
 
         <script src="AddOn/jquery-3.4.1.js"></script>
         <script src="AddOn/chessboardjs-1.0.0/js/chessboard-1.0.0.min.js"> </script>
@@ -64,7 +68,7 @@ function loadChoiceSelect(choicesSelect, PGNFileNames){
   for(var i=0;i<PGNFileNames.length; i++){
     var name = PGNFileNames[i];
     var altName = simplerName(name);
-    foo.push({value: name, label: altName, selected: true});
+    foo.push({value: name, label: altName, selected: false});
   }
   choicesSelect.setChoices(
           foo,
@@ -72,7 +76,7 @@ function loadChoiceSelect(choicesSelect, PGNFileNames){
           'label',
           false
         );
-
+  
   
 }
 var userSelctedWhiteFiles = [];
@@ -80,7 +84,7 @@ var userSelctedBlackFiles = [];
 var whiteSelect = null;
 
 function simplerName(filename){
-  var withoutPrefix = filename.replace("games/lichess_study_","");
+  var withoutPrefix = filename.replace("games/", "").replace("lichess_study_","").replace(".pgn", "");
   var withoutPrefixAndSufix = withoutPrefix.split("_by_")[0];
   return withoutPrefixAndSufix;
 }
