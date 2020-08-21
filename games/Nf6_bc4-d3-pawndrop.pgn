@@ -1,0 +1,11 @@
+[Event "Nf6 book: Bc4 d3 pawndrop"]
+[Site "https://lichess.org/study/GMTv2RS6/az9wSsiD"]
+[Result "*"]
+[UTCDate "2020.08.21"]
+[UTCTime "18:17:21"]
+[Variant "Standard"]
+[ECO "B02"]
+[Opening "Alekhine Defense: Krejcik Variation"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 Nf6 2. Bc4 Nxe4 3. d3 Nf6 4. Nf3 (4. Nc3 d5 5. Bb3 c5 6. Nf3 Nc6 7. Bg5 (7. d4 Bg4 8. dxc5 e6) 7... e6 8. O-O h6) 4... d5 5. Bb3 (5. Bb5+ c6 6. Ba4 a5 7. Bb3 (7. c3 Bf5) 7... a4) 5... Bf5 6. O-O (6. Nc3 e6 7. Bg5 (7. O-O h6)  (7. Bf4 Bd6 8. Bg3 O-O 9. O-O c5) 7... h6 8. Bf4 Bd6)  (6. Bg5 e6 7. O-O h6 8. Bxf6 Qxf6 9. Nc3 c6) 6... e6 7. Re1 (7. Bg5 h6 8. Bh4 Be7 9. c4 dxc4 10. dxc4 Qxd1 11. Rxd1 Nbd7 (11... c6)) 7... Be7 8. Nc3 (8. Nd4 Bg4 9. Ne2 (9. Qd2 c5 10. Nb5 a6 11. N5c3 Nc6) 9... O-O { [%cal Gc7c5] })  (8. Nh4 Bg4 9. f3 Bh5 10. g4 Bg6 11. Nxg6 hxg6 { [%csl Gh2] })  (8. h3 h6 9. d4 c5 10. c4 dxc4 11. Bxc4 Nc6)  (8. c4 dxc4 9. Bxc4 O-O 10. Nc3 Nc6 11. Bf4 Bd6)  (8. d4 O-O 9. c4 dxc4 10. Bxc4 Nc6)  (8. Qe2 O-O 9. Nh4 Bg4 10. f3 Bh5 11. g4 Bg6 12. f4 Nc6 13. Nc3 Nd4 14. Qg2 a5 15. Be3 { [%cal Gd4e3,Gd4c3] } 15... Nxb3 16. axb3 d4)  (8. Bf4 O-O 9. Nc3 c5)  (8. Nbd2 O-O 9. Ne5 Nbd7 10. Ndf3 Nxe5 11. Nxe5 h6 12. g4 Bh7 13. g5 hxg5 14. Bxg5 c6 15. Re3 Bf5 16. Rg3 g6 17. h4 Kg7 18. h5 Qc7 19. d4 Ne4) 8... O-O 9. Bf4 (9. Bg5 h6 10. Bf4 (10. Bh4 c5)  (10. Bd2 c5) 10... c5) 9... c5 10. Nh4 (10. h3 h6)  (10. Nb5 Nc6) 10... Bg4 11. f3 (11. Qd2 Nh5 { [%cal Ge7h4] } 12. h3 Bxh3 13. gxh3 Bxh4 14. Ne2 Nc6) 11... Bh5 12. g4 Bg6 *
