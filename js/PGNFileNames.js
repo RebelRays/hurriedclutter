@@ -13,5 +13,6 @@ function GetBlackFileNameList(){
 'games/lichess_study_indian-game_by_BlackSalt_2019.06.21.pgn',
 'games/nf6-nuttyvariation.pgn',
 'games/Nf6_Trident.pgn', 'games/Nf6_scandi.pgn', 'games/Nf6_4nf3-take-my-pawns.pgn', 'games/Nf6_Knighthugs.pgn', 'games/Nf6_Knightsqueeze.pgn'
-,'games/Nf6_bc4-d3-pawndrop.pgn', 'games/Nf6_4-pawn-Nc3.pgn', 'games/lichess_study_nf6-book_bc4-sack_by_BlackSalt_2020.08.30.pgn'];
+,'games/Nf6_bc4-d3-pawndrop.pgn', 'games/Nf6_4-pawn-Nc3.pgn', 'games/lichess_study_nf6-book_bc4-sack_by_BlackSalt_2020.08.30.pgn',
+'games/games.pgn'];
 }
