@@ -1,260 +1,145 @@
 <HTML>
-<head>
-        <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png" />
-        <title>possition</title>
-        <link rel="stylesheet" href="AddOn/chessboardjs-1.0.0/css/chessboard-1.0.0.min.css">
-        <link rel="stylesheet" href="main.css">
-        <link rel="stylesheet" href="AddOn/choicesjs/base.min.css"/>
-        <link rel="stylesheet" href="AddOn/choicesjs/choices.min.css"/>
-        <link rel="stylesheet" href="AddOn/choicesjs/choices-custom.css"/>
-</head>
-<body>
-        <div id="PositionInfo">
-          <table>
-            <tr>
-              <th><span  id="PositionInfoTitle">Nf6 smack</span></th>
-              <th><span  id="PositionCount">12</span></th>
-            </tr>
-            <tr>
-              <td colspan="2"><span  id="PositionDescr">Cool tactic</span></td>
-            </tr>
-          </table>
-        </div>
-        <div id="Info"> No Of Lines:<span id="SubLinesCount"> 
-
-          </span><span  id="HelpMovesSpan"></span>  </div>
-        <div id="board2" style="width: 400px;margin-left: 15px;"></div>
-        <div id="userbuttons" style="margin-top: 15px;">
-          <button id="WhiteBtn" onclick="WhiteBtnClick()">Play White</button>
-          <button id="BlackBtn" onclick="BlackBtnClick()">Play Black</button>
-          <button id="HelpBtn" onclick="HelpBtnClick()">Help</button>
-          <button id="HelpBtn2" onclick="location.href = 'links.html';">Links</button>
-        </div>
-
-        <script src="AddOn/jquery-3.4.1.js"></script>
-        <script src="AddOn/chessboardjs-1.0.0/js/chessboard-1.0.0.min.js"> </script>
-        <script src="AddOn/chess-0.10.2.js"></script>
-
-        <script src="js/PGNFileNames.js"></script>
-        <script src="js/PGNFetcher.js"></script>
-        <script src="js/LiChessStudyParser/SplitHeadFromMoves.js"></script>
-        <script src="js/LiChessStudyParser/SplitIntoGamesArray.js"></script>
-        <script src="js/LiChessStudyParser/combineTwoMovesLines.js"></script>
-        <script src="js/LiChessStudyParser/ExtractMovelinesFromGame.js"></script>
-        <script src="js/LiChessStudyParser/PGNtoMoveLines.js"></script>
-        <!--<script src="js/LiChessStudyParser.js"></script> -->
-        <script src="js/GamesToTree.js"></script>
-        <script src="AddOn/choicesjs/choices.min.js"></script>
-        
-
-      </p>
-      <div id="Files_Selection">
-        <hr />
-        <h2>Loaded files</h2>
-        <label for="choices-multiple-labels">User Playing Black Books</label>
-        <p id="message"></p>
-        <select id="choices-multiple-labels" placeholder="Enter something" multiple ></select>
-
-        <label for="choices-multiple-labels2">User Playing White Books</label>
-        <p id="message"></p>
-        <select id="choices-multiple-labels2" placeholder="Enter something" multiple ></select>
-        <hr />
-      </div>
-<script>
-
-var choicy = null;
-function loadChoiceSelect(choicesSelect, PGNFileNames){
-  var foo = [];
-  for(var i=0;i<PGNFileNames.length; i++){
-    var name = PGNFileNames[i];
-    var altName = simplerName(name);
-    foo.push({value: name, label: altName, selected: false});
-  }
-  choicesSelect.setChoices(
-          foo,
-          'value',
-          'label',
-          false
-        );
+  <head>
+          <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png" />
+          <title>possition</title>
+          <link rel="stylesheet" href="AddOn/chessboardjs-1.0.0/css/chessboard-1.0.0.min.css">
+          <link rel="stylesheet" href="main.css">
+          <link rel="stylesheet" href="AddOn/choicesjs/base.min.css"/>
+          <link rel="stylesheet" href="AddOn/choicesjs/choices.min.css"/>
+          <link rel="stylesheet" href="AddOn/choicesjs/choices-custom.css"/>
+  </head>
+  <body>
+          <div id="PositionInfo">
+            <table>
+              <tr>
+                <th><span  id="PositionInfoTitle">Nf6 smack</span></th>
+                <th><span  id="PositionCount">12</span></th>
+              </tr>
+              <tr>
+                <td colspan="2"><span  id="PositionDescr">Cool tactic</span></td>
+              </tr>
+            </table>
+          </div>
   
+          <div id="board2" style="width: 400px;margin-left: 15px;"></div>
   
-}
-var userSelctedWhiteFiles = [];
-var userSelctedBlackFiles = [];
-var whiteSelect = null;
-
-function simplerName(filename){
-  var withoutPrefix = filename.replace("games/", "").replace("lichess_study_","").replace(".pgn", "");
-  var withoutPrefixAndSufix = withoutPrefix.split("_by_")[0];
-  return withoutPrefixAndSufix;
-}
-
-
-function loadWhiteSelect(pgnNames){
-  //userSelctedWhiteFiles=pgnNames;
-  var choicesSelect = new Choices('#choices-multiple-labels2', {
-          removeItemButton: true
-        });
-        whiteSelect=choicesSelect.passedElement.element.childNodes;
-
-        choicesSelect.passedElement.element.addEventListener(
-          'addItem',
-          function(event) {
-            console.log("add " +event.detail.value);
-            userSelctedWhiteFiles.push(event.detail.value);
-            //document.getElementById('message').innerHTML =
-            //  'You just added "' + event.detail.label + '"';
-          }
-        );
-        choicesSelect.passedElement.element.addEventListener(
-          'removeItem',
-          function(event) {
-            console.log("Remove " +event.detail.value);
-            //userSelctedWhiteFiles.push(event.detail.label);
-            var index = userSelctedWhiteFiles.indexOf(event.detail.value);
-            if (index !== -1) userSelctedWhiteFiles.splice(index, 1);
-          }
-        );
-      
-        loadChoiceSelect(choicesSelect, pgnNames);
-}
-
-var blackSelect = null;
-function loadBlackSelect(pgnNames){
-  //userSelctedBlackFiles=pgnNames;
-  var choicesSelect = new Choices('#choices-multiple-labels', {
-          removeItemButton: true
-        });
-        blackSelect=choicesSelect.passedElement.element.childNodes;
-
-        choicesSelect.passedElement.element.addEventListener(
-          'addItem',
-          function(event) {
-            console.log("add " + event.detail.value);
-            userSelctedBlackFiles.push(event.detail.value);//label
-          }
-        );
-        choicesSelect.passedElement.element.addEventListener(
-          'removeItem',
-          function(event) {
-            console.log("Remove " + event.detail.value);
-            var index = userSelctedBlackFiles.indexOf(event.detail.value);
-            if (index !== -1) userSelctedBlackFiles.splice(index, 1);
-          }
-        );
-        //removeItem
-        loadChoiceSelect(choicesSelect, pgnNames);
-}
-
-
-//loadChoiceSelect();
-
-function BackToStart(){
-  currentNodeInGameTree=gameTree;
-  board2.start();
-  CurentGame = new Chess();
-  board2.position(CurentGame.fen());
-  if(autoPlaySide == 'b'){
-    board2.orientation('white');
-  }else{
-    board2.orientation('black');
-    makeAutoMove();
-  }
-
-}
-
-var CurrMove=null;
-var CurentGame=null;
-function makeMove(){
-  console.log("Making delayed Move " + CurrMove);
-  CurentGame.move({
-    from: CurrMove.slice(0,2),
-    to: CurrMove.slice(3,5),
-    promotion: 'q' // NOTE: always promote to a queen for example simplicity
-  }); //need to update fen
-
-  board2.move(CurrMove);
-  board2.position(CurentGame.fen());
-}
-
-function onSnapEnd () {
-  console.log("OnSnapEnd FEN: " + CurentGame.fen());
-  board2.position(CurentGame.fen());
-}
-
-function onClicky (source, target, piece, newPos, oldPos, orientation) {
-  console.log("Clicky");
-}
-function onDrop (source, target, piece, newPos, oldPos, orientation) {
-  $('#HelpMovesSpan').text("");
-  console.log('Source: ' + source)
-  console.log('Target: ' + target)
-  console.log('Piece: ' + piece)
-  console.log('New position: ' + Chessboard.objToFen(newPos))
-  console.log('Old position: ' + Chessboard.objToFen(oldPos))
-  console.log('Orientation: ' + orientation)
-  console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
-  moveString = source+target;
-  if(moveString in currentNodeInGameTree){
-    CurentGame.move({
-    from: source,
-    to: target,
-    promotion: 'q' // NOTE: always promote to a queen for example simplicity
-  });
-
-    currentNodeInGameTree=currentNodeInGameTree[moveString];
-    if(!piece.startsWith(autoPlaySide)){ //the one that made the last move
-      let currentMin = null;
-      let MinValue = null;
-
-      for (var move in currentNodeInGameTree) {
-        if(move.length != 4) continue;
-        let cNode = currentNodeInGameTree[move];
-
-        let cMinValue=(cNode["RandomOffset"] + cNode["PlayThrough"]*1.0)/cNode["Lines"];
-        if(currentMin == null){
-          currentMin=move;//RandomOffset
-          MinValue=cMinValue;
-        }else{
-          //let cMinValue=cNode["PlayThrough"]*1.0/cNode["Lines"];
-          if(cMinValue < MinValue){
-            currentMin=move;
-            MinValue=cMinValue;
-          }
-        }
-      }
-
-      if(currentMin == null){
-          console.log("No more moves in this line");
-          BackToStart();
-          return;
-      }
-      if(currentNodeInGameTree["Weight"] == 1) {
-        console.log("No more moves in this line (3)");
-        BackToStart();
-        return 'trash'
-      }
-      currentNodeInGameTree[currentMin]["PlayThrough"] = currentNodeInGameTree[currentMin]["PlayThrough"] + 1;
-      $('#SubLinesCount').text(currentNodeInGameTree[currentMin]["Lines"]);
-      $('#PositionCount').text(currentNodeInGameTree[currentMin]["Weight"]);
-      //make the move
-      console.log("reply : " + currentMin);
-
-      CurrMove=currentMin.slice(0,2) + "-" + currentMin.slice(2,4);
-      window.setTimeout(makeMove, 150);
-      //board2.move(currentMin.slice(0,2) + "-" + currentMin.slice(2,4));
-      currentNodeInGameTree=currentNodeInGameTree[currentMin];
-    }
-  }else {
-    if(currentNodeInGameTree["Weight"] == 1) {
-      console.log("No more moves in this line (2)");
-      BackToStart();
-      return 'trash'
-    }
-    return 'snapback'
-  }
-}
+          <div id="userbuttons" style="margin-top: 15px;">
+            <button id="WhiteBtn" onclick="PlayBtnClick()">Play</button>
+            <button id="SelectAllBtn" onclick="LoadAllBtnClick()">Select All</button>
+            <button id="ClearSelectionBtn" onclick="ClearSelectionBtnClick()">Clear Selection</button>
+            <button id="HelpBtn" onclick="HelpBtnClick()">Help</button>
+            <button id="HelpBtn2" onclick="location.href = 'links.html';">Links</button>
+          </div>
+  
+          <script src="AddOn/jquery-3.4.1.js"></script>
+          <script src="AddOn/chessboardjs-1.0.0/js/chessboard-1.0.0.min.js"> </script>
+          <script src="AddOn/chess-0.10.2.js"></script>
+  
+          <!--<script src="js/LiChessStudyParser.js"></script> -->
+          <script src="AddOn/choicesjs/choices.min.js"></script>
+          
+  
+        </p>
+        <hr />
+        <div id="Files_Selection">
+          <label for="choices-multiple-labels">Select Position</label>
+          <p id="message"></p>
+          <select id="choices-multiple-labels" placeholder="Enter something" multiple ></select>
+        </div>
+  
+  <!-- Data section-->
+  <script>
+  
+    var selectionTitles = ['BN','RookAndPawn'];
+    var startingfen = {'BN': [{ 'fen': '8/8/3k4/8/8/8/4BN2/4K3 w - - 0 1', 'orientation': 'white', 'moves': ['e1d2','e1d2','e1d2','e1d2','e1d2','e1d2','e1d2','e1d2','e1d2','e1d2','e1d2','e1d2','e1d2','e1d2','e1d2','e1d2','e1d2','e1d2','e1d2','e1d2','e1d2']},{ 'fen': '8/8/8/8/n2k4/3b4/3K4/8 b - - 4 3', 'orientation': 'black', 'moves': ['a4c5','a4c5','a4c5','a4c5']},{ 'fen': '8/8/8/8/8/7K/4bkn1/8 b - - 0 1', 'orientation': 'black', 'moves': ['e2d1']},{ 'fen': '8/8/8/8/n1b5/2k5/8/2K5 b - - 0 1', 'orientation': 'black', 'moves': ['c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3']},{ 'fen': '8/8/8/7b/7k/7n/6K1/8 b - - 41 22', 'orientation': 'black', 'moves': ['h5e2','h5e2']}],'RookAndPawn': [{ 'fen': '4R3/8/8/8/kp6/8/5K2/8 w - - 0 1', 'orientation': 'white', 'moves': ['f2e2','f2e2','f2e2','f2e2','f2e2','f2e2','f2e2','f2e2','f2e2']},{ 'fen': '4R3/8/8/8/8/kp6/8/5K2 w - - 0 1', 'orientation': 'white', 'moves': ['f1e2','e8a8','e8a8']},{ 'fen': '4R3/8/8/8/8/1pk5/4K3/8 w - - 0 1', 'orientation': 'white', 'moves': ['e8c8','e8c8']}]};
+    var positions = { '8/8/3k4/8/8/8/4BN2/4K3 w - - 0 1': { 'moves': ['e1d2','e1d2','e1d2','e1d2','e1d2','e1d2','e1d2','e1d2','e1d2','e1d2','e1d2','e1d2','e1d2','e1d2','e1d2','e1d2','e1d2','e1d2','e1d2','e1d2','e1d2'], 'finalPosition': false },'8/8/3k4/8/8/8/3KBN2/8 b - - 1 1': { 'moves': ['d6c5','d6e5','d6e6','d6c6','d6d7','d6c7','d6c7','d6e7','d6d5','d6d5','d6d5','d6d5','d6d5','d6d5','d6d5','d6d5','d6d5','d6d5','d6d5','d6d5','d6d5'], 'finalPosition': false },'8/8/8/2k5/8/8/3KBN2/8 w - - 2 2': { 'moves': ['d2e3'], 'finalPosition': false },'8/8/8/2k5/8/4K3/4BN2/8 b - - 3 2': { 'moves': ['c5d5'], 'finalPosition': false },'8/8/8/3k4/8/4K3/4BN2/8 w - - 4 3': { 'moves': ['f2g4'], 'finalPosition': false },'8/8/8/3k4/6N1/4K3/4B3/8 b - - 5 3': { 'moves': ['d5c5'], 'finalPosition': false },'8/8/8/2k5/6N1/4K3/4B3/8 w - - 6 4': { 'moves': ['e3e4'], 'finalPosition': false },'8/8/8/2k5/4K1N1/8/4B3/8 b - - 7 4': { 'moves': ['c5d6'], 'finalPosition': false },'8/8/3k4/8/4K1N1/8/4B3/8 w - - 8 5': { 'moves': ['e2c4'], 'finalPosition': false },'8/8/3k4/8/2B1K1N1/8/8/8 b - - 9 5': { 'moves': ['d6c5'], 'finalPosition': false },'8/8/8/2k5/2B1K1N1/8/8/8 w - - 10 6': { 'moves': ['g4e5'], 'finalPosition': false },'8/8/8/2k1N3/2B1K3/8/8/8 b - - 11 6': { 'moves': ['c5d6'], 'finalPosition': false },'8/8/3k4/4N3/2B1K3/8/8/8 w - - 12 7': { 'moves': ['e5d3'], 'finalPosition': false },'8/8/3k4/8/2B1K3/3N4/8/8 b - - 13 7': { 'moves': [], 'finalPosition': true },'8/8/8/4k3/8/8/3KBN2/8 w - - 2 2': { 'moves': ['d2d3'], 'finalPosition': false },'8/8/8/4k3/8/3K4/4BN2/8 b - - 3 2': { 'moves': ['e5d5'], 'finalPosition': false },'8/8/8/3k4/8/3K4/4BN2/8 w - - 4 3': { 'moves': ['f2e4','f2e4'], 'finalPosition': false },'8/8/8/3k4/4N3/3K4/4B3/8 b - - 5 3': { 'moves': ['d5e5','d5e5'], 'finalPosition': false },'8/8/8/4k3/4N3/3K4/4B3/8 w - - 6 4': { 'moves': ['e2h5','e2h5'], 'finalPosition': false },'8/8/8/4k2B/4N3/3K4/8/8 b - - 7 4': { 'moves': ['e5d5','e5d5'], 'finalPosition': false },'8/8/8/3k3B/4N3/3K4/8/8 w - - 8 5': { 'moves': ['h5f7','h5f7'], 'finalPosition': false },'8/5B2/8/3k4/4N3/3K4/8/8 b - - 9 5': { 'moves': ['d5e5','d5e5'], 'finalPosition': false },'8/5B2/8/4k3/4N3/3K4/8/8 w - - 10 6': { 'moves': ['d3e3','d3e3'], 'finalPosition': false },'8/5B2/8/4k3/4N3/4K3/8/8 b - - 11 6': { 'moves': ['e5f5','e5f5'], 'finalPosition': false },'8/5B2/8/5k2/4N3/4K3/8/8 w - - 12 7': { 'moves': ['e3d4','e3d4'], 'finalPosition': false },'8/5B2/8/5k2/3KN3/8/8/8 b - - 13 7': { 'moves': ['f5g4'], 'finalPosition': true },'8/8/4k3/8/8/8/3KBN2/8 w - - 2 2': { 'moves': ['d2d3'], 'finalPosition': false },'8/8/4k3/8/8/3K4/4BN2/8 b - - 3 2': { 'moves': ['e6d5'], 'finalPosition': false },'8/5B2/8/8/3KN1k1/8/8/8 w - - 14 8': { 'moves': ['f7g6'], 'finalPosition': false },'8/8/6B1/8/3KN1k1/8/8/8 b - - 15 8': { 'moves': ['g4f4'], 'finalPosition': false },'8/8/6B1/8/3KNk2/8/8/8 w - - 16 9': { 'moves': ['g6h7'], 'finalPosition': false },'8/7B/8/8/3KNk2/8/8/8 b - - 17 9': { 'moves': [], 'finalPosition': true },'8/8/2k5/8/8/8/3KBN2/8 w - - 2 2': { 'moves': ['d2e3'], 'finalPosition': false },'8/8/2k5/8/8/4K3/4BN2/8 b - - 3 2': { 'moves': ['c6c5'], 'finalPosition': false },'8/8/8/2k5/8/4K3/4BN2/8 w - - 4 3': { 'moves': ['f2e4'], 'finalPosition': false },'8/8/8/2k5/4N3/4K3/4B3/8 b - - 5 3': { 'moves': ['c5d5'], 'finalPosition': false },'8/8/8/3k4/4N3/4K3/4B3/8 w - - 6 4': { 'moves': ['e2h5'], 'finalPosition': false },'8/8/8/3k3B/4N3/4K3/8/8 b - - 7 4': { 'moves': ['d5e5'], 'finalPosition': false },'8/8/8/4k2B/4N3/4K3/8/8 w - - 8 5': { 'moves': ['h5f7'], 'finalPosition': false },'8/5B2/8/4k3/4N3/4K3/8/8 b - - 9 5': { 'moves': ['e5f5'], 'finalPosition': false },'8/5B2/8/5k2/4N3/4K3/8/8 w - - 10 6': { 'moves': ['e3d4'], 'finalPosition': false },'8/5B2/8/5k2/3KN3/8/8/8 b - - 11 6': { 'moves': ['f5f4','f5f4','f5g4'], 'finalPosition': false },'8/5B2/8/8/3KNk2/8/8/8 w - - 12 7': { 'moves': ['f7g6','f7g6'], 'finalPosition': false },'8/8/6B1/8/3KNk2/8/8/8 b - - 13 7': { 'moves': ['f4f3'], 'finalPosition': true },'8/8/6B1/8/3KN3/5k2/8/8 w - - 14 8': { 'moves': ['e4c5'], 'finalPosition': false },'8/8/6B1/2N5/3K4/5k2/8/8 b - - 15 8': { 'moves': [], 'finalPosition': true },'8/3k4/8/8/8/8/3KBN2/8 w - - 2 2': { 'moves': ['d2d3'], 'finalPosition': false },'8/3k4/8/8/8/3K4/4BN2/8 b - - 3 2': { 'moves': ['d7e6'], 'finalPosition': false },'8/8/4k3/8/8/3K4/4BN2/8 w - - 4 3': { 'moves': ['d3e4'], 'finalPosition': false },'8/8/4k3/8/4K3/8/4BN2/8 b - - 5 3': { 'moves': ['e6d6'], 'finalPosition': false },'8/8/3k4/8/4K3/8/4BN2/8 w - - 6 4': { 'moves': ['e2c4','e2c4','e2c4','e2c4','e2c4'], 'finalPosition': false },'8/8/3k4/8/2B1K3/8/5N2/8 b - - 7 4': { 'moves': ['d6c5','d6c5','d6c5','d6c5','d6c5'], 'finalPosition': false },'8/8/8/2k5/2B1K3/8/5N2/8 w - - 8 5': { 'moves': ['c4d5','c4d5','c4d5','c4d5','c4d5'], 'finalPosition': false },'8/8/8/2kB4/4K3/8/5N2/8 b - - 9 5': { 'moves': ['c5d6','c5b4','c5b5','c5b5','c5d6'], 'finalPosition': false },'8/8/3k4/3B4/4K3/8/5N2/8 w - - 10 6': { 'moves': ['f2d3','f2d3'], 'finalPosition': false },'8/8/3k4/3B4/4K3/3N4/8/8 b - - 11 6': { 'moves': [], 'finalPosition': true },'8/2k5/8/8/8/8/3KBN2/8 w - - 2 2': { 'moves': ['d2d3','d2d3'], 'finalPosition': false },'8/2k5/8/8/8/3K4/4BN2/8 b - - 3 2': { 'moves': ['c7c6','c7c6'], 'finalPosition': false },'8/8/2k5/8/8/3K4/4BN2/8 w - - 4 3': { 'moves': ['d3d4','d3d4','d3d4'], 'finalPosition': false },'8/8/2k5/8/3K4/8/4BN2/8 b - - 5 3': { 'moves': ['c6d6','c6d6','c6d6'], 'finalPosition': false },'8/8/3k4/8/3K4/8/4BN2/8 w - - 6 4': { 'moves': ['e2c4','e2c4','e2c4'], 'finalPosition': false },'8/8/3k4/8/2BK4/8/5N2/8 b - - 7 4': { 'moves': ['d6c6','d6c6','d6c6'], 'finalPosition': false },'8/8/2k5/8/2BK4/8/5N2/8 w - - 8 5': { 'moves': ['f2d3','f2e4','f2e4'], 'finalPosition': false },'8/8/2k5/8/2BK4/3N4/8/8 b - - 9 5': { 'moves': [], 'finalPosition': true },'8/8/2k5/8/2BKN3/8/8/8 b - - 9 5': { 'moves': [], 'finalPosition': true },'8/4k3/8/8/8/8/3KBN2/8 w - - 2 2': { 'moves': ['d2d3'], 'finalPosition': false },'8/4k3/8/8/8/3K4/4BN2/8 b - - 3 2': { 'moves': ['e7d7'], 'finalPosition': false },'8/3k4/8/8/8/3K4/4BN2/8 w - - 4 3': { 'moves': ['d3e4'], 'finalPosition': false },'8/3k4/8/8/4K3/8/4BN2/8 b - - 5 3': { 'moves': ['d7e6'], 'finalPosition': false },'8/8/4k3/8/4K3/8/4BN2/8 w - - 6 4': { 'moves': ['e2c4'], 'finalPosition': false },'8/8/4k3/8/2B1K3/8/5N2/8 b - - 7 4': { 'moves': ['e6d6'], 'finalPosition': false },'8/8/3k4/8/2B1K3/8/5N2/8 w - - 8 5': { 'moves': ['f2d3'], 'finalPosition': false },'8/8/3k4/8/2B1K3/3N4/8/8 b - - 9 5': { 'moves': [], 'finalPosition': true },'8/8/8/3k4/8/8/3KBN2/8 w - - 2 2': { 'moves': ['d2e3','d2d3','d2d3','d2d3','d2d3','d2d3','d2d3','d2d3','d2d3','d2d3','d2d3','d2d3','d2d3'], 'finalPosition': false },'8/8/8/3k4/8/4K3/4BN2/8 b - - 3 2': { 'moves': ['d5e5'], 'finalPosition': false },'8/8/8/4k3/8/4K3/4BN2/8 w - - 4 3': { 'moves': ['f2e4'], 'finalPosition': false },'8/8/8/4k3/4N3/4K3/4B3/8 b - - 5 3': { 'moves': ['e5e6'], 'finalPosition': false },'8/8/4k3/8/4N3/4K3/4B3/8 w - - 6 4': { 'moves': ['e3d4'], 'finalPosition': false },'8/8/4k3/8/3KN3/8/4B3/8 b - - 7 4': { 'moves': ['e6f5'], 'finalPosition': false },'8/8/8/5k2/3KN3/8/4B3/8 w - - 8 5': { 'moves': ['e2h5'], 'finalPosition': false },'8/8/8/5k1B/3KN3/8/8/8 b - - 9 5': { 'moves': ['f5f4'], 'finalPosition': false },'8/8/8/7B/3KNk2/8/8/8 w - - 10 6': { 'moves': ['h5g6'], 'finalPosition': false },'8/8/6B1/8/3KNk2/8/8/8 b - - 11 6': { 'moves': [], 'finalPosition': true },'8/8/8/3k4/8/3K4/4BN2/8 b - - 3 2': { 'moves': ['d5c6','d5c5','d5c5','d5c5','d5c5','d5c5','d5e5','d5e5','d5e5','d5e5','d5e5','d5e5'], 'finalPosition': false },'8/8/8/2k5/8/3K4/4BN2/8 w - - 4 3': { 'moves': ['d3e4','d3e4','d3e4','d3e4','d3e4'], 'finalPosition': false },'8/8/8/2k5/4K3/8/4BN2/8 b - - 5 3': { 'moves': ['c5c6','c5d6','c5d6','c5d6','c5d6'], 'finalPosition': false },'8/8/2k5/8/4K3/8/4BN2/8 w - - 6 4': { 'moves': ['e2c4'], 'finalPosition': false },'8/8/2k5/8/2B1K3/8/5N2/8 b - - 7 4': { 'moves': [], 'finalPosition': true },'8/8/8/3B4/1k2K3/8/5N2/8 w - - 10 6': { 'moves': ['e4d4'], 'finalPosition': false },'8/8/8/3B4/1k1K4/8/5N2/8 b - - 11 6': { 'moves': [], 'finalPosition': true },'8/8/8/1k1B4/4K3/8/5N2/8 w - - 10 6': { 'moves': ['f2d3','e4d4'], 'finalPosition': false },'8/8/8/1k1B4/4K3/3N4/8/8 b - - 11 6': { 'moves': [], 'finalPosition': true },'8/8/8/1k1B4/3K4/8/5N2/8 b - - 11 6': { 'moves': [], 'finalPosition': true },'8/8/8/4k3/8/3K4/4BN2/8 w - - 4 3': { 'moves': ['f2e4','f2e4','f2e4','f2e4','f2e4','f2e4'], 'finalPosition': false },'8/8/8/4k3/4N3/3K4/4B3/8 b - - 5 3': { 'moves': ['e5f5','e5f4','e5f4','e5f4','e5f4','e5f4'], 'finalPosition': false },'8/8/8/5k2/4N3/3K4/4B3/8 w - - 6 4': { 'moves': ['d3d4'], 'finalPosition': false },'8/8/8/5k2/3KN3/8/4B3/8 b - - 7 4': { 'moves': ['f5f4'], 'finalPosition': false },'8/8/8/8/3KNk2/8/4B3/8 w - - 8 5': { 'moves': ['e2h5'], 'finalPosition': false },'8/8/8/7B/3KNk2/8/8/8 b - - 9 5': { 'moves': ['f4f5'], 'finalPosition': false },'8/8/8/5k1B/3KN3/8/8/8 w - - 10 6': { 'moves': ['h5f7'], 'finalPosition': false },'8/8/8/8/4Nk2/3K4/4B3/8 w - - 6 4': { 'moves': ['e2h5','e2h5','e2h5','e2h5','e2h5'], 'finalPosition': false },'8/8/8/7B/4Nk2/3K4/8/8 b - - 7 4': { 'moves': ['f4e5','f4e5','f4e5','f4e5','f4e5'], 'finalPosition': false },'8/8/8/4k2B/4N3/3K4/8/8 w - - 8 5': { 'moves': ['h5f7','h5f7','h5f7','h5f7','h5f7'], 'finalPosition': false },'8/5B2/8/4k3/4N3/3K4/8/8 b - - 9 5': { 'moves': ['e5f5','e5f4','e5f4','e5f4','e5f4'], 'finalPosition': false },'8/5B2/8/5k2/4N3/3K4/8/8 w - - 10 6': { 'moves': ['d3d4'], 'finalPosition': false },'8/5B2/8/8/3KN1k1/8/8/8 w - - 12 7': { 'moves': ['f7g6','f7g6'], 'finalPosition': false },'8/8/6B1/8/3KN1k1/8/8/8 b - - 13 7': { 'moves': ['g4f4'], 'finalPosition': true },'8/8/6B1/8/3KNk2/8/8/8 w - - 14 8': { 'moves': ['g6h7'], 'finalPosition': false },'8/7B/8/8/3KNk2/8/8/8 b - - 15 8': { 'moves': [], 'finalPosition': true },'8/5B2/8/8/4Nk2/3K4/8/8 w - - 10 6': { 'moves': ['d3d4','d3d4','d3d4','d3d4'], 'finalPosition': false },'8/5B2/8/8/3KNk2/8/8/8 b - - 11 6': { 'moves': ['f4g4','f4f3','f4f5','f4f5'], 'finalPosition': false },'8/5B2/8/8/3KN3/5k2/8/8 w - - 12 7': { 'moves': ['f7h5'], 'finalPosition': false },'8/8/8/7B/3KN3/5k2/8/8 b - - 13 7': { 'moves': ['f3f4'], 'finalPosition': false },'8/8/8/7B/3KNk2/8/8/8 w - - 14 8': { 'moves': ['h5g6'], 'finalPosition': false },'8/8/6B1/8/3KNk2/8/8/8 b - - 15 8': { 'moves': [], 'finalPosition': true },'8/5B2/8/5k2/3KN3/8/8/8 w - - 12 7': { 'moves': ['d4d5','d4d5'], 'finalPosition': false },'8/5B2/8/3K1k2/4N3/8/8/8 b - - 13 7': { 'moves': ['f5g4','f5f4'], 'finalPosition': false },'8/5B2/8/3K4/4N1k1/8/8/8 w - - 14 8': { 'moves': ['f7g6'], 'finalPosition': false },'8/8/6B1/3K4/4N1k1/8/8/8 b - - 15 8': { 'moves': [], 'finalPosition': true },'8/5B2/8/3K4/4Nk2/8/8/8 w - - 14 8': { 'moves': ['f7g6'], 'finalPosition': false },'8/8/6B1/3K4/4Nk2/8/8/8 b - - 15 8': { 'moves': [], 'finalPosition': true },'8/8/8/8/n2k4/3b4/3K4/8 b - - 4 3': { 'moves': ['a4c5','a4c5','a4c5','a4c5'], 'finalPosition': false },'8/8/8/2n5/3k4/3b4/3K4/8 w - - 5 4': { 'moves': ['d2c1','d2c1','d2c1','d2c1'], 'finalPosition': false },'8/8/8/2n5/3k4/3b4/8/2K5 b - - 6 4': { 'moves': ['d4c3','d4c3','d4c3','d4c3'], 'finalPosition': false },'8/8/8/2n5/8/2kb4/8/2K5 w - - 7 5': { 'moves': ['c1d1','c1d1','c1d1','c1d1'], 'finalPosition': false },'8/8/8/2n5/8/2kb4/8/3K4 b - - 8 5': { 'moves': ['c5b3','c5b3','c5b3','c5b3'], 'finalPosition': false },'8/8/8/8/8/1nkb4/8/3K4 w - - 9 6': { 'moves': ['d1e1','d1e1','d1e1','d1e1'], 'finalPosition': false },'8/8/8/8/8/1nkb4/8/4K3 b - - 10 6': { 'moves': ['c3d4','c3d4','c3d4','c3d4'], 'finalPosition': false },'8/8/8/8/3k4/1n1b4/8/4K3 w - - 11 7': { 'moves': ['e1d1','e1f2','e1f2','e1f2'], 'finalPosition': false },'8/8/8/8/3k4/1n1b4/8/3K4 b - - 12 7': { 'moves': ['d4e3'], 'finalPosition': false },'8/8/8/8/8/1n1bk3/8/3K4 w - - 13 8': { 'moves': ['d1e1'], 'finalPosition': false },'8/8/8/8/8/1n1bk3/8/4K3 b - - 14 8': { 'moves': ['b3c1'], 'finalPosition': false },'8/8/8/8/8/3bk3/8/2n1K3 w - - 15 9': { 'moves': ['e1d1'], 'finalPosition': false },'8/8/8/8/8/3bk3/8/2nK4 b - - 16 9': { 'moves': ['c1e2'], 'finalPosition': false },'8/8/8/8/8/3bk3/4n3/3K4 w - - 17 10': { 'moves': ['d1e1'], 'finalPosition': false },'8/8/8/8/8/3bk3/4n3/4K3 b - - 18 10': { 'moves': ['d3c2'], 'finalPosition': false },'8/8/8/8/8/4k3/2b1n3/4K3 w - - 19 11': { 'moves': ['e1f1'], 'finalPosition': false },'8/8/8/8/8/4k3/2b1n3/5K2 b - - 20 11': { 'moves': ['e2f4'], 'finalPosition': false },'8/8/8/8/5n2/4k3/2b5/5K2 w - - 21 12': { 'moves': ['f1e1'], 'finalPosition': false },'8/8/8/8/5n2/4k3/2b5/4K3 b - - 22 12': { 'moves': ['f4g2'], 'finalPosition': false },'8/8/8/8/8/4k3/2b3n1/4K3 w - - 23 13': { 'moves': ['e1f1'], 'finalPosition': false },'8/8/8/8/8/4k3/2b3n1/5K2 b - - 24 13': { 'moves': ['e3f3'], 'finalPosition': false },'8/8/8/8/8/5k2/2b3n1/5K2 w - - 25 14': { 'moves': ['f1g1'], 'finalPosition': false },'8/8/8/8/8/5k2/2b3n1/6K1 b - - 26 14': { 'moves': ['f3g3'], 'finalPosition': false },'8/8/8/8/8/6k1/2b3n1/6K1 w - - 27 15': { 'moves': ['g1f1'], 'finalPosition': false },'8/8/8/8/8/6k1/2b3n1/5K2 b - - 28 15': { 'moves': ['c2d3'], 'finalPosition': false },'8/8/8/8/8/3b2k1/6n1/5K2 w - - 29 16': { 'moves': ['f1g1'], 'finalPosition': false },'8/8/8/8/8/3b2k1/6n1/6K1 b - - 30 16': { 'moves': ['g2f4'], 'finalPosition': false },'8/8/8/8/5n2/3b2k1/8/6K1 w - - 31 17': { 'moves': ['g1h1'], 'finalPosition': false },'8/8/8/8/5n2/3b2k1/8/7K b - - 32 17': { 'moves': ['d3e2'], 'finalPosition': false },'8/8/8/8/5n2/6k1/4b3/7K w - - 33 18': { 'moves': ['h1g1'], 'finalPosition': false },'8/8/8/8/5n2/6k1/4b3/6K1 b - - 34 18': { 'moves': ['f4h3'], 'finalPosition': false },'8/8/8/8/8/6kn/4b3/6K1 w - - 35 19': { 'moves': ['g1h1'], 'finalPosition': false },'8/8/8/8/8/6kn/4b3/7K b - - 36 19': { 'moves': ['e2f3'], 'finalPosition': false },'8/8/8/8/8/5bkn/8/7K w - - 37 20': { 'moves': [], 'finalPosition': true },'8/8/8/8/3k4/1n1b4/5K2/8 b - - 12 7': { 'moves': ['d4e4','d4e4','d4e4'], 'finalPosition': false },'8/8/8/8/4k3/1n1b4/5K2/8 w - - 13 8': { 'moves': ['f2g3','f2g2','f2g2'], 'finalPosition': false },'8/8/8/8/4k3/1n1b2K1/8/8 b - - 14 8': { 'moves': ['d3e2'], 'finalPosition': false },'8/8/8/8/4k3/1n4K1/4b3/8 w - - 15 9': { 'moves': ['g3f2'], 'finalPosition': false },'8/8/8/8/4k3/1n6/4bK2/8 b - - 16 9': { 'moves': ['e2f3','e2f3','e2f3'], 'finalPosition': false },'8/8/8/8/4k3/1n3b2/5K2/8 w - - 17 10': { 'moves': ['f2g3','f2g3','f2g3'], 'finalPosition': false },'8/8/8/8/4k3/1n3bK1/8/8 b - - 18 10': { 'moves': ['b3d4','b3d4','b3d4'], 'finalPosition': false },'8/8/8/8/3nk3/5bK1/8/8 w - - 19 11': { 'moves': ['g3f2','g3f2','g3f2'], 'finalPosition': false },'8/8/8/8/3nk3/5b2/5K2/8 b - - 20 11': { 'moves': ['e4f4','e4f4','e4f4'], 'finalPosition': false },'8/8/8/8/3n1k2/5b2/5K2/8 w - - 21 12': { 'moves': ['f2e1','f2e1','f2e1'], 'finalPosition': false },'8/8/8/8/3n1k2/5b2/8/4K3 b - - 22 12': { 'moves': ['f4e3','f4e3','f4e3'], 'finalPosition': false },'8/8/8/8/3n4/4kb2/8/4K3 w - - 23 13': { 'moves': ['e1f1','e1f1','e1f1'], 'finalPosition': false },'8/8/8/8/3n4/4kb2/8/5K2 b - - 24 13': { 'moves': ['d4e2','f3e2','d4e2'], 'finalPosition': false },'8/8/8/8/8/4kb2/4n3/5K2 w - - 25 14': { 'moves': ['f1e1','f1e1'], 'finalPosition': false },'8/8/8/8/8/4kb2/4n3/4K3 b - - 26 14': { 'moves': ['e2f4','e2f4'], 'finalPosition': false },'8/8/8/8/5n2/4kb2/8/4K3 w - - 27 15': { 'moves': ['e1f1','e1f1'], 'finalPosition': false },'8/8/8/8/5n2/4kb2/8/5K2 b - - 28 15': { 'moves': ['f3e2','f3e2'], 'finalPosition': false },'8/8/8/8/5n2/4k3/4b3/5K2 w - - 29 16': { 'moves': ['f1g1','f1g1'], 'finalPosition': false },'8/8/8/8/5n2/4k3/4b3/6K1 b - - 30 16': { 'moves': ['e3f3','e3f3'], 'finalPosition': false },'8/8/8/8/5n2/5k2/4b3/6K1 w - - 31 17': { 'moves': ['g1h2','g1h2'], 'finalPosition': false },'8/8/8/8/5n2/5k2/4b2K/8 b - - 32 17': { 'moves': ['f3f2','f3f2'], 'finalPosition': false },'8/8/8/8/5n2/8/4bk1K/8 w - - 33 18': { 'moves': ['h2h1','h2h1'], 'finalPosition': false },'8/8/8/8/5n2/8/4bk2/7K b - - 34 18': { 'moves': ['f2g3','f2g3'], 'finalPosition': false },'8/8/8/8/5n2/6k1/4b3/7K w - - 35 19': { 'moves': ['h1g1','h1g1'], 'finalPosition': false },'8/8/8/8/5n2/6k1/4b3/6K1 b - - 36 19': { 'moves': ['f4h3','f4h3'], 'finalPosition': false },'8/8/8/8/8/6kn/4b3/6K1 w - - 37 20': { 'moves': ['g1h1','g1h1'], 'finalPosition': false },'8/8/8/8/8/6kn/4b3/7K b - - 38 20': { 'moves': ['e2f3','e2f3'], 'finalPosition': false },'8/8/8/8/8/5bkn/8/7K w - - 39 21': { 'moves': [], 'finalPosition': true },'8/8/8/8/4k3/1n1b4/6K1/8 b - - 14 8': { 'moves': ['d3e2','d3e2'], 'finalPosition': false },'8/8/8/8/4k3/1n6/4b1K1/8 w - - 15 9': { 'moves': ['g2f2','g2f2'], 'finalPosition': false },'8/8/8/8/3n4/4k3/4b3/5K2 w - - 25 14': { 'moves': ['f1g2'], 'finalPosition': false },'8/8/8/8/3n4/4k3/4b1K1/8 b - - 26 14': { 'moves': ['d4f5'], 'finalPosition': false },'8/8/8/5n2/8/4k3/4b1K1/8 w - - 27 15': { 'moves': ['g2g1'], 'finalPosition': false },'8/8/8/5n2/8/4k3/4b3/6K1 b - - 28 15': { 'moves': ['e3f3'], 'finalPosition': false },'8/8/8/5n2/8/5k2/4b3/6K1 w - - 29 16': { 'moves': ['g1h2'], 'finalPosition': false },'8/8/8/5n2/8/5k2/4b2K/8 b - - 30 16': { 'moves': ['e2f1'], 'finalPosition': false },'8/8/8/5n2/8/5k2/7K/5b2 w - - 31 17': { 'moves': ['h2g1'], 'finalPosition': false },'8/8/8/5n2/8/5k2/8/5bK1 b - - 32 17': { 'moves': ['f5e3'], 'finalPosition': false },'8/8/8/8/8/4nk2/8/5bK1 w - - 33 18': { 'moves': ['g1h2'], 'finalPosition': false },'8/8/8/8/8/4nk2/7K/5b2 b - - 34 18': { 'moves': ['f3f2'], 'finalPosition': false },'8/8/8/8/8/4n3/5k1K/5b2 w - - 35 19': { 'moves': ['h2h1'], 'finalPosition': false },'8/8/8/8/8/4n3/5k2/5b1K b - - 36 19': { 'moves': ['f1g2'], 'finalPosition': false },'8/8/8/8/8/4n3/5kb1/7K w - - 37 20': { 'moves': ['h1h2'], 'finalPosition': false },'8/8/8/8/8/4n3/5kbK/8 b - - 38 20': { 'moves': ['e3f1'], 'finalPosition': false },'8/8/8/8/8/8/5kbK/5n2 w - - 39 21': { 'moves': [], 'finalPosition': true },'8/8/8/8/8/7K/4bkn1/8 b - - 0 1': { 'moves': ['e2d1'], 'finalPosition': false },'8/8/8/8/8/7K/5kn1/3b4 w - - 1 2': { 'moves': ['h3h2'], 'finalPosition': false },'8/8/8/8/8/8/5knK/3b4 b - - 2 2': { 'moves': ['d1g4'], 'finalPosition': false },'8/8/8/8/6b1/8/5knK/8 w - - 3 3': { 'moves': ['h2h1'], 'finalPosition': false },'8/8/8/8/6b1/8/5kn1/7K b - - 4 3': { 'moves': ['g2e3'], 'finalPosition': false },'8/8/8/8/6b1/4n3/5k2/7K w - - 5 4': { 'moves': ['h1h2'], 'finalPosition': false },'8/8/8/8/6b1/4n3/5k1K/8 b - - 6 4': { 'moves': ['e3f1'], 'finalPosition': false },'8/8/8/8/6b1/8/5k1K/5n2 w - - 7 5': { 'moves': ['h2h1'], 'finalPosition': false },'8/8/8/8/6b1/8/5k2/5n1K b - - 8 5': { 'moves': ['g4f3'], 'finalPosition': false },'8/8/8/8/8/5b2/5k2/5n1K w - - 9 6': { 'moves': [], 'finalPosition': true },'8/8/8/8/n1b5/2k5/8/2K5 b - - 0 1': { 'moves': ['c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3','c4d3'], 'finalPosition': false },'8/8/8/8/n7/2kb4/8/2K5 w - - 1 2': { 'moves': ['c1d1','c1d1','c1d1','c1d1','c1d1','c1d1','c1d1','c1d1','c1d1','c1d1','c1d1','c1d1','c1d1','c1d1','c1d1','c1d1','c1d1','c1d1','c1d1','c1d1','c1d1','c1d1','c1d1','c1d1','c1d1','c1d1','c1d1','c1d1','c1d1','c1d1','c1d1','c1d1','c1d1','c1d1','c1d1','c1d1','c1d1','c1d1'], 'finalPosition': false },'8/8/8/8/n7/2kb4/8/3K4 b - - 2 2': { 'moves': ['a4c5','a4c5','a4c5','a4c5','a4c5','a4c5','a4c5','a4c5','a4c5','a4c5','a4c5','a4c5','a4c5','a4c5','a4c5','a4c5','a4c5','a4c5','a4c5','a4c5','a4c5','a4c5','a4c5','a4c5','a4c5','a4c5','a4c5','a4c5','a4c5','a4c5','a4c5','a4c5','a4c5','a4c5','a4c5','a4c5','a4c5','a4c5'], 'finalPosition': false },'8/8/8/2n5/8/2kb4/8/3K4 w - - 3 3': { 'moves': ['d1e1','d1e1','d1e1','d1e1','d1e1','d1e1','d1e1','d1e1','d1e1','d1e1','d1e1','d1e1','d1e1','d1e1','d1e1','d1e1','d1e1','d1e1','d1e1','d1e1','d1e1','d1e1','d1e1','d1e1','d1e1','d1e1','d1e1','d1e1','d1e1','d1e1','d1e1','d1e1','d1e1','d1e1','d1e1','d1e1','d1e1','d1c1'], 'finalPosition': false },'8/8/8/2n5/8/2kb4/8/4K3 b - - 4 3': { 'moves': ['c3d4','c3d4','c3d4','c3d4','c3d4','c3d4','c3d4','c3d4','c3d4','c3d4','c3d4','c3d4','c3d4','c3d4','c3d4','c3d4','c3d4','c3d4','c3d4','c3d4','c3d4','c3d4','c3d4','c3d4','c3d4','c3d4','c3d4','c3d4','c3d4','c3d4','c3d4','c3d4','c3d4','c3d4','c3d4','c3d4','c3d4'], 'finalPosition': false },'8/8/8/2n5/3k4/3b4/8/4K3 w - - 5 4': { 'moves': ['e1d2','e1d2','e1d2','e1d2','e1d1','e1d1','e1d1','e1d1','e1d1','e1d1','e1d1','e1f2','e1f2','e1f2','e1f2','e1f2','e1f2','e1f2','e1f2','e1f2','e1f2','e1f2','e1f2','e1f2','e1f2','e1f2','e1f2','e1f2','e1f2','e1f2','e1f2','e1f2','e1f2','e1f2','e1f2','e1f2','e1f2'], 'finalPosition': false },'8/8/8/2n5/3k4/3b4/3K4/8 b - - 6 4': { 'moves': ['c5b3','c5b3','c5b3','c5b3'], 'finalPosition': false },'8/8/8/8/3k4/1n1b4/3K4/8 w - - 7 5': { 'moves': ['d2e1','d2d1','d2d1','d2d1'], 'finalPosition': false },'8/8/8/8/3k4/1n1b4/8/4K3 b - - 8 5': { 'moves': ['d4e3','d4e3','d4e3','d4e3','d4e3','d4e3','d4e3','d4e3','d4e3'], 'finalPosition': false },'8/8/8/8/8/1n1bk3/8/4K3 w - - 9 6': { 'moves': ['e1d1','e1d1','e1d1','e1d1','e1d1','e1d1','e1d1','e1d1','e1d1'], 'finalPosition': false },'8/8/8/8/8/1n1bk3/8/3K4 b - - 10 6': { 'moves': ['d3e4','d3e4','d3e4','d3e4','d3e4','d3e4','d3e4','d3e4','d3e4'], 'finalPosition': false },'8/8/8/8/4b3/1n2k3/8/3K4 w - - 11 7': { 'moves': ['d1e1','d1e1','d1e1','d1e1','d1e1','d1e1','d1e1','d1e1','d1e1'], 'finalPosition': false },'8/8/8/8/4b3/1n2k3/8/4K3 b - - 12 7': { 'moves': ['e4f3','e4f3','e4f3','e4f3','e4f3','e4f3','e4f3','e4f3','e4f3'], 'finalPosition': false },'8/8/8/8/8/1n2kb2/8/4K3 w - - 13 8': { 'moves': ['e1f1','e1f1','e1f1','e1f1','e1f1','e1f1','e1f1','e1f1','e1f1'], 'finalPosition': false },'8/8/8/8/8/1n2kb2/8/5K2 b - - 14 8': { 'moves': ['b3c5','b3c5','b3c5','b3c5','b3c5','b3c5','b3c5','b3c5','b3c5'], 'finalPosition': false },'8/8/8/2n5/8/4kb2/8/5K2 w - - 15 9': { 'moves': ['f1e1','f1g1','f1g1','f1g1','f1g1','f1g1','f1g1','f1e1','f1e1'], 'finalPosition': false },'8/8/8/2n5/8/4kb2/8/4K3 b - - 16 9': { 'moves': ['c5d3','c5d3','c5d3'], 'finalPosition': false },'8/8/8/8/8/3nkb2/8/4K3 w - - 17 10': { 'moves': ['e1f1','e1f1','e1f1'], 'finalPosition': false },'8/8/8/8/8/3nkb2/8/5K2 b - - 18 10': { 'moves': ['e3f4','e3f4','e3f4'], 'finalPosition': false },'8/8/8/8/5k2/3n1b2/8/5K2 w - - 19 11': { 'moves': ['f1g1','f1g1','f1g1','f1g1'], 'finalPosition': false },'8/8/8/8/5k2/3n1b2/8/6K1 b - - 20 11': { 'moves': ['f4g3','f4g3','f4g3','f4g3','f4g3'], 'finalPosition': false },'8/8/8/8/8/3n1bk1/8/6K1 w - - 21 12': { 'moves': ['g1f1','g1f1','g1f1','g1f1','g1f1'], 'finalPosition': false },'8/8/8/8/8/3n1bk1/8/5K2 b - - 22 12': { 'moves': ['f3g4','f3g4','f3g4','f3g4','f3g4'], 'finalPosition': false },'8/8/8/8/6b1/3n2k1/8/5K2 w - - 23 13': { 'moves': ['f1g1','f1g1','f1g1','f1g1','f1g1'], 'finalPosition': false },'8/8/8/8/6b1/3n2k1/8/6K1 b - - 24 13': { 'moves': ['g4e2','g4h3','g4h3','g4h3','g4h3'], 'finalPosition': false },'8/8/8/8/8/3n2k1/4b3/6K1 w - - 25 14': { 'moves': ['g1h1','g1h1','g1h1'], 'finalPosition': false },'8/8/8/8/8/3n2k1/4b3/7K b - - 26 14': { 'moves': ['d3f2','d3f4','d3f2'], 'finalPosition': false },'8/8/8/8/8/6k1/4bn2/7K w - - 27 15': { 'moves': ['h1g1','h1g1'], 'finalPosition': false },'8/8/8/8/8/6k1/4bn2/6K1 b - - 28 15': { 'moves': ['f2h3','f2h3'], 'finalPosition': false },'8/8/8/8/8/6kn/4b3/6K1 w - - 29 16': { 'moves': ['g1h1','g1h1','g1h1'], 'finalPosition': false },'8/8/8/8/8/6kn/4b3/7K b - - 30 16': { 'moves': ['e2f3','e2f3','e2f3'], 'finalPosition': false },'8/8/8/8/8/5bkn/8/7K w - - 31 17': { 'moves': [], 'finalPosition': true },'8/8/8/8/3k4/1n1b4/8/3K4 b - - 8 5': { 'moves': ['d4e3','d4e3','d4e3'], 'finalPosition': false },'8/8/8/8/8/1n1bk3/8/3K4 w - - 9 6': { 'moves': ['d1e1','d1e1','d1e1'], 'finalPosition': false },'8/8/8/8/8/1n1bk3/8/4K3 b - - 10 6': { 'moves': ['b3d4','b3d4','b3d4'], 'finalPosition': false },'8/8/8/8/3n4/3bk3/8/4K3 w - - 11 7': { 'moves': ['e1d1','e1d1','e1d1'], 'finalPosition': false },'8/8/8/8/3n4/3bk3/8/3K4 b - - 12 7': { 'moves': ['d4e2','d4e2','d4e2'], 'finalPosition': false },'8/8/8/8/8/3bk3/4n3/3K4 w - - 13 8': { 'moves': ['d1e1','d1e1','d1e1'], 'finalPosition': false },'8/8/8/8/8/3bk3/4n3/4K3 b - - 14 8': { 'moves': ['d3c2','d3c2','d3c2'], 'finalPosition': false },'8/8/8/8/8/4k3/2b1n3/4K3 w - - 15 9': { 'moves': ['e1f1','e1f1','e1f1'], 'finalPosition': false },'8/8/8/8/8/4k3/2b1n3/5K2 b - - 16 9': { 'moves': ['e2f4','e2f4','e2f4'], 'finalPosition': false },'8/8/8/8/5n2/4k3/2b5/5K2 w - - 17 10': { 'moves': ['f1g1','f1g1','f1e1'], 'finalPosition': false },'8/8/8/8/5n2/4k3/2b5/6K1 b - - 18 10': { 'moves': ['c2d3','c2d3'], 'finalPosition': false },'8/8/8/8/5n2/3bk3/8/6K1 w - - 19 11': { 'moves': ['g1h1','g1h2'], 'finalPosition': false },'8/8/8/8/5n2/3bk3/8/7K b - - 20 11': { 'moves': ['e3f2'], 'finalPosition': false },'8/8/8/8/5n2/3b4/5k2/7K w - - 21 12': { 'moves': ['h1h2'], 'finalPosition': false },'8/8/8/8/5n2/3b4/5k1K/8 b - - 22 12': { 'moves': ['d3e2'], 'finalPosition': false },'8/8/8/8/5n2/8/4bk1K/8 w - - 23 13': { 'moves': ['h2h1'], 'finalPosition': false },'8/8/8/8/5n2/8/4bk2/7K b - - 24 13': { 'moves': ['f2g3'], 'finalPosition': false },'8/8/8/8/5n2/6k1/4b3/7K w - - 25 14': { 'moves': ['h1g1','h1g1'], 'finalPosition': false },'8/8/8/8/5n2/6k1/4b3/6K1 b - - 26 14': { 'moves': ['f4h3','f4h3'], 'finalPosition': false },'8/8/8/8/8/6kn/4b3/6K1 w - - 27 15': { 'moves': ['g1h1','g1h1','g1h1'], 'finalPosition': false },'8/8/8/8/8/6kn/4b3/7K b - - 28 15': { 'moves': ['e2f3','e2f3','e2f3'], 'finalPosition': false },'8/8/8/8/8/5bkn/8/7K w - - 29 16': { 'moves': [], 'finalPosition': true },'8/8/8/8/5n2/3bk3/7K/8 b - - 20 11': { 'moves': ['e3f2'], 'finalPosition': false },'8/8/8/8/5n2/3b4/5k1K/8 w - - 21 12': { 'moves': ['h2h1'], 'finalPosition': false },'8/8/8/8/5n2/3b4/5k2/7K b - - 22 12': { 'moves': ['f2g3'], 'finalPosition': false },'8/8/8/8/5n2/3b2k1/8/7K w - - 23 13': { 'moves': ['h1g1'], 'finalPosition': false },'8/8/8/8/5n2/3b2k1/8/6K1 b - - 24 13': { 'moves': ['f4h3'], 'finalPosition': false },'8/8/8/8/8/3b2kn/8/6K1 w - - 25 14': { 'moves': ['g1h1'], 'finalPosition': false },'8/8/8/8/8/3b2kn/8/7K b - - 26 14': { 'moves': ['d3e4'], 'finalPosition': false },'8/8/8/8/4b3/6kn/8/7K w - - 27 15': { 'moves': [], 'finalPosition': true },'8/8/8/8/5n2/4k3/2b5/4K3 b - - 18 10': { 'moves': ['f4g2'], 'finalPosition': false },'8/8/8/8/8/4k3/2b3n1/4K3 w - - 19 11': { 'moves': ['e1f1'], 'finalPosition': false },'8/8/8/8/8/4k3/2b3n1/5K2 b - - 20 11': { 'moves': ['e3f3'], 'finalPosition': false },'8/8/8/8/8/5k2/2b3n1/5K2 w - - 21 12': { 'moves': ['f1g1'], 'finalPosition': false },'8/8/8/8/8/5k2/2b3n1/6K1 b - - 22 12': { 'moves': ['c2d3'], 'finalPosition': false },'8/8/8/8/8/3b1k2/6n1/6K1 w - - 23 13': { 'moves': ['g1h2'], 'finalPosition': false },'8/8/8/8/8/3b1k2/6nK/8 b - - 24 13': { 'moves': ['g2f4'], 'finalPosition': false },'8/8/8/8/5n2/3b1k2/7K/8 w - - 25 14': { 'moves': ['h2g1'], 'finalPosition': false },'8/8/8/8/5n2/3b1k2/8/6K1 b - - 26 14': { 'moves': ['f3g3'], 'finalPosition': false },'8/8/8/8/5n2/3b2k1/8/6K1 w - - 27 15': { 'moves': ['g1h1'], 'finalPosition': false },'8/8/8/8/5n2/3b2k1/8/7K b - - 28 15': { 'moves': ['d3e2'], 'finalPosition': false },'8/8/8/8/5n2/6k1/4b3/7K w - - 29 16': { 'moves': ['h1g1','h1g1'], 'finalPosition': false },'8/8/8/8/5n2/6k1/4b3/6K1 b - - 30 16': { 'moves': ['f4h3','f4h3'], 'finalPosition': false },'8/8/8/8/8/6kn/4b3/6K1 w - - 31 17': { 'moves': ['g1h1','g1h1'], 'finalPosition': false },'8/8/8/8/8/6kn/4b3/7K b - - 32 17': { 'moves': ['e2f3','e2f3'], 'finalPosition': false },'8/8/8/8/8/5bkn/8/7K w - - 33 18': { 'moves': [], 'finalPosition': true },'8/8/8/2n5/3k4/3b4/8/3K4 b - - 6 4': { 'moves': ['c5b3','c5b3','c5b3','c5b3','c5b3','c5b3','c5b3'], 'finalPosition': false },'8/8/8/8/3k4/1n1b4/8/3K4 w - - 7 5': { 'moves': ['d1e1','d1e1','d1e1','d1e1','d1e1','d1e1','d1e1','d1e1'], 'finalPosition': false },'8/8/8/2n5/8/4kb2/8/6K1 b - - 16 9': { 'moves': ['e3f4','e3f4','e3f4','e3f4','e3f4','e3f4'], 'finalPosition': false },'8/8/8/2n5/5k2/5b2/8/6K1 w - - 17 10': { 'moves': ['g1f2','g1f2','g1f2','g1h2','g1h2','g1f1'], 'finalPosition': false },'8/8/8/2n5/5k2/5b2/5K2/8 b - - 18 10': { 'moves': ['c5d3','c5d3','c5d3'], 'finalPosition': false },'8/8/8/8/5k2/3n1b2/5K2/8 w - - 19 11': { 'moves': ['f2f1','f2f1','f2g1'], 'finalPosition': false },'8/8/8/8/5k2/3n1b2/8/5K2 b - - 20 11': { 'moves': ['f4g3','f4g3'], 'finalPosition': false },'8/8/8/8/8/3n1bk1/8/5K2 w - - 21 12': { 'moves': ['f1g1','f1g1'], 'finalPosition': false },'8/8/8/8/8/3n1bk1/8/6K1 b - - 22 12': { 'moves': ['f3e2','f3e2'], 'finalPosition': false },'8/8/8/8/8/3n2k1/4b3/6K1 w - - 23 13': { 'moves': ['g1h1','g1h1'], 'finalPosition': false },'8/8/8/8/8/3n2k1/4b3/7K b - - 24 13': { 'moves': ['d3f4','d3f2'], 'finalPosition': false },'8/8/8/8/8/6k1/4bn2/7K w - - 25 14': { 'moves': ['h1g1'], 'finalPosition': false },'8/8/8/8/8/6k1/4bn2/6K1 b - - 26 14': { 'moves': ['f2h3'], 'finalPosition': false },'8/8/8/8/8/3n2kb/8/6K1 w - - 25 14': { 'moves': ['g1h1','g1h1','g1h1','g1h1'], 'finalPosition': false },'8/8/8/8/8/3n2kb/8/7K b - - 26 14': { 'moves': ['d3e5','d3e5','d3e5','d3e5'], 'finalPosition': false },'8/8/8/4n3/8/6kb/8/7K w - - 27 15': { 'moves': ['h1g1','h1g1','h1g1','h1g1'], 'finalPosition': false },'8/8/8/4n3/8/6kb/8/6K1 b - - 28 15': { 'moves': ['e5f3','e5f3','e5f3','e5f3'], 'finalPosition': false },'8/8/8/8/8/5nkb/8/6K1 w - - 29 16': { 'moves': ['g1h1','g1h1','g1h1','g1h1'], 'finalPosition': false },'8/8/8/8/8/5nkb/8/7K b - - 30 16': { 'moves': ['h3g2','h3g2','h3g2','h3g2'], 'finalPosition': false },'8/8/8/8/8/5nk1/6b1/7K w - - 31 17': { 'moves': [], 'finalPosition': true },'8/8/8/2n5/5k2/5b2/7K/8 b - - 18 10': { 'moves': ['f4g4','f4g4'], 'finalPosition': false },'8/8/8/2n5/6k1/5b2/7K/8 w - - 19 11': { 'moves': ['h2g1','h2g1'], 'finalPosition': false },'8/8/8/2n5/6k1/5b2/8/6K1 b - - 20 11': { 'moves': ['g4g3','g4g3'], 'finalPosition': false },'8/8/8/2n5/8/5bk1/8/6K1 w - - 21 12': { 'moves': ['g1f1','g1f1'], 'finalPosition': false },'8/8/8/2n5/8/5bk1/8/5K2 b - - 22 12': { 'moves': ['c5d3','c5d3'], 'finalPosition': false },'8/8/8/8/8/3n1bk1/8/5K2 w - - 23 13': { 'moves': ['f1g1','f1g1'], 'finalPosition': false },'8/8/8/8/8/3n1bk1/8/6K1 b - - 24 13': { 'moves': ['f3e2','f3e2'], 'finalPosition': false },'8/8/8/8/5n2/6k1/4b3/7K w - - 27 15': { 'moves': ['h1g1'], 'finalPosition': false },'8/8/8/8/5n2/6k1/4b3/6K1 b - - 28 15': { 'moves': ['f4h3'], 'finalPosition': false },'8/8/8/2n5/5k2/5b2/8/5K2 b - - 18 10': { 'moves': ['c5d3'], 'finalPosition': false },'8/8/8/2n5/3k4/3b4/5K2/8 b - - 6 4': { 'moves': ['d4e4','d4e4','d4e4','d4e4','d4e4','d4e4','d4e4','d4e4','d4e4','d4e4','d4e4','d4e4','d4e4','d4e4','d4e4','d4e4','d4e4','d4e4','d4e4','d4e4','d4e4','d4e4','d4e4','d4e4','d4e4','d4e4'], 'finalPosition': false },'8/8/8/2n5/4k3/3b4/5K2/8 w - - 7 5': { 'moves': ['f2g3','f2g3','f2g3','f2g3','f2g3','f2g3','f2g3','f2g3','f2g3','f2g3','f2g3','f2g3','f2g3','f2g3','f2g3','f2g3','f2g3','f2g3','f2g3','f2g3','f2g3','f2g3','f2g3','f2g3','f2e1','f2e1'], 'finalPosition': false },'8/8/8/2n5/4k3/3b2K1/8/8 b - - 8 5': { 'moves': ['d3e2','d3e2','d3e2','d3e2','d3e2','d3e2','d3e2','d3e2','d3e2','d3e2','d3e2','d3e2','d3e2','d3e2','d3e2','d3e2','d3e2','d3e2','d3e2','d3e2','d3e2','d3e2','d3e2','d3e2'], 'finalPosition': false },'8/8/8/2n5/4k3/6K1/4b3/8 w - - 9 6': { 'moves': ['g3g2','g3g2','g3h2','g3h3','g3h3','g3h3','g3h3','g3h3','g3h3','g3h3','g3h3','g3h3','g3h3','g3h3','g3h4','g3h4','g3h4','g3h4','g3h4','g3h4','g3h4','g3h4','g3h4','g3f2'], 'finalPosition': false },'8/8/8/2n5/4k3/8/4b1K1/8 b - - 10 6': { 'moves': ['c5d3','c5d3'], 'finalPosition': false },'8/8/8/8/4k3/3n4/4b1K1/8 w - - 11 7': { 'moves': ['g2h3','g2g3'], 'finalPosition': false },'8/8/8/8/4k3/3n3K/4b3/8 b - - 12 7': { 'moves': ['e4f4'], 'finalPosition': false },'8/8/8/8/5k2/3n3K/4b3/8 w - - 13 8': { 'moves': ['h3h4','h3h2','h3h2','h3h4','h3h4','h3h4','h3h4','h3h4','h3h4','h3h4'], 'finalPosition': false },'8/8/8/8/5k1K/3n4/4b3/8 b - - 14 8': { 'moves': ['d3e1','d3e1','d3e1','d3e1','d3e1','d3e1','d3e1','d3e1'], 'finalPosition': false },'8/8/8/8/5k1K/8/4b3/4n3 w - - 15 9': { 'moves': ['h4h3','h4h3','h4h3','h4h3','h4h3','h4h3','h4h3','h4h3'], 'finalPosition': false },'8/8/8/8/5k2/7K/4b3/4n3 b - - 16 9': { 'moves': ['e2g4','e2g4','e2g4','e2g4','e2g4','e2g4','e2g4','e2g4'], 'finalPosition': false },'8/8/8/8/5kb1/7K/8/4n3 w - - 17 10': { 'moves': ['h3h2','h3h4','h3h4','h3h2','h3h2','h3h2','h3h2','h3h2'], 'finalPosition': false },'8/8/8/8/5kb1/8/7K/4n3 b - - 18 10': { 'moves': ['f4f3','f4f3','f4f3','f4f3','f4f3','f4f3'], 'finalPosition': false },'8/8/8/8/6b1/5k2/7K/4n3 w - - 19 11': { 'moves': ['h2g1','h2h1','h2g1','h2g1','h2g1','h2g1'], 'finalPosition': false },'8/8/8/8/6b1/5k2/8/4n1K1 b - - 20 11': { 'moves': ['g4h3','g4h3','g4h3','g4h3','g4h3'], 'finalPosition': false },'8/8/8/8/8/5k1b/8/4n1K1 w - - 21 12': { 'moves': ['g1h2','g1h1','g1h2','g1h2','g1h2'], 'finalPosition': false },'8/8/8/8/8/5k1b/7K/4n3 b - - 22 12': { 'moves': ['f3g4','h3f1','h3f1','h3f1'], 'finalPosition': false },'8/8/8/8/6k1/7b/7K/4n3 w - - 23 13': { 'moves': ['h2g1'], 'finalPosition': false },'8/8/8/8/6k1/7b/8/4n1K1 b - - 24 13': { 'moves': ['g4g3'], 'finalPosition': false },'8/8/8/8/8/6kb/8/4n1K1 w - - 25 14': { 'moves': ['g1h1'], 'finalPosition': false },'8/8/8/8/8/6kb/8/4n2K b - - 26 14': { 'moves': ['h3g2'], 'finalPosition': false },'8/8/8/8/8/6k1/6b1/4n2K w - - 27 15': { 'moves': ['h1g1'], 'finalPosition': false },'8/8/8/8/8/6k1/6b1/4n1K1 b - - 28 15': { 'moves': ['e1f3'], 'finalPosition': false },'8/8/8/8/8/5nk1/6b1/6K1 w - - 29 16': { 'moves': [], 'finalPosition': true },'8/8/8/8/4k3/3n2K1/4b3/8 b - - 12 7': { 'moves': ['e4e3'], 'finalPosition': false },'8/8/8/8/8/3nk1K1/4b3/8 w - - 13 8': { 'moves': ['g3h4'], 'finalPosition': false },'8/8/8/8/7K/3nk3/4b3/8 b - - 14 8': { 'moves': ['e3f4'], 'finalPosition': false },'8/8/8/8/5k1K/3n4/4b3/8 w - - 15 9': { 'moves': ['h4h3'], 'finalPosition': false },'8/8/8/8/5k2/3n3K/4b3/8 b - - 16 9': { 'moves': ['d3e1'], 'finalPosition': false },'8/8/8/8/5k2/7K/4b3/4n3 w - - 17 10': { 'moves': ['h3h4'], 'finalPosition': false },'8/8/8/8/5k1K/8/4b3/4n3 b - - 18 10': { 'moves': ['e1g2'], 'finalPosition': false },'8/8/8/8/5k1K/8/4b1n1/8 w - - 19 11': { 'moves': ['h4h3'], 'finalPosition': false },'8/8/8/8/5k2/7K/4b1n1/8 b - - 20 11': { 'moves': ['f4f3'], 'finalPosition': false },'8/8/8/8/8/5k1K/4b1n1/8 w - - 21 12': { 'moves': ['h3h2'], 'finalPosition': false },'8/8/8/8/8/5k2/4b1nK/8 b - - 22 12': { 'moves': ['g2f4'], 'finalPosition': false },'8/8/8/8/5n2/5k2/4b2K/8 w - - 23 13': { 'moves': ['h2g1'], 'finalPosition': false },'8/8/8/8/5n2/5k2/4b3/6K1 b - - 24 13': { 'moves': ['f3g3'], 'finalPosition': false },'8/8/8/8/5n2/6k1/4b3/6K1 w - - 25 14': { 'moves': ['g1h1'], 'finalPosition': false },'8/8/8/8/5n2/6k1/4b3/7K b - - 26 14': { 'moves': ['e2d3'], 'finalPosition': false },'8/8/8/8/5n2/3b2k1/8/7K w - - 27 15': { 'moves': ['h1g1'], 'finalPosition': false },'8/8/8/8/5n2/3b2k1/8/6K1 b - - 28 15': { 'moves': ['f4h3'], 'finalPosition': false },'8/8/8/8/8/3b2kn/8/6K1 w - - 29 16': { 'moves': ['g1h1'], 'finalPosition': false },'8/8/8/8/8/3b2kn/8/7K b - - 30 16': { 'moves': ['d3e4'], 'finalPosition': false },'8/8/8/8/4b3/6kn/8/7K w - - 31 17': { 'moves': [], 'finalPosition': true },'8/8/8/2n5/4k3/8/4b2K/8 b - - 10 6': { 'moves': ['e4f4'], 'finalPosition': false },'8/8/8/2n5/5k2/8/4b2K/8 w - - 11 7': { 'moves': ['h2g2'], 'finalPosition': false },'8/8/8/2n5/5k2/8/4b1K1/8 b - - 12 7': { 'moves': ['c5d3','c5d3','c5d3','c5d3','c5d3'], 'finalPosition': false },'8/8/8/8/5k2/3n4/4b1K1/8 w - - 13 8': { 'moves': ['g2h3','g2h3','g2h3','g2h3','g2h3'], 'finalPosition': false },'8/8/8/8/5k2/3n3K/4b3/8 b - - 14 8': { 'moves': ['d3e1','d3e1','d3e1','d3e1','d3e1','d3e1','d3e1'], 'finalPosition': false },'8/8/8/8/5k2/7K/4b3/4n3 w - - 15 9': { 'moves': ['h3h4','h3h4','h3h4','h3h2','h3h2','h3h4','h3h4'], 'finalPosition': false },'8/8/8/8/5k1K/8/4b3/4n3 b - - 16 9': { 'moves': ['e1g2','e1g2','e1g2','e1g2','e1g2'], 'finalPosition': false },'8/8/8/8/5k1K/8/4b1n1/8 w - - 17 10': { 'moves': ['h4h3','h4h3','h4h3','h4h3','h4h3'], 'finalPosition': false },'8/8/8/8/5k2/7K/4b1n1/8 b - - 18 10': { 'moves': ['f4f3','f4f3','f4f3','f4f3','f4f3'], 'finalPosition': false },'8/8/8/8/8/5k1K/4b1n1/8 w - - 19 11': { 'moves': ['h3h2','h3h2','h3h2','h3h2','h3h2'], 'finalPosition': false },'8/8/8/8/8/5k2/4b1nK/8 b - - 20 11': { 'moves': ['g2f4','g2f4','g2f4','g2f4','g2f4'], 'finalPosition': false },'8/8/8/8/5n2/5k2/4b2K/8 w - - 21 12': { 'moves': ['h2g1','h2h1','h2g1','h2h1','h2g1'], 'finalPosition': false },'8/8/8/8/5n2/5k2/4b3/6K1 b - - 22 12': { 'moves': ['f3g3','f3g3','f3g3'], 'finalPosition': false },'8/8/8/8/5n2/6k1/4b3/6K1 w - - 23 13': { 'moves': ['g1h1','g1h1','g1h1'], 'finalPosition': false },'8/8/8/8/5n2/6k1/4b3/7K b - - 24 13': { 'moves': ['e2d3','e2d3','e2d3'], 'finalPosition': false },'8/8/8/8/5n2/3b2k1/8/7K w - - 25 14': { 'moves': ['h1g1','h1g1','h1g1'], 'finalPosition': false },'8/8/8/8/5n2/3b2k1/8/6K1 b - - 26 14': { 'moves': ['f4h3','f4h3','f4h3'], 'finalPosition': false },'8/8/8/8/8/3b2kn/8/6K1 w - - 27 15': { 'moves': ['g1h1','g1h1','g1h1'], 'finalPosition': false },'8/8/8/8/8/3b2kn/8/7K b - - 28 15': { 'moves': ['d3e4','d3e4','d3e4'], 'finalPosition': false },'8/8/8/8/4b3/6kn/8/7K w - - 29 16': { 'moves': [], 'finalPosition': true },'8/8/8/2n5/4k3/7K/4b3/8 b - - 10 6': { 'moves': ['e4f4','e4f4','e4f4','e4f4','e4f4','e4f4','e4f4','e4f4','e4f4','e4f4','e4f4'], 'finalPosition': false },'8/8/8/2n5/5k2/7K/4b3/8 w - - 11 7': { 'moves': ['h3h4','h3h4','h3h2','h3h2','h3h2','h3h2','h3h2','h3g2','h3g2','h3g2','h3g2'], 'finalPosition': false },'8/8/8/2n5/5k1K/8/4b3/8 b - - 12 7': { 'moves': ['c5d3','c5d3'], 'finalPosition': false },'8/8/8/8/5k1K/3n4/4b3/8 w - - 13 8': { 'moves': ['h4h3','h4h3'], 'finalPosition': false },'8/8/8/8/5n2/5k2/4b3/7K b - - 22 12': { 'moves': ['f3g3','f3g3'], 'finalPosition': false },'8/8/8/8/5n2/6k1/4b3/7K w - - 23 13': { 'moves': ['h1g1','h1g1'], 'finalPosition': false },'8/8/8/8/5n2/6k1/4b3/6K1 b - - 24 13': { 'moves': ['f4h3','f4h3'], 'finalPosition': false },'8/8/8/8/8/6kn/4b3/6K1 w - - 25 14': { 'moves': ['g1h1','g1h1','g1h1'], 'finalPosition': false },'8/8/8/8/8/6kn/4b3/7K b - - 26 14': { 'moves': ['e2f3','e2f3','e2f3'], 'finalPosition': false },'8/8/8/8/8/5bkn/8/7K w - - 27 15': { 'moves': [], 'finalPosition': true },'8/8/8/2n5/5k2/8/4b2K/8 b - - 12 7': { 'moves': ['f4g4','f4g4','f4g4','f4g4','f4g4'], 'finalPosition': false },'8/8/8/2n5/6k1/8/4b2K/8 w - - 13 8': { 'moves': ['h2g2','h2g2','h2g2','h2g2','h2g2'], 'finalPosition': false },'8/8/8/2n5/6k1/8/4b1K1/8 b - - 14 8': { 'moves': ['c5d3','c5d3','c5d3','c5d3','c5d3'], 'finalPosition': false },'8/8/8/8/6k1/3n4/4b1K1/8 w - - 15 9': { 'moves': ['g2h2','g2h2','g2g1','g2g1','g2h1'], 'finalPosition': false },'8/8/8/8/6k1/3n4/4b2K/8 b - - 16 9': { 'moves': ['d3f4','d3f4'], 'finalPosition': false },'8/8/8/8/5nk1/8/4b2K/8 w - - 17 10': { 'moves': ['h2h1','h2g1'], 'finalPosition': false },'8/8/8/8/5nk1/8/4b3/7K b - - 18 10': { 'moves': ['g4g3'], 'finalPosition': false },'8/8/8/8/5n2/6k1/4b3/7K w - - 19 11': { 'moves': ['h1g1','h1g1'], 'finalPosition': false },'8/8/8/8/5n2/6k1/4b3/6K1 b - - 20 11': { 'moves': ['f4h3','f4h3'], 'finalPosition': false },'8/8/8/8/8/6kn/4b3/6K1 w - - 21 12': { 'moves': ['g1h1','g1h1','g1h1'], 'finalPosition': false },'8/8/8/8/8/6kn/4b3/7K b - - 22 12': { 'moves': ['e2f3','e2f3','e2f3'], 'finalPosition': false },'8/8/8/8/8/5bkn/8/7K w - - 23 13': { 'moves': [], 'finalPosition': true },'8/8/8/8/5nk1/8/4b3/6K1 b - - 18 10': { 'moves': ['g4g3'], 'finalPosition': false },'8/8/8/8/5n2/6k1/4b3/6K1 w - - 19 11': { 'moves': ['g1h1','g1h1'], 'finalPosition': false },'8/8/8/8/5n2/6k1/4b3/7K b - - 20 11': { 'moves': ['e2d3','e2d3'], 'finalPosition': false },'8/8/8/8/5n2/3b2k1/8/7K w - - 21 12': { 'moves': ['h1g1','h1g1'], 'finalPosition': false },'8/8/8/8/5n2/3b2k1/8/6K1 b - - 22 12': { 'moves': ['f4h3','f4h3'], 'finalPosition': false },'8/8/8/8/8/3b2kn/8/6K1 w - - 23 13': { 'moves': ['g1h1','g1h1'], 'finalPosition': false },'8/8/8/8/8/3b2kn/8/7K b - - 24 13': { 'moves': ['d3e4','d3e4'], 'finalPosition': false },'8/8/8/8/4b3/6kn/8/7K w - - 25 14': { 'moves': [], 'finalPosition': true },'8/8/8/8/6k1/3n4/4b3/6K1 b - - 16 9': { 'moves': ['g4g3','g4g3'], 'finalPosition': false },'8/8/8/8/8/3n2k1/4b3/6K1 w - - 17 10': { 'moves': ['g1h1','g1h1'], 'finalPosition': false },'8/8/8/8/8/3n2k1/4b3/7K b - - 18 10': { 'moves': ['d3f4','d3f2'], 'finalPosition': false },'8/8/8/8/8/6k1/4bn2/7K w - - 19 11': { 'moves': ['h1g1'], 'finalPosition': false },'8/8/8/8/8/6k1/4bn2/6K1 b - - 20 11': { 'moves': ['f2h3'], 'finalPosition': false },'8/8/8/8/6k1/3n4/4b3/7K b - - 16 9': { 'moves': ['g4g3'], 'finalPosition': false },'8/8/8/8/8/3n2k1/4b3/7K w - - 17 10': { 'moves': ['h1g1'], 'finalPosition': false },'8/8/8/8/8/3n2k1/4b3/6K1 b - - 18 10': { 'moves': ['d3f4'], 'finalPosition': false },'8/8/8/8/5k2/8/4b2K/4n3 b - - 16 9': { 'moves': ['f4g4','f4g4'], 'finalPosition': false },'8/8/8/8/6k1/8/4b2K/4n3 w - - 17 10': { 'moves': ['h2h1','h2g1'], 'finalPosition': false },'8/8/8/8/6k1/8/4b3/4n2K b - - 18 10': { 'moves': ['g4g3'], 'finalPosition': false },'8/8/8/8/8/6k1/4b3/4n2K w - - 19 11': { 'moves': ['h1g1'], 'finalPosition': false },'8/8/8/8/8/6k1/4b3/4n1K1 b - - 20 11': { 'moves': ['e1d3'], 'finalPosition': false },'8/8/8/8/8/3n2k1/4b3/6K1 w - - 21 12': { 'moves': ['g1h1'], 'finalPosition': false },'8/8/8/8/8/3n2k1/4b3/7K b - - 22 12': { 'moves': ['d3f2'], 'finalPosition': false },'8/8/8/8/8/6k1/4bn2/7K w - - 23 13': { 'moves': ['h1g1'], 'finalPosition': false },'8/8/8/8/8/6k1/4bn2/6K1 b - - 24 13': { 'moves': ['f2h3'], 'finalPosition': false },'8/8/8/8/6k1/8/4b3/4n1K1 b - - 18 10': { 'moves': ['g4g3'], 'finalPosition': false },'8/8/8/8/8/6k1/4b3/4n1K1 w - - 19 11': { 'moves': ['g1h1'], 'finalPosition': false },'8/8/8/8/8/6k1/4b3/4n2K b - - 20 11': { 'moves': ['e2g4'], 'finalPosition': false },'8/8/8/8/6b1/6k1/8/4n2K w - - 21 12': { 'moves': ['h1g1','h1g1'], 'finalPosition': false },'8/8/8/8/6b1/6k1/8/4n1K1 b - - 22 12': { 'moves': ['g4h3','g4h3'], 'finalPosition': false },'8/8/8/8/8/6kb/8/4n1K1 w - - 23 13': { 'moves': ['g1h1','g1h1'], 'finalPosition': false },'8/8/8/8/8/6kb/8/4n2K b - - 24 13': { 'moves': ['h3g2','h3g2'], 'finalPosition': false },'8/8/8/8/8/6k1/6b1/4n2K w - - 25 14': { 'moves': ['h1g1','h1g1'], 'finalPosition': false },'8/8/8/8/8/6k1/6b1/4n1K1 b - - 26 14': { 'moves': ['e1f3','e1f3'], 'finalPosition': false },'8/8/8/8/8/5nk1/6b1/6K1 w - - 27 15': { 'moves': [], 'finalPosition': true },'8/8/8/2n5/4k2K/8/4b3/8 b - - 10 6': { 'moves': ['e4f4','e4f4','e4f4','e4f4','e4f4','e4f4','e4f4','e4f4','e4f4'], 'finalPosition': false },'8/8/8/2n5/5k1K/8/4b3/8 w - - 11 7': { 'moves': ['h4h3','h4h3','h4h3','h4h3','h4h3','h4h3','h4h3','h4h3','h4h3'], 'finalPosition': false },'8/8/8/2n5/5k2/7K/4b3/8 b - - 12 7': { 'moves': ['c5d3','c5d3','c5d3','c5d3','c5d3','c5d3','c5d3','c5d3','c5d3'], 'finalPosition': false },'8/8/8/8/5k2/3n4/4b2K/8 b - - 14 8': { 'moves': ['e2f1','e2f1'], 'finalPosition': false },'8/8/8/8/5k2/3n4/7K/5b2 w - - 15 9': { 'moves': ['h2g1','h2g1'], 'finalPosition': false },'8/8/8/8/5k2/3n4/8/5bK1 b - - 16 9': { 'moves': ['f1h3','f1h3'], 'finalPosition': false },'8/8/8/8/5k2/3n3b/8/6K1 w - - 17 10': { 'moves': ['g1h2','g1h2'], 'finalPosition': false },'8/8/8/8/5k2/3n3b/7K/8 b - - 18 10': { 'moves': ['f4g4','f4g4'], 'finalPosition': false },'8/8/8/8/6k1/3n3b/7K/8 w - - 19 11': { 'moves': ['h2h1','h2g1'], 'finalPosition': false },'8/8/8/8/6k1/3n3b/8/7K b - - 20 11': { 'moves': ['g4g3'], 'finalPosition': false },'8/8/8/8/8/3n2kb/8/7K w - - 21 12': { 'moves': ['h1g1'], 'finalPosition': false },'8/8/8/8/8/3n2kb/8/6K1 b - - 22 12': { 'moves': ['d3e5'], 'finalPosition': false },'8/8/8/4n3/8/6kb/8/6K1 w - - 23 13': { 'moves': ['g1h1'], 'finalPosition': false },'8/8/8/4n3/8/6kb/8/7K b - - 24 13': { 'moves': ['h3g2'], 'finalPosition': false },'8/8/8/4n3/8/6k1/6b1/7K w - - 25 14': { 'moves': ['h1g1'], 'finalPosition': false },'8/8/8/4n3/8/6k1/6b1/6K1 b - - 26 14': { 'moves': ['e5f3'], 'finalPosition': false },'8/8/8/8/6k1/3n3b/8/6K1 b - - 20 11': { 'moves': ['g4g3'], 'finalPosition': false },'8/8/8/8/8/3n2kb/8/6K1 w - - 21 12': { 'moves': ['g1h1'], 'finalPosition': false },'8/8/8/8/8/3n2kb/8/7K b - - 22 12': { 'moves': ['d3e5'], 'finalPosition': false },'8/8/8/4n3/8/6kb/8/7K w - - 23 13': { 'moves': ['h1g1'], 'finalPosition': false },'8/8/8/4n3/8/6kb/8/6K1 b - - 24 13': { 'moves': ['e5f3'], 'finalPosition': false },'8/8/8/8/8/5nkb/8/6K1 w - - 25 14': { 'moves': ['g1h1','g1h1'], 'finalPosition': false },'8/8/8/8/8/5nkb/8/7K b - - 26 14': { 'moves': ['h3g2','h3g2'], 'finalPosition': false },'8/8/8/8/8/5nk1/6b1/7K w - - 27 15': { 'moves': [], 'finalPosition': true },'8/8/8/8/5kbK/8/8/4n3 b - - 18 10': { 'moves': ['e1f3','e1g2'], 'finalPosition': false },'8/8/8/8/5kbK/5n2/8/8 w - - 19 11': { 'moves': [], 'finalPosition': true },'8/8/8/8/5kbK/8/6n1/8 w - - 19 11': { 'moves': [], 'finalPosition': true },'8/8/8/8/6b1/5k2/8/4n2K b - - 20 11': { 'moves': ['f3g3'], 'finalPosition': false },'8/8/8/8/8/5k1b/8/4n2K b - - 22 12': { 'moves': ['f3g3'], 'finalPosition': false },'8/8/8/8/8/6kb/8/4n2K w - - 23 13': { 'moves': ['h1g1'], 'finalPosition': false },'8/8/8/8/8/6kb/8/4n1K1 b - - 24 13': { 'moves': ['e1f3'], 'finalPosition': false },'8/8/8/8/8/5k2/7K/4nb2 w - - 23 13': { 'moves': ['h2h1','h2g1','h2g1'], 'finalPosition': false },'8/8/8/8/8/5k2/8/4nb1K b - - 24 13': { 'moves': ['f3f2'], 'finalPosition': false },'8/8/8/8/8/8/5k2/4nb1K w - - 25 14': { 'moves': ['h1h2'], 'finalPosition': false },'8/8/8/8/8/8/5k1K/4nb2 b - - 26 14': { 'moves': ['e1f3'], 'finalPosition': false },'8/8/8/8/8/5n2/5k1K/5b2 w - - 27 15': { 'moves': ['h2h1'], 'finalPosition': false },'8/8/8/8/8/5n2/5k2/5b1K b - - 28 15': { 'moves': ['f1g2'], 'finalPosition': false },'8/8/8/8/8/5n2/5kb1/7K w - - 29 16': { 'moves': [], 'finalPosition': true },'8/8/8/8/8/5k2/8/4nbK1 b - - 24 13': { 'moves': ['f3e2','f3e2'], 'finalPosition': false },'8/8/8/8/8/8/4k3/4nbK1 w - - 25 14': { 'moves': ['g1h1','g1h2'], 'finalPosition': false },'8/8/8/8/8/8/4k3/4nb1K b - - 26 14': { 'moves': ['e2f2'], 'finalPosition': false },'8/8/8/8/8/8/5k2/4nb1K w - - 27 15': { 'moves': ['h1h2'], 'finalPosition': false },'8/8/8/8/8/8/5k1K/4nb2 b - - 28 15': { 'moves': ['e1f3'], 'finalPosition': false },'8/8/8/8/8/5n2/5k1K/5b2 w - - 29 16': { 'moves': ['h2h1'], 'finalPosition': false },'8/8/8/8/8/5n2/5k2/5b1K b - - 30 16': { 'moves': ['f1g2'], 'finalPosition': false },'8/8/8/8/8/5n2/5kb1/7K w - - 31 17': { 'moves': [], 'finalPosition': true },'8/8/8/8/8/8/4k2K/4nb2 b - - 26 14': { 'moves': ['e2f2'], 'finalPosition': false },'8/8/8/8/8/8/5k1K/4nb2 w - - 27 15': { 'moves': ['h2h1'], 'finalPosition': false },'8/8/8/8/8/8/5k2/4nb1K b - - 28 15': { 'moves': ['f1g2'], 'finalPosition': false },'8/8/8/8/8/8/5kb1/4n2K w - - 29 16': { 'moves': ['h1h2'], 'finalPosition': false },'8/8/8/8/8/8/5kbK/4n3 b - - 30 16': { 'moves': ['e1f3'], 'finalPosition': false },'8/8/8/8/8/5n2/5kbK/8 w - - 31 17': { 'moves': [], 'finalPosition': true },'8/8/8/2n5/4k3/8/4bK2/8 b - - 10 6': { 'moves': ['e2f3'], 'finalPosition': false },'8/8/8/2n5/4k3/5b2/5K2/8 w - - 11 7': { 'moves': ['f2g3'], 'finalPosition': false },'8/8/8/2n5/4k3/5bK1/8/8 b - - 12 7': { 'moves': ['c5d3'], 'finalPosition': false },'8/8/8/8/4k3/3n1bK1/8/8 w - - 13 8': { 'moves': ['g3h2'], 'finalPosition': false },'8/8/8/8/4k3/3n1b2/7K/8 b - - 14 8': { 'moves': ['d3e1'], 'finalPosition': false },'8/8/8/8/4k3/5b2/7K/4n3 w - - 15 9': { 'moves': ['h2g3'], 'finalPosition': false },'8/8/8/8/4k3/5bK1/8/4n3 b - - 16 9': { 'moves': ['e1g2'], 'finalPosition': false },'8/8/8/8/4k3/5bK1/6n1/8 w - - 17 10': { 'moves': ['g3h2'], 'finalPosition': false },'8/8/8/8/4k3/5b2/6nK/8 b - - 18 10': { 'moves': ['e4e3'], 'finalPosition': false },'8/8/8/8/8/4kb2/6nK/8 w - - 19 11': { 'moves': ['h2g3'], 'finalPosition': false },'8/8/8/8/8/4kbK1/6n1/8 b - - 20 11': { 'moves': ['e3e2'], 'finalPosition': false },'8/8/8/8/8/5bK1/4k1n1/8 w - - 21 12': { 'moves': ['g3h2'], 'finalPosition': false },'8/8/8/8/8/5b2/4k1nK/8 b - - 22 12': { 'moves': ['e2f2'], 'finalPosition': false },'8/8/8/8/8/5b2/5knK/8 w - - 23 13': { 'moves': ['h2h3'], 'finalPosition': false },'8/8/8/8/8/5b1K/5kn1/8 b - - 24 13': { 'moves': ['f3e2'], 'finalPosition': false },'8/8/8/8/8/7K/4bkn1/8 w - - 25 14': { 'moves': ['h3h2'], 'finalPosition': false },'8/8/8/8/8/8/4bknK/8 b - - 26 14': { 'moves': ['g2f4'], 'finalPosition': false },'8/8/8/8/5n2/8/4bk1K/8 w - - 27 15': { 'moves': ['h2h1'], 'finalPosition': false },'8/8/8/8/5n2/8/4bk2/7K b - - 28 15': { 'moves': ['f2g3'], 'finalPosition': false },'8/8/8/2n5/4k3/3b4/8/4K3 b - - 8 5': { 'moves': ['e4e3','e4e3'], 'finalPosition': false },'8/8/8/2n5/8/3bk3/8/4K3 w - - 9 6': { 'moves': ['e1d1','e1d1'], 'finalPosition': false },'8/8/8/2n5/8/3bk3/8/3K4 b - - 10 6': { 'moves': ['c5b3','c5b3'], 'finalPosition': false },'8/8/8/8/8/1n1bk3/8/3K4 w - - 11 7': { 'moves': ['d1e1','d1e1'], 'finalPosition': false },'8/8/8/8/8/1n1bk3/8/4K3 b - - 12 7': { 'moves': ['b3d4','b3d4'], 'finalPosition': false },'8/8/8/8/3n4/3bk3/8/4K3 w - - 13 8': { 'moves': ['e1d1','e1d1'], 'finalPosition': false },'8/8/8/8/3n4/3bk3/8/3K4 b - - 14 8': { 'moves': ['d4e2','d4e2'], 'finalPosition': false },'8/8/8/8/8/3bk3/4n3/3K4 w - - 15 9': { 'moves': ['d1e1','d1e1'], 'finalPosition': false },'8/8/8/8/8/3bk3/4n3/4K3 b - - 16 9': { 'moves': ['d3c2','d3c2'], 'finalPosition': false },'8/8/8/8/8/4k3/2b1n3/4K3 w - - 17 10': { 'moves': ['e1f1','e1f1'], 'finalPosition': false },'8/8/8/8/8/4k3/2b1n3/5K2 b - - 18 10': { 'moves': ['e2f4','e2f4'], 'finalPosition': false },'8/8/8/8/5n2/4k3/2b5/5K2 w - - 19 11': { 'moves': ['f1e1','f1e1'], 'finalPosition': false },'8/8/8/8/5n2/4k3/2b5/4K3 b - - 20 11': { 'moves': ['f4g2','f4g2'], 'finalPosition': false },'8/8/8/8/8/4k3/2b3n1/4K3 w - - 21 12': { 'moves': ['e1f1','e1f1'], 'finalPosition': false },'8/8/8/8/8/4k3/2b3n1/5K2 b - - 22 12': { 'moves': ['e3f3','e3f3'], 'finalPosition': false },'8/8/8/8/8/5k2/2b3n1/5K2 w - - 23 13': { 'moves': ['f1g1','f1g1'], 'finalPosition': false },'8/8/8/8/8/5k2/2b3n1/6K1 b - - 24 13': { 'moves': ['f3g3','f3g3'], 'finalPosition': false },'8/8/8/8/8/6k1/2b3n1/6K1 w - - 25 14': { 'moves': ['g1h1','g1f1'], 'finalPosition': false },'8/8/8/8/8/6k1/2b3n1/7K b - - 26 14': { 'moves': ['c2d3'], 'finalPosition': false },'8/8/8/8/8/3b2k1/6n1/7K w - - 27 15': { 'moves': ['h1g1'], 'finalPosition': false },'8/8/8/8/8/3b2k1/6n1/6K1 b - - 28 15': { 'moves': ['g2f4','g2f4'], 'finalPosition': false },'8/8/8/8/5n2/3b2k1/8/6K1 w - - 29 16': { 'moves': ['g1h1','g1h1'], 'finalPosition': false },'8/8/8/8/5n2/3b2k1/8/7K b - - 30 16': { 'moves': ['d3e2','d3e2'], 'finalPosition': false },'8/8/8/8/5n2/6k1/4b3/7K w - - 31 17': { 'moves': ['h1g1','h1g1'], 'finalPosition': false },'8/8/8/8/5n2/6k1/4b3/6K1 b - - 32 17': { 'moves': ['f4h3','f4h3'], 'finalPosition': false },'8/8/8/8/8/6kn/4b3/6K1 w - - 33 18': { 'moves': ['g1h1','g1h1'], 'finalPosition': false },'8/8/8/8/8/6kn/4b3/7K b - - 34 18': { 'moves': ['e2f3','e2f3'], 'finalPosition': false },'8/8/8/8/8/5bkn/8/7K w - - 35 19': { 'moves': [], 'finalPosition': true },'8/8/8/8/8/6k1/2b3n1/5K2 b - - 26 14': { 'moves': ['c2d3'], 'finalPosition': false },'8/8/8/8/8/3b2k1/6n1/5K2 w - - 27 15': { 'moves': ['f1g1'], 'finalPosition': false },'8/8/8/2n5/8/2kb4/8/2K5 b - - 4 3': { 'moves': ['c5b3'], 'finalPosition': false },'8/8/8/8/8/1nkb4/8/2K5 w - - 5 4': { 'moves': ['c1d1'], 'finalPosition': false },'8/8/8/8/8/1nkb4/8/3K4 b - - 6 4': { 'moves': ['c3d4'], 'finalPosition': false },'8/8/8/7b/7k/7n/6K1/8 b - - 41 22': { 'moves': ['h5e2','h5e2'], 'finalPosition': false },'8/8/8/8/7k/7n/4b1K1/8 w - - 42 23': { 'moves': ['g2h1','g2h2'], 'finalPosition': false },'8/8/8/8/7k/7n/4b3/7K b - - 43 23': { 'moves': ['h3f4'], 'finalPosition': false },'8/8/8/8/5n1k/8/4b3/7K w - - 44 24': { 'moves': ['h1h2'], 'finalPosition': false },'8/8/8/8/5n1k/8/4b2K/8 b - - 45 24': { 'moves': ['e2d3'], 'finalPosition': false },'8/8/8/8/5n1k/3b4/7K/8 w - - 46 25': { 'moves': ['h2h1'], 'finalPosition': false },'8/8/8/8/5n1k/3b4/8/7K b - - 47 25': { 'moves': ['h4g3'], 'finalPosition': false },'8/8/8/8/5n2/3b2k1/8/7K w - - 48 26': { 'moves': ['h1g1','h1g1'], 'finalPosition': false },'8/8/8/8/5n2/3b2k1/8/6K1 b - - 49 26': { 'moves': ['f4h3','f4h3'], 'finalPosition': false },'8/8/8/8/8/3b2kn/8/6K1 w - - 50 27': { 'moves': ['g1h1','g1h1'], 'finalPosition': false },'8/8/8/8/8/3b2kn/8/7K b - - 51 27': { 'moves': ['d3e4','d3e4'], 'finalPosition': false },'8/8/8/8/4b3/6kn/8/7K w - - 52 28': { 'moves': [], 'finalPosition': true },'8/8/8/8/7k/7n/4b2K/8 b - - 43 23': { 'moves': ['h3f4'], 'finalPosition': false },'8/8/8/8/5n1k/8/4b2K/8 w - - 44 24': { 'moves': ['h2g1'], 'finalPosition': false },'8/8/8/8/5n1k/8/4b3/6K1 b - - 45 24': { 'moves': ['h4g3'], 'finalPosition': false },'8/8/8/8/5n2/6k1/4b3/6K1 w - - 46 25': { 'moves': ['g1h1'], 'finalPosition': false },'8/8/8/8/5n2/6k1/4b3/7K b - - 47 25': { 'moves': ['e2d3'], 'finalPosition': false },'4R3/8/8/8/kp6/8/5K2/8 w - - 0 1': { 'moves': ['f2e2','f2e2','f2e2','f2e2','f2e2','f2e2','f2e2','f2e2','f2e2'], 'finalPosition': false },'4R3/8/8/8/kp6/8/4K3/8 b - - 1 1': { 'moves': ['b4b3','b4b3','b4b3','b4b3','b4b3','b4b3','b4b3','b4b3','b4b3'], 'finalPosition': false },'4R3/8/8/8/k7/1p6/4K3/8 w - - 0 2': { 'moves': ['e8b8','e8b8','e8b8','e8b8','e8b8','e8b8','e8b8','e8b8','e8b8'], 'finalPosition': false },'1R6/8/8/8/k7/1p6/4K3/8 b - - 1 2': { 'moves': ['a4a3','a4a3','a4a3','a4a3','a4a3','a4a3','a4a3','a4a3','a4a3'], 'finalPosition': false },'1R6/8/8/8/8/kp6/4K3/8 w - - 2 3': { 'moves': ['e2d2','e2d2','e2d2','e2d3','e2d3','e2d3','e2d3','e2d3','e2d3'], 'finalPosition': false },'1R6/8/8/8/8/kp6/3K4/8 b - - 3 3': { 'moves': ['b3b2','b3b2','b3b2'], 'finalPosition': false },'1R6/8/8/8/8/k7/1p1K4/8 w - - 0 4': { 'moves': ['d2c3','d2c3','d2c3'], 'finalPosition': false },'1R6/8/8/8/8/k1K5/1p6/8 b - - 1 4': { 'moves': ['b2b1','b2b1','b2b1','a3a2','a3a2','a3a2','a3a2','a3a2','a3a2'], 'finalPosition': false },'1R6/8/8/8/8/k1K5/8/1n6 w - - 0 5': { 'moves': ['b8b1','b8b1','b8b1'], 'finalPosition': false },'8/8/8/8/8/k1K5/8/1R6 b - - 0 5': { 'moves': ['a3a4','a3a4','a3a4'], 'finalPosition': false },'8/8/8/8/k7/2K5/8/1R6 w - - 1 6': { 'moves': ['b1b2','b1b2','b1b2'], 'finalPosition': false },'8/8/8/8/k7/2K5/1R6/8 b - - 2 6': { 'moves': ['a4a5','a4a5','a4a3'], 'finalPosition': false },'8/8/8/k7/8/2K5/1R6/8 w - - 3 7': { 'moves': ['c3c4','c3c4'], 'finalPosition': false },'8/8/8/k7/2K5/8/1R6/8 b - - 4 7': { 'moves': ['a5a6','a5a4'], 'finalPosition': false },'8/8/k7/8/2K5/8/1R6/8 w - - 5 8': { 'moves': ['c4c5'], 'finalPosition': false },'8/8/k7/2K5/8/8/1R6/8 b - - 6 8': { 'moves': ['a6a7'], 'finalPosition': false },'8/k7/8/2K5/8/8/1R6/8 w - - 7 9': { 'moves': ['c5c6'], 'finalPosition': false },'8/k7/2K5/8/8/8/1R6/8 b - - 8 9': { 'moves': ['a7a8'], 'finalPosition': false },'k7/8/2K5/8/8/8/1R6/8 w - - 9 10': { 'moves': ['c6c7'], 'finalPosition': false },'k7/2K5/8/8/8/8/1R6/8 b - - 10 10': { 'moves': ['a8a7'], 'finalPosition': false },'8/k1K5/8/8/8/8/1R6/8 w - - 11 11': { 'moves': ['b2a2'], 'finalPosition': false },'8/k1K5/8/8/8/8/R7/8 b - - 12 11': { 'moves': [], 'finalPosition': true },'8/8/8/8/k1K5/8/1R6/8 w - - 5 8': { 'moves': ['b2a2'], 'finalPosition': false },'8/8/8/8/k1K5/8/R7/8 b - - 6 8': { 'moves': [], 'finalPosition': true },'8/8/8/8/8/k1K5/1R6/8 w - - 3 7': { 'moves': ['b2d2'], 'finalPosition': false },'8/8/8/8/8/k1K5/3R4/8 b - - 4 7': { 'moves': ['a3a4'], 'finalPosition': false },'8/8/8/8/k7/2K5/3R4/8 w - - 5 8': { 'moves': ['d2d5'], 'finalPosition': false },'8/8/8/3R4/k7/2K5/8/8 b - - 6 8': { 'moves': ['a4a3'], 'finalPosition': false },'8/8/8/3R4/8/k1K5/8/8 w - - 7 9': { 'moves': ['d5a5'], 'finalPosition': false },'8/8/8/R7/8/k1K5/8/8 b - - 8 9': { 'moves': [], 'finalPosition': true },'1R6/8/8/8/8/kp1K4/8/8 b - - 3 3': { 'moves': ['b3b2','b3b2','b3b2','b3b2','b3b2','b3b2'], 'finalPosition': false },'1R6/8/8/8/8/k2K4/1p6/8 w - - 0 4': { 'moves': ['d3c3','d3c3','d3c3','d3c3','d3c3','d3c3'], 'finalPosition': false },'1R6/8/8/8/8/2K5/kp6/8 w - - 2 5': { 'moves': ['b8b2','b8b2','b8b2','b8b2','b8b2','b8b2'], 'finalPosition': false },'8/8/8/8/8/2K5/kR6/8 b - - 0 5': { 'moves': ['a2a3','a2a3','a2a3','a2a3','a2a3','a2a1'], 'finalPosition': false },'8/8/8/8/8/k1K5/1R6/8 w - - 1 6': { 'moves': ['b2e2','b2f2','b2g2','b2h2','b2d2'], 'finalPosition': false },'8/8/8/8/8/k1K5/4R3/8 b - - 2 6': { 'moves': ['a3a4'], 'finalPosition': false },'8/8/8/8/k7/2K5/4R3/8 w - - 3 7': { 'moves': ['e2e5'], 'finalPosition': false },'8/8/8/4R3/k7/2K5/8/8 b - - 4 7': { 'moves': ['a4a3'], 'finalPosition': false },'8/8/8/4R3/8/k1K5/8/8 w - - 5 8': { 'moves': ['e5a5'], 'finalPosition': false },'8/8/8/R7/8/k1K5/8/8 b - - 6 8': { 'moves': [], 'finalPosition': true },'8/8/8/8/8/k1K5/5R2/8 b - - 2 6': { 'moves': ['a3a4'], 'finalPosition': false },'8/8/8/8/k7/2K5/5R2/8 w - - 3 7': { 'moves': ['f2f5'], 'finalPosition': false },'8/8/8/5R2/k7/2K5/8/8 b - - 4 7': { 'moves': ['a4a3'], 'finalPosition': false },'8/8/8/5R2/8/k1K5/8/8 w - - 5 8': { 'moves': ['f5a5'], 'finalPosition': false },'8/8/8/8/8/k1K5/6R1/8 b - - 2 6': { 'moves': ['a3a4'], 'finalPosition': false },'8/8/8/8/k7/2K5/6R1/8 w - - 3 7': { 'moves': ['g2g5'], 'finalPosition': false },'8/8/8/6R1/k7/2K5/8/8 b - - 4 7': { 'moves': ['a4a3'], 'finalPosition': false },'8/8/8/6R1/8/k1K5/8/8 w - - 5 8': { 'moves': ['g5a5'], 'finalPosition': false },'8/8/8/8/8/k1K5/7R/8 b - - 2 6': { 'moves': ['a3a4'], 'finalPosition': false },'8/8/8/8/k7/2K5/7R/8 w - - 3 7': { 'moves': ['h2h5'], 'finalPosition': false },'8/8/8/7R/k7/2K5/8/8 b - - 4 7': { 'moves': ['a4a3'], 'finalPosition': false },'8/8/8/7R/8/k1K5/8/8 w - - 5 8': { 'moves': ['h5a5'], 'finalPosition': false },'8/8/8/8/8/k1K5/3R4/8 b - - 2 6': { 'moves': ['a3a4'], 'finalPosition': false },'8/8/8/8/k7/2K5/3R4/8 w - - 3 7': { 'moves': ['d2d5'], 'finalPosition': false },'8/8/8/3R4/k7/2K5/8/8 b - - 4 7': { 'moves': [], 'finalPosition': true },'8/8/8/8/8/2K5/1R6/k7 w - - 1 6': { 'moves': ['b2b3'], 'finalPosition': false },'8/8/8/8/8/1RK5/8/k7 b - - 2 6': { 'moves': ['a1a2'], 'finalPosition': false },'8/8/8/8/8/1RK5/k7/8 w - - 3 7': { 'moves': ['c3c2'], 'finalPosition': false },'8/8/8/8/8/1R6/k1K5/8 b - - 4 7': { 'moves': ['a2a1'], 'finalPosition': false },'8/8/8/8/8/1R6/2K5/k7 w - - 5 8': { 'moves': ['b3a3'], 'finalPosition': false },'8/8/8/8/8/R7/2K5/k7 b - - 6 8': { 'moves': [], 'finalPosition': true },'4R3/8/8/8/8/kp6/8/5K2 w - - 0 1': { 'moves': ['f1e2','e8a8','e8a8'], 'finalPosition': false },'4R3/8/8/8/8/kp6/4K3/8 b - - 1 1': { 'moves': ['b3b2'], 'finalPosition': false },'4R3/8/8/8/8/k7/1p2K3/8 w - - 0 2': { 'moves': [], 'finalPosition': true },'R7/8/8/8/8/kp6/8/5K2 b - - 1 1': { 'moves': ['a3b2','a3b2'], 'finalPosition': false },'R7/8/8/8/8/1p6/1k6/5K2 w - - 2 2': { 'moves': ['f1e2','f1e2'], 'finalPosition': false },'R7/8/8/8/8/1p6/1k2K3/8 b - - 3 2': { 'moves': ['b2c1','b2c1'], 'finalPosition': false },'R7/8/8/8/8/1p6/4K3/2k5 w - - 4 3': { 'moves': ['a8c8','a8c8'], 'finalPosition': false },'2R5/8/8/8/8/1p6/4K3/2k5 b - - 5 3': { 'moves': ['c1b2','c1b2'], 'finalPosition': false },'2R5/8/8/8/8/1p6/1k2K3/8 w - - 6 4': { 'moves': ['e2d2','e2d2'], 'finalPosition': false },'2R5/8/8/8/8/1p6/1k1K4/8 b - - 7 4': { 'moves': ['b2a2','b2a2'], 'finalPosition': false },'2R5/8/8/8/8/1p6/k2K4/8 w - - 8 5': { 'moves': ['d2c3','c8a8'], 'finalPosition': false },'2R5/8/8/8/8/1pK5/k7/8 b - - 9 5': { 'moves': ['b3b2'], 'finalPosition': false },'2R5/8/8/8/8/2K5/kp6/8 w - - 0 6': { 'moves': ['c8a8'], 'finalPosition': false },'R7/8/8/8/8/2K5/kp6/8 b - - 1 6': { 'moves': [], 'finalPosition': true },'R7/8/8/8/8/1p6/k2K4/8 b - - 9 5': { 'moves': ['a2b2'], 'finalPosition': false },'R7/8/8/8/8/1p6/1k1K4/8 w - - 10 6': { 'moves': ['a8b8'], 'finalPosition': false },'1R6/8/8/8/8/1p6/1k1K4/8 b - - 11 6': { 'moves': ['b2a2'], 'finalPosition': false },'1R6/8/8/8/8/1p6/k2K4/8 w - - 12 7': { 'moves': ['d2c3'], 'finalPosition': false },'1R6/8/8/8/8/1pK5/k7/8 b - - 13 7': { 'moves': [], 'finalPosition': true },'4R3/8/8/8/8/1pk5/4K3/8 w - - 0 1': { 'moves': ['e8c8','e8c8'], 'finalPosition': false },'2R5/8/8/8/8/1pk5/4K3/8 b - - 1 1': { 'moves': ['c3b2','c3b4'], 'finalPosition': false },'2R5/8/8/8/8/1p6/1k2K3/8 w - - 2 2': { 'moves': ['e2d2'], 'finalPosition': false },'2R5/8/8/8/8/1p6/1k1K4/8 b - - 3 2': { 'moves': ['b2a2'], 'finalPosition': false },'2R5/8/8/8/8/1p6/k2K4/8 w - - 4 3': { 'moves': ['d2c3'], 'finalPosition': false },'2R5/8/8/8/8/1pK5/k7/8 b - - 5 3': { 'moves': [], 'finalPosition': true },'2R5/8/8/8/1k6/1p6/4K3/8 w - - 2 2': { 'moves': ['e2d2'], 'finalPosition': false },'2R5/8/8/8/1k6/1p6/3K4/8 b - - 3 2': { 'moves': ['b4a3'], 'finalPosition': false },'2R5/8/8/8/8/kp6/3K4/8 w - - 4 3': { 'moves': ['d2c3'], 'finalPosition': false },'2R5/8/8/8/8/kpK5/8/8 b - - 5 3': { 'moves': [], 'finalPosition': true }};
     
+  </script>
+  
+  
+  
+  <!-- Set up board & board interaction -->
+  <script>
+    var currentNode=null;
+    var chessEngine = new Chess();
+  
+    function onSnapEnd() {
+      console.log("OnSnapEnd FEN: " + chessEngine.fen());
+      board2.position(chessEngine.fen());
+    }
+  
+    function AutoPlay(){
+      console.log("Will AutoPlay")
+      var randomSelection = pickOneFromList(currentNode.moves);
+      var move = chessEngine.move({
+            from: randomSelection.substring(0,2),
+            to: randomSelection.substring(2,4),
+            promotion: 'q' // NOTE: always promote to a queen for example simplicity
+          })
+      board2.position(chessEngine.fen());
+      currentNode = positions[chessEngine.fen()];
+    }
+    function onDrop(source, target, piece, newPos, oldPos, orientation) {
+      $('#HelpMovesSpan').text("");
+      console.log('Source: ' + source)
+      console.log('Target: ' + target)
+      console.log('Piece: ' + piece)
+      console.log('New position: ' + Chessboard.objToFen(newPos))
+      console.log('Old position: ' + Chessboard.objToFen(oldPos))
+      console.log('Orientation: ' + orientation)
+      console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
+      moveString = source + target;
+      console.log(moveString)
+  
+      if (currentNode.moves.indexOf(moveString) >= 0) {
+        var move = chessEngine.move({
+            from: source,
+            to: target,
+            promotion: 'q' // NOTE: always promote to a queen for example simplicity
+          })
+  
+      if ((currentNode.finalPosition === true) || !(chessEngine.fen() in positions) || (positions[chessEngine.fen()].moves.length == 0)){
+          console.log("Done, loading next game");
+          window.setTimeout(function(){
+                playOneOfTheStartingPositions(); 
+          }, 150);
+        }else{
+          currentNode = positions[chessEngine.fen()];
+          window.setTimeout(function(){
+                AutoPlay(); 
+          }, 150);
+  
+        }
+       
+  
+      }else if (currentNode.moves.length == 0 ){
+          console.log("No further moves available, next game");
+          window.setTimeout(function(){
+                  playOneOfTheStartingPositions(); 
+          }, 150);
+      }
+      //if in movelist ok make the move
+  
+      //var move = chessEngine.move({
+      //      from: source,
+      //      to: target,
+      //      promotion: 'q' // NOTE: always promote to a queen for example simplicity
+      //    })
+      
+          // illegal move
+      //    if (move === null) return 'snapback';
+      //    console.log(move)
+          
+  
+          //if (curentGame.turn() == 'b'){
+          //    window.setTimeout(function(){
+          //        MoveCallback(GameState, target);
+          //    }, 150);
+          //}
+  
+      //Trigger Autpmovr from next fen
+    }
+  
     var board2 = Chessboard('board2', {
       draggable: true,
       moveSpeed: 50,
@@ -262,203 +147,111 @@ function onDrop (source, target, piece, newPos, oldPos, orientation) {
       snapSpeed: 50,
       position: 'start',
       onDrop: onDrop,
-      onSnapEnd:onSnapEnd,
-      onClick:onClicky
+      onSnapEnd: onSnapEnd
     })
     board2.start();
-
-    
-     </script>
-
-
-
-<script>
-
-var currentNodeInGameTree={};
-var gameTree={};
-
-var WhiteGameTree={};
-var BlackGameTree={};
-
-var WhitePGNGameData;
-
-function MemWhiteGameTree(PGNgames){
-  WhitePGNGameData=PGNgames;
-  var gameArray = SplitIntoGamesArray(PGNgames);
-  var extractedVariations = PGNtoMoveLines(gameArray);
-  WhiteGameTree=getMoveTree(extractedVariations);
-}
-
-var BlackPGNGameData;
-function MemBlackGameTree(PGNgames){
-  BlackPGNGameData=PGNgames;
-  var gameArray = SplitIntoGamesArray(PGNgames);
-  var extractedVariations = PGNtoMoveLines(gameArray);
-  BlackGameTree=getMoveTree(extractedVariations);
-}
-
-
-function HelpBtnClick(){
-  let moveString = "";
-  for (var move in currentNodeInGameTree) {
-        if(move.length != 4) continue;
-        moveString += move + " ";
-  }
-
-  $('#HelpMovesSpan').text(" Help: " + moveString);
+  </script>
   
-
-}
-
-var autoPlaySide= 'b';
-function WhiteBtnClick(){
-  getGames(userSelctedWhiteFiles, function(data) {MemWhiteGameTree(data); ContinueWithWhiteBtnClick(); });
-  //autoPlaySide= 'b';
-  //gameTree=WhiteGameTree;
-  //currentNodeInGameTree=gameTree;
-  //CurentGame = new Chess();
-  //board2.position(CurentGame.fen());
-  //board2.orientation('white');
   
-}
-function ContinueWithWhiteBtnClick(){
-  console.log("Continue");
-  autoPlaySide= 'b';
-  gameTree=WhiteGameTree;
-  currentNodeInGameTree=gameTree;
-  CurentGame = new Chess();
-  board2.position(CurentGame.fen());
-  board2.orientation('white');
+  <!-- Button Clicks-->
+  <script>
+    function PlayBtnClick(){
+      playOneOfTheStartingPositions(); 
+    }
+    function LoadAllBtnClick(){
   
-}
-
-
-function makeAutoMove(){
-  let currentMin = null;
-  let MinValue = null;
-
-  for (var move in currentNodeInGameTree) {
-        if(move.length != 4) continue;
-        let cNode = currentNodeInGameTree[move];
-        let cMinValue=(cNode["RandomOffset"] + cNode["PlayThrough"]*1.0)/cNode["Lines"];
-        if(currentMin == null){
-          currentMin=move;
-          MinValue=cMinValue;
-          //MinValue=cNode["PlayThrough"]*1.0/cNode["Lines"];
-        }else{
-          //let cMinValue=cNode["PlayThrough"]*1.0/cNode["Lines"];
-          if(cMinValue < MinValue){
-            currentMin=move;
-            MinValue=cMinValue;
-          }
-        }
+      var allTitles = [];
+    for (var i = 0; i < selectionTitles.length; i++) {
+      var name = selectionTitles[i];
+      choicesSelect.setChoiceByValue(name)
+    }
+  
+    }
+  
+    function ClearSelectionBtnClick(){
+    choicesSelect.removeActiveItems();
+    }
+  
+    function HelpBtnClick(){
+      //PositionDescr
+  
+      $('#PositionDescr').text(currentNode.moves);
+    }
+  </script>
+  
+  <!-- Game Logic -->
+  <script>
+    function pickOneFromList(selectionList){
+      if(selectionList.length == 1){
+        return selectionList[0];
+      } 
+      var randomIdx = Math.floor(Math.random() * selectionList.length);
+      return selectionList[randomIdx];
+    }
+  
+    function playOneOfTheStartingPositions(){
+      //Get selected choices -> Load corresponding starting pos -> pick one -> present on the board with rotation
+      selectedStartingPosition = []
+      for(var i=0; i< selection.length; i++){
+        var selectedTitle = selection[i];
+        var staringPosition = startingfen[selectedTitle];
+        selectedStartingPosition.push(...staringPosition);
       }
-
-
-      currentNodeInGameTree[currentMin]["PlayThrough"] = currentNodeInGameTree[currentMin]["PlayThrough"] + 1;
-      $('#PositionCount').text(currentNodeInGameTree[currentMin]["Weight"]);
-      //make the move
-      console.log("StartingMove : " + currentMin);
-
-      CurrMove=currentMin.slice(0,2) + "-" + currentMin.slice(2,4);
-      window.setTimeout(makeMove, 250);
-      //board2.move(currentMin.slice(0,2) + "-" + currentMin.slice(2,4));
-      
-      currentNodeInGameTree=currentNodeInGameTree[currentMin];
-
-}
-
-//getGames(BlackPGNFileName, function(data) {MemBlackGameTree(data)});
-function BlackBtnClick(){
-  getGames(userSelctedBlackFiles, function(data) {MemBlackGameTree(data); BlackBtnClickContinue(); });
-  //autoPlaySide= 'b';
-  //gameTree=WhiteGameTree;
-  //currentNodeInGameTree=gameTree;
-  //CurentGame = new Chess();
-  //board2.position(CurentGame.fen());
-  //board2.orientation('white');
+      var randomSelection = pickOneFromList(selectedStartingPosition);
+      currentNode = randomSelection
+      chessEngine.load(randomSelection.fen);
+      board2.position(randomSelection.fen);
+      board2.orientation(currentNode.orientation);
+    }
+  </script>
   
-}
-
-function BlackBtnClickContinue(){
-  autoPlaySide= 'w';
-  gameTree=BlackGameTree;
-  currentNodeInGameTree=gameTree;
-  CurentGame = new Chess();
-  board2.position(CurentGame.fen());
-  board2.orientation('black');
-
-  makeAutoMove(currentNodeInGameTree);
-  /*
-  //Need to make a white move
-    //if(!piece.startsWith(autoPlaySide)){ //the one that made the last move
-      let currentMin = null;
-      let MinValue = null;
-
-      for (var move in currentNodeInGameTree) {
-        if(move.length != 4) continue;
-        let cNode = currentNodeInGameTree[move];
-        let cMinValue=(cNode["RandomOffset"] + cNode["PlayThrough"]*1.0)/cNode["Lines"];
-        if(currentMin == null){
-          currentMin=move;
-          MinValue=cMinValue;
-          //MinValue=cNode["PlayThrough"]*1.0/cNode["Lines"];
-        }else{
-          //let cMinValue=cNode["PlayThrough"]*1.0/cNode["Lines"];
-          if(cMinValue < MinValue){
-            currentMin=move;
-            MinValue=cMinValue;
-          }
-        }
+  <!-- populate choices-->
+  <script>
+    var selection = [];
+  
+    var choicesSelect = new Choices('#choices-multiple-labels', {
+      removeItemButton: true
+    });
+    var blackSelect = choicesSelect.passedElement.element.childNodes;
+  
+    choicesSelect.passedElement.element.addEventListener(
+      'addItem',
+      function (event) {
+        console.log("add " + event.detail.value);
+        selection.push(event.detail.value);//label
       }
-    
-      currentNodeInGameTree[currentMin]["PlayThrough"] = currentNodeInGameTree[currentMin]["PlayThrough"] + 1;
-      $('#SubNodeCount').text(currentNodeInGameTree[currentMin]["Weight"]);
-      //make the move
-      console.log("StartingMove : " + currentMin);
-
-      CurrMove=currentMin.slice(0,2) + "-" + currentMin.slice(2,4);
-      window.setTimeout(makeMove, 250);
-      //board2.move(currentMin.slice(0,2) + "-" + currentMin.slice(2,4));
-      
-      currentNodeInGameTree=currentNodeInGameTree[currentMin];
-
-    */
-
-}
-
-
-//$('#WhiteBtn').on('click', WhiteBtnClick());
-//$('#BlackBtn').on('click', BlackBtnClick());
-
-</script>
-
-
-<script>
-    var WhitePGNFileName = GetWhiteFileNameList();
-    loadWhiteSelect(WhitePGNFileName);
-    //getGames(WhitePGNFileName, function(data) {MemWhiteGameTree(data)});
-
-    var BlackPGNFileName = GetBlackFileNameList();
-    loadBlackSelect(BlackPGNFileName);
-    //getGames(BlackPGNFileName, function(data) {MemBlackGameTree(data)});
-
-    //var PGNgames = WhiteGames;
-    //gameArray = SplitIntoGames(PGNgames);
-    //gameTree=getMoveTree(gameArray);
-    //currentNodeInGameTree=gameTree;
-    //CurentGame = new Chess();
-    
-</script>
-
-
-<script>
-  //Fix for scrolling
-jQuery('#board2').on('scroll touchmove touchend touchstart contextmenu', function(e){
-  e.preventDefault();
-});
-</script>
-
-
-</body>
-</HTML>
+    );
+    choicesSelect.passedElement.element.addEventListener(
+      'removeItem',
+      function (event) {
+        console.log("Remove " + event.detail.value);
+        var index = selection.indexOf(event.detail.value);
+        if (index !== -1) selection.splice(index, 1);
+      }
+    );
+  
+    var allTitles = [];
+    for (var i = 0; i < selectionTitles.length; i++) {
+      var name = selectionTitles[i];
+      var altName = name;
+      allTitles.push({ value: name, label: altName, selected: false });
+    }
+    choicesSelect.setChoices(
+      allTitles,
+      'value',
+      'label',
+      false
+    );
+  
+  </script>
+  
+  <!-- Fix for scrolling -->
+  <script>
+  jQuery('#board2').on('scroll touchmove touchend touchstart contextmenu', function(e){
+    e.preventDefault();
+  });
+  </script>
+  
+  
+  </body>
+  </HTML>
