@@ -4,7 +4,7 @@ function GetWhiteFileNameList(){
     'games/lichess_study_caro-can_by_BlackSalt_2019.06.14.pgn',
     'games/lichess_study_barnes_by_BlackSalt_2019.12.30.pgn',
     'games/lichess_study_counter-scandi_by_BlackSalt_2019.06.19.pgn', 'games/lichess_study_whiteopeningbook_by_BlackSalt_2019.10.07.pgn',
-'games/d4_qgd-three-knights-be7-d5-exchange.pgn'];
+'games/d4_qgd-three-knights-be7-d5-exchange.pgn', 'lichess_study_knight-attack_by_BlackSalt_2022.03.30'];
 }
 
 function GetBlackFileNameList(){
