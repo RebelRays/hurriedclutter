@@ -63,3 +63,16 @@
 1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 4. Ng5 d5 5. exd5 Nxd5 6. Nxf7 Kxf7 7. Qf3+ Ke6 8. Nc3 Nb4 9. O-O c6 10. d4 Qf6 { Played up to this point } 11. Qd1 exd4 (11... Kd6 12. Ne4+)  (11... Bd6 12. a3 Na6 13. dxe5 Bxe5 14. Nxd5 cxd5 15. Qxd5+ Kf5 16. Qd3+ Kg4 17. Qh3#)  (11... Kd7 12. dxe5 Qxe5 13. Re1 Qf5 14. a3 Nxc2 15. Nxd5)  (11... b5 12. dxe5 Qg6 13. Bb3 Be7 14. a3 Na6 15. Nxd5 cxd5 16. Qxd5+ Kf5 17. Qf3+ Kxe5 18. Qf4#)  (11... Kf7 12. a3 exd4 13. Ne4 Qf5 14. Ng5+)  (11... Ke7 12. Re1 Qg6 13. a3) 12. Ne4 Qg6 (12... Qf5 13. c3)  (12... Qe5 13. Re1)  (12... Qh4 13. Re1) 13. a3 Na6 (13... Kd7 14. Re1 Na6 15. Bxa6 bxa6 16. Qxd4 Kc7 17. c4 Nb6 18. Bf4+ Kb7 19. Qe5 Qf7 20. Nd6+ Bxd6 21. Qxd6) 14. Qxd4 Nc7 (14... Ke7 15. Re1 Kd8 16. Bxd5) 15. Re1 Kf7 16. Qe5 Be6 17. Ng5+ *
 
 
+[Event "Knight Attack: Accepted Nd4"]
+[Site "https://lichess.org/study/S2rCTLx6/ldQNxUng"]
+[Result "*"]
+[UTCDate "2022.04.02"]
+[UTCTime "11:41:17"]
+[Variant "Standard"]
+[ECO "C57"]
+[Opening "Italian Game: Two Knights Defense, Fritz Variation"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 4. Ng5 d5 5. exd5 Nd4 6. c3 b5 (6... Nf5 7. O-O Nd6 8. Bb3 Be7 9. Re1 e4 10. f3 h6 11. Nxe4 Nfxe4 12. fxe4 O-O 13. d4 Bh4 14. g3 Bg5 15. e5 Nf5)  (6... h6 7. Nxf7 Kxf7 8. cxd4 exd4 9. O-O Bd6 10. d3 Re8 11. Nd2 Kg8 12. h3 Bf5 13. Nb3 Bxh3 14. gxh3 Qd7 15. Qf3)  (6... Nxd5 7. cxd4 Qxg5 8. Bxd5 exd4 9. Qf3)  (6... Ng4 7. Nh3 b5 8. Bf1)  (6... Bg4 7. f3 Nxf3+ 8. Nxf3 e4 9. Bb5+ Nd7 10. Qa4) 7. Bf1 Nxd5 (7... Nf5 8. Bxb5+ Bd7 9. Qa4 Nxd5 10. Bxd7+ Qxd7 11. Qxd7+ Kxd7 12. Nxf7 Rg8 13. Nxe5+ Ke6 14. d4 Bd6 15. O-O Bxe5 16. Re1)  (7... h6 8. cxd4 hxg5 9. Bxb5+ Bd7 10. Bxd7+ Qxd7 11. dxe5 Nxd5 12. O-O Nf4 13. d3) 8. cxd4 Qxg5 9. Bxb5+ Kd8 (9... Bd7 10. Bxd7+ Kxd7 11. O-O Nf4 12. g3 Nh3+ 13. Kg2 Nf4+ 14. Kh1) 10. O-O Bb7 (10... exd4 11. d3 Qg6 12. Qf3 Bb7 13. Bc4 c6 14. Bxd5 cxd5 15. Bf4 Rc8 16. Nd2 Rc2 17. Rfc1 Rxb2 18. Nb3 Bd6 19. Bxd6 Qxd6 20. Qxf7) 11. Qf3 Rb8 (11... exd4 12. d3 Qg6 13. Bc4 c6 14. Bxd5)  (11... e4 12. Qxe4 Bd6 13. Re1 c6 14. Bf1) 12. dxe5 Nf4 (12... Ne3 13. Qh3 Qxg2+ (13... Nxf1 14. Qd7#) 14. Qxg2 Nxg2 15. d4) 13. Qg3 Qxe5 (13... Qxg3 14. hxg3 Nxg2 15. d4 h5 16. f3) 14. d4 Qxb5 (14... Ne2+ 15. Bxe2 Qxe2 16. Nc3 Qe6 17. Bf4) 15. Bxf4 Rc8 (15... Qxb2 16. Bxc7+ Kd7 17. Bxb8 Qxa1 18. Re1) 16. Nc3 Qd7 17. Rad1 f6 18. d5 *
+
+
