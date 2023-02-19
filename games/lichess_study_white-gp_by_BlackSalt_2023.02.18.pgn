@@ -1,0 +1,26 @@
+[Event "White G.P.: Nf6 d4"]
+[Site "https://lichess.org/study/AYUIzhPg/jEjsydEZ"]
+[Result "*"]
+[UTCDate "2023.02.18"]
+[UTCTime "17:35:24"]
+[Variant "Standard"]
+[ECO "C53"]
+[Opening "Italian Game: Classical Variation, Greco Gambit, Anderssen Variation"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. c3 Nf6 5. d4 exd4 (5... Bb6 6. dxe5 Nxe4 (6... Ng4 7. Bxf7+ Kxf7 8. Ng5+ { [%cal Gd1g4] }))  (5... Bd6 6. O-O O-O 7. Re1 h6 (7... Re8 8. Ng5 Re7 9. f4 h6 (9... exf4 10. e5 Nxe5 11. dxe5 Bc5+ 12. Kh1 d5 (12... Ne8 13. Nxf7 Rxf7 14. Bxf7+ Kxf7 15. Qd5+) 13. exf6)  (9... exd4 10. e5 Bc5 11. Nxf7 Rxf7 12. Bxf7+ Kxf7 13. exf6)  (9... Na5 10. Bxf7+ Rxf7 11. Nxf7 Kxf7 12. fxe5) 10. fxe5)  (7... exd4 8. e5)  (7... a6 8. Bg5 h6 9. Bh4 Re8 10. h3 exd4 11. cxd4 { [%cal Ge4e5] })  (7... Na5 8. Bd3)  (7... b6 8. Bb5 Bb7 (8... exd4 9. e5) 9. Bxc6 Bxc6 10. dxe5 { [%cal Ge5f6,Ge5d6] })  (7... Qe7 8. Bg5)  (7... Be7 8. Nxe5 Nxe5 9. dxe5 Ne8 10. Nd2 d6 11. exd6) 8. Nbd2 Re8 (8... a6 9. Bd5 { [%cal Gd5c6,Gd4e5] } 9... Ne7 (9... Re8 10. Qb3 Re7 11. Nc4)  (9... Nxd5 10. exd5 Ne7 11. dxe5) 10. dxe5 Nfxd5 (10... Nexd5 11. exd5) 11. exd6 { [%cal Gd6e7] }) 9. Qb3 Qe7 10. Bd3)  (5... d5 6. exd5 Nxd5 7. dxc5) 6. e5 d5 (6... Ng4 7. cxd4)  (6... Ne4 7. Bd5 Nxf2 8. Kxf2 dxc3+ 9. Kg3 cxb2 10. Bxb2)  (6... Qe7 7. O-O)  (6... Ng8 7. O-O)  (6... dxc3 7. exf6 d5 8. Qxd5) 7. Bb5 Ne4 8. cxd4 Bb4+ (8... Bb6 9. Nc3 O-O (9... Bg4 10. Be3 O-O 11. h3 Bh5 12. O-O f6 13. exf6)  (9... Nxc3 10. bxc3 O-O 11. O-O)  (9... Bf5 10. Be3 O-O 11. O-O)  (9... Ba5 10. O-O Nxc3 (10... Bxc3 11. bxc3 Nxc3 12. Bxc6+ bxc6 13. Qc2)  (10... O-O 11. Ne2)  (10... Bg4 11. h3) 11. bxc3 Bxc3 12. Bg5 f6 13. Bxc6+ bxc6 14. exf6 gxf6 15. Rc1)  (9... Bd7 10. O-O)  (9... a6 10. Bxc6+ bxc6 11. Be3) 10. Be3 Bg4 11. h3 Bh5 12. O-O) 9. Bd2 Nxd2 (9... Bxd2+ 10. Nbxd2)  (9... O-O 10. O-O)  (9... Qe7 10. O-O O-O 11. Nc3 Bxc3)  (9... Bd7 10. Bxc6 Bxd2+ 11. Nbxd2 Bxc6 12. O-O)  (9... Be7 10. Nc3)  (9... Bg4 10. Bxb4)  (9... a6 10. Bxc6+ bxc6 11. Bxb4)  (9... a5 10. a3 Bxd2+ 11. Nbxd2) 10. Nbxd2 O-O (10... Bd7 11. a3)  (10... Bg4 11. Qa4)  (10... a6 11. Bxc6+ bxc6 12. a3)  (10... Bxd2+ 11. Qxd2)  (10... Be6 11. Bxc6+ bxc6 12. Rc1)  (10... Bf5 11. Qa4 Bxd2+ 12. Nxd2) 11. a3 Ba5 (11... Bxd2+ 12. Qxd2 Bg4 13. Be2 f6 14. Rd1 Qe7 15. O-O fxe5 16. Nxe5 Nxe5 17. dxe5)  (11... Be7 12. O-O { [%cal Gc6b8,Gb8d7,Gd7f8,Gf8e6] }) 12. Bxc6 bxc6 13. O-O Bg4 (13... Bb6 14. Qc2)  (13... Ba6? 14. Re1)  (13... f6 14. b4 Bb6 15. Qb3)  (13... Rb8 14. b4 Bb6 15. Qb3 Qe7 16. Qc3 a5 17. bxa5 Ba7 18. Rfc1) 14. h3 Bh5 15. Qa4 Bxd2 (15... Bb6 16. Qxc6)  (15... Bxf3 16. Nxf3 Bb6 17. Qxc6) 16. Nxd2 Qd7 (16... Be2 17. Rfe1 Bb5 18. Qa5)  (16... Qg5 17. f4)  (16... Rb8 17. Qxc6 Rxb2 18. Qc3 Qb8 19. Rab1 Rb6 20. f4) 17. Nb3 *
+
+
+[Event "White G.P.: Game"]
+[Site "https://lichess.org/study/AYUIzhPg/5HsMNRb6"]
+[Result "*"]
+[UTCDate "2023.02.19"]
+[UTCTime "13:17:18"]
+[Variant "Standard"]
+[ECO "C53"]
+[Opening "Italian Game: Classical Variation, Greco Gambit, Anderssen Variation"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 { https://lichess.org/M0sLQuK3/white#19 } 1... e5 2. Nf3 Nc6 3. Bc4 Bc5 4. c3 Nf6 5. d4 exd4 6. e5 d5 7. Bb5 Ne4 8. cxd4 Bb4+ 9. Bd2 Bxd2+ 10. Nbxd2 Bg4 (10... Nxd2 11. Qxd2)  (10... O-O 11. O-O Bd7 12. Bxc6 Bxc6 13. Rc1)  (10... Bd7 { Comp pref } 11. Bxc6 Bxc6 12. O-O)  (10... a6 11. Bxc6+ bxc6 12. Qc2)  (10... Bf5 11. Bxc6+ bxc6 12. O-O O-O 13. Rc1)  (10... f5 11. Rc1)  (10... Ng5 11. Bxc6+ bxc6 12. O-O Ne6 13. Nb3)  (10... Be6 11. O-O O-O 12. Bxc6 bxc6 13. Rc1) 11. Qc2 { diff } 11... Nxd2 (11... O-O 12. Bxc6 bxc6 13. Nxe4 dxe4 14. Qxe4 Bxf3 15. gxf3 Rb8 16. O-O-O)  (11... Bxf3 12. Bxc6+ bxc6 13. Qxc6+ Kf8 14. Nxf3)  (11... Qd7 12. Rc1)  (11... Bf5 12. Bxc6+ bxc6 13. Qxc6+)  (11... Bd7 12. Nxe4 Nb4 13. Nf6+ gxf6 14. Qe2)  (11... f5 12. Bxc6+ bxc6 13. Qxc6+ Ke7 14. Nh4 Qd7 (14... Nxd2 15. h3)  (14... Rf8 15. f3)  (14... Rb8 15. h3 Rb6 16. Qc2 Bh5 17. Nxf5+)  (14... Re8 15. h3 Bh5 16. Nxf5+ Kf8 17. Nxe4 dxe4 18. O-O)  (14... f4 15. Nxe4 dxe4 16. Qxe4)  (14... g5 15. h3 Qd7 16. Qxd7+ Kxd7 17. hxg4 gxh4 18. gxf5) 15. Qxd7+ Kxd7 16. f3 Nxd2 17. Kxd2) 12. Bxc6+ bxc6 (12... Kf8 13. Nxd2) 13. Nxd2 Qd7 (13... Bd7 14. O-O O-O 15. Nb3 f6 16. Rae1 fxe5 17. Rxe5)  (13... O-O 14. O-O Qg5 15. f4)  (13... Qg5 14. Qxc6+ Ke7 15. Qc5+)  (13... Qh4 14. Qxc6+)  (13... g6 14. Qxc6+)  (13... Bh5 14. Qxc6+)  (13... f6 14. Qxc6+ Kf7 15. O-O) 14. Nb3 O-O 15. Nc5 Qf5 16. Qxf5 Bxf5 17. Kd2 *
+
+
