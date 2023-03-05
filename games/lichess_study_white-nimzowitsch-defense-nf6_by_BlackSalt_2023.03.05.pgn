@@ -1,0 +1,52 @@
+[Event "White Nimzowitsch Defense Nf6: NB4"]
+[Site "https://lichess.org/study/MlUDLibi/Qy2ieJ1o"]
+[Result "*"]
+[UTCDate "2023.03.05"]
+[UTCTime "10:35:55"]
+[Variant "Standard"]
+[ECO "B00"]
+[Opening "Nimzowitsch Defense"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 Nc6 2. d4 Nf6 3. d5 Nb4 4. a3 Na6 5. e5 Ng8 (5... Ne4 6. Bxa6 bxa6 7. Qd4 f5 8. f3 c5 9. dxc6 Qa5+ 10. b4 Qb6 11. Qxb6 axb6 12. fxe4 dxc6 13. Nc3) 6. Nc3 d6 (6... e6 7. Bf4)  (6... Nb8 7. Nf3)  (6... b6 7. Bc4 Bb7 8. Qe2 Qc8 9. Nf3 e6 10. Be3 Ne7 11. dxe6)  (6... g6 7. Bb5)  (6... f6 7. Nf3)  (6... Nc5 7. b4 Na6 8. Nf3)  (6... c5 7. d6 exd6 8. exd6 Qf6 9. Nb5 Nh6)  (6... c6 7. Bxa6 bxa6 8. d6)  (6... f5 7. Nf3 e6 8. Bc4) 7. Nf3 dxe5 (7... Bg4 8. e6)  (7... g6 8. Bb5+ Bd7 9. Bxd7+ Qxd7 10. Qd4)  (7... f6 8. Bb5+ Bd7 9. Bxa6 bxa6 10. e6 Bc8 11. Qd4 { [%cal Gd4a4,Ge6d7] })  (7... Nc5 8. b4 Nd7 9. e6 fxe6 10. dxe6 Ndf6 11. Ng5)  (7... Nh6 8. e6 c6 9. Ng5)  (7... e6 8. Bb5+ Bd7 9. Qe2 Be7)  (7... b6 8. Bb5+ c6 9. Bxc6+ Bd7 10. Bxa8) 8. Nxe5 Nf6 (8... e6 9. Bb5+ c6 10. Qf3 Qf6 11. dxc6 Qxf3 12. cxb7+ Bd7 13. Bxd7+ Ke7 14. gxf3 Rb8 15. Bb5)  (8... f6 9. Bb5+ c6 10. dxc6 Qxd1+ 11. Kxd1)  (8... Qd6 9. Bb5+ c6 10. dxc6 Qxe5+ 11. Be3)  (8... Nc5 9. Bb5+ Bd7 10. Qe2 a6 11. Bc4)  (8... Nh6 9. Bxh6 gxh6 10. Bb5+ c6 11. dxc6)  (8... c6 9. Qf3 f6 10. dxc6 fxe5 11. cxb7)  (8... Nb8 9. Bf4)  (8... b6 9. Bb5+ c6 10. Bxc6+) 9. Bb5+ Bd7 (9... c6 10. dxc6 Qxd1+ 11. Kxd1 b6 12. Nd5 Nxd5 (12... e6 13. c7+ Nd7 14. Nxd7 Bxd7 15. Bxa6 exd5 16. Re1+ Be7 17. Bb7) 13. c7+ Bd7 14. Bxd7#)  (9... Nd7 10. Qf3 f6 11. Qh5+ g6 12. Nxg6 e6 13. Nxh8+ Ke7 14. Qf7+ Kd6 15. Qxe6+ Kc5 16. Be3#) 10. Nxd7 Nxd7 (10... c6 11. dxc6) 11. O-O Nb8 (11... Nc5 12. b4)  (11... e6 12. dxe6 fxe6 13. Qh5+)  (11... g6 12. Qd4 Rg8 13. Re1 Bg7 14. Qg4)  (11... e5 12. dxe6 fxe6 13. Qh5+ g6 14. Qe5) 12. Re1 c6 (12... a6 13. Ba4 b5 14. Bb3)  (12... g6 13. Bg5 a6 14. d6)  (12... h6 13. Qf3 a6 14. Ba4) 13. Ne4 Nb6 (13... cxb5 14. Nd6#) 14. dxc6 bxc6 (14... Qxd1 15. cxb7+) 15. Nd6+ *
+
+
+[Event "White Nimzowitsch Defense Nf6: Ne5"]
+[Site "https://lichess.org/study/MlUDLibi/CfjST8Jr"]
+[Result "*"]
+[UTCDate "2023.03.05"]
+[UTCTime "10:39:58"]
+[Variant "Standard"]
+[ECO "B00"]
+[Opening "Nimzowitsch Defense"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 Nc6 2. d4 Nf6 3. d5 Ne5 4. f4 Ng6 5. e5 Ng8 (5... Ne4 6. Qe2 Nc5 (6... f5 7. exf6 Nxf6 8. f5 Nh4 9. Bg5 Nxf5 10. Bxf6) 7. f5 Nh4 8. Qh5 e6 9. Bg5 Be7 10. f6 gxf6 11. Bxh4) 6. Bd3 e6 (6... d6 7. e6 fxe6 8. dxe6 Bxe6 9. f5 Bd5 10. fxg6 Bxg2 11. gxh7 Nf6 12. Bg6+ Kd7 13. Nf3 Bxh1 14. Ne5+ Kc8 15. Nf7 Qd7 16. Nxh8 Qe6+ 17. Qe2)  (6... f6 7. Qh5 fxe5 8. Qxg6+)  (6... Nh4 7. g3 Ng6 8. Nf3)  (6... c6 7. h4 cxd5 8. h5)  (6... f5 7. Bxf5 e6 8. dxe6 dxe6 9. Qxd8+ Kxd8) 7. Qe2 Bc5 (7... Qh4+ 8. g3)  (7... N8e7 8. Nc3 Nxd5 9. Nxd5 exd5 10. f5 Ne7)  (7... Bb4+ 8. c3 Bc5 9. Nf3 exd5 10. f5)  (7... exd5 8. f5 N6e7 9. Nc3 d6 10. exd6 Qxd6 11. Nb5 Qd8 12. Bf4)  (7... b6 8. dxe6 dxe6 9. Be4 Rb8 10. Nc3)  (7... Nh6 8. Nf3 d6 9. dxe6 Bxe6 10. exd6 Bxd6 11. f5) 8. Nc3 *
+
+
+[Event "White Nimzowitsch Defense Nf6: Nb8 Zaire Defense"]
+[Site "https://lichess.org/study/MlUDLibi/Q6ky23hP"]
+[Result "*"]
+[UTCDate "2023.03.05"]
+[UTCTime "10:40:30"]
+[Variant "Standard"]
+[ECO "A40"]
+[Opening "Zaire Defense"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 Nc6 2. d4 Nf6 3. d5 Nb8 4. e5 Ng8 5. Nf3 d6 (5... e6 6. Bc4 exd5 (6... Ne7 7. Nc3)  (6... d6 7. O-O)  (6... h6 7. O-O) 7. Qxd5 Qe7 8. O-O c6 9. Qd4)  (5... Na6 6. Nc3)  (5... c6 6. d6 exd6 7. exd6 Qf6 8. Qe2+ Qe6 9. Bf4 Qxe2+ 10. Bxe2 Nf6 11. Nc3 Nh5 12. Be5 f6 13. Ng5 g6 14. Bd4)  (5... g6 6. Nc3 Bg7 7. h4 d6 8. h5 dxe5)  (5... b6 6. Nc3 Bb7 7. Ng5 e6 (7... h6 8. Nxf7 Kxf7 9. e6+ dxe6 10. dxe6+ Ke8 (10... Kxe6 11. Qxd8) 11. Qh5+ g6 12. Qxg6#) 8. dxe6 fxe6 9. Bd3 g6 10. Nxh7)  (5... a6 6. Bc4 g6 7. h4 Bg7 8. Nc3 b5 9. Bb3 d6 10. h5 dxe5 11. h6 Bf6 12. a4 Bb7 (12... b4 13. Ne4 Bf5 14. Qd3 e6 15. dxe6)  (12... Nd7 13. axb5 Bb7 14. bxa6 Bxa6 15. Be3)  (12... bxa4 13. Bxa4+ Bd7 14. Bb3)  (12... Bg4 13. axb5)  (12... Bf5 13. axb5)  (12... c6 13. axb5 cxb5 14. Nxb5) 13. axb5 axb5 14. Rxa8 Bxa8 15. Qe2 { [%csl Ge5,Gb5] } 15... b4 16. Nb5 Nd7 17. Qc4 { [%csl Gc7] })  (5... h6 6. Nc3 e6 7. a3 a6 8. Bf4 Ne7 9. d6) 6. Nc3 *
+
+
+[Event "White Nimzowitsch Defense Nf6: Na4"]
+[Site "https://lichess.org/study/MlUDLibi/fNtgkmv3"]
+[Result "*"]
+[UTCDate "2023.03.05"]
+[UTCTime "10:43:35"]
+[Variant "Standard"]
+[ECO "B00"]
+[Opening "Nimzowitsch Defense"]
+[Annotator "https://lichess.org/@/BlackSalt"]
+
+1. e4 Nc6 2. d4 Nf6 3. d5 Na5 4. e5 Ng8 5. b4 c6 6. Nf3 cxd5 7. bxa5 Qxa5+ 8. Bd2 Qc7 9. Bd3 e6 10. O-O *
+
+
