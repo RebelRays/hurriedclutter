@@ -5,7 +5,7 @@ function GetWhiteFileNameList(){
     'games/lichess_study_barnes_by_BlackSalt_2019.12.30.pgn',
     'games/lichess_study_counter-scandi_by_BlackSalt_2019.06.19.pgn', 'games/lichess_study_whiteopeningbook_by_BlackSalt_2019.10.07.pgn',
 'games/d4_qgd-three-knights-be7-d5-exchange.pgn', 'games/lichess_study_knight-attack_by_BlackSalt_2022.03.30.pgn', 'games/lichess_study_white-gp_by_BlackSalt_2023.02.18.pgn', 'games/lichess_study_white-nimzowitsch-defense-nf6_by_BlackSalt_2023.03.05.pgn', 
-'games/lichess_study_w-alpine_by_BlackSalt_2023.03.11.pgn'];
+'games/lichess_study_w-alpine_by_BlackSalt_2023.03.11.pgn', 'games/lichess_study_french-tarrasch_by_BlackSalt_2023.07.12.pgn'];
 }
 
 function GetBlackFileNameList(){
