@@ -15,5 +15,5 @@ function GetBlackFileNameList(){
 'games/nf6-nuttyvariation.pgn',
 'games/Nf6_Trident.pgn', 'games/Nf6_scandi.pgn', 'games/Nf6_4nf3-take-my-pawns.pgn', 'games/Nf6_Knighthugs.pgn', 'games/Nf6_Knightsqueeze.pgn'
 ,'games/Nf6_bc4-d3-pawndrop.pgn', 'games/Nf6_4-pawn-Nc3.pgn', 'games/lichess_study_nf6-book_bc4-sack_by_BlackSalt_2020.08.30.pgn',
-'games/games.pgn', 'games/lichess_study_black-ruy-lopez-exchange_0-0_by_BlackSalt_2023.01.28.pgn', 'games/lichess_study_black-scotch-game-d4_nxd4_by_BlackSalt_2023.02.04.pgn', 'games/lichess_study_black-ruy-lopez-in-the-center_by_BlackSalt_2023.07.01.pgn'];
+'games/games.pgn', 'games/lichess_study_black-ruy-lopez-exchange_0-0_by_BlackSalt_2023.01.28.pgn', 'games/lichess_study_black-scotch-game-d4_nxd4_by_BlackSalt_2023.02.04.pgn', 'games/lichess_study_black-ruy-lopez-in-the-center_by_BlackSalt_2023.07.01.pgn', 'games/lichess_study_evans-gambi_by_BlackSalt_2023.07.15.pgn'];
 }
