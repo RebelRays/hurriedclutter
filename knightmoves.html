@@ -1,0 +1,316 @@
+<html>
+
+<Head>
+  <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png" />
+  <title>Knight Moves</title>
+  <link rel="stylesheet" href="AddOn/chessboardjs-1.0.0/css/chessboard-1.0.0.min.css">
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="AddOn/choicesjs/base.min.css" />
+  <link rel="stylesheet" href="AddOn/choicesjs/choices.min.css" />
+  <link rel="stylesheet" href="AddOn/choicesjs/choices-custom.css" />
+</head>
+
+<body>
+  <!-- Page foundation -->
+  <div id="Info">Goal: <span id="KnightTargetSquare"></span> Paths:<span id="NumberOfUnexploredPaths"></span> / <span
+      id="NumberOfPaths"></span><span id="HelpMovesSpan"></span></div>
+  <div id="UIChessBoard" style="width: 400px;margin-left: 30px;"></div>
+  </p>
+  <button id="HelpBtn" onclick="HelpBtnClick()">Help</button>
+
+  <!-- Load JS dependencies -->
+  <script src="AddOn/jquery-3.4.1.js"></script>
+  <script src="AddOn/chessboardjs-1.0.0/js/chessboard-1.0.0.js"> </script>
+  <script src="AddOn/chess2.js"></script>
+  <!-- Done Loading dependencies -->
+
+  <!-- data -->
+  <script>
+    var listOfStartingPositions = [
+      "r3kb1r/pp1bnpp1/2pQ3p/8/2B1PP1q/2N1B3/PPP3PP/R4RK1 b kq - 0 12",
+      "4r3/1p2bkp1/2p2p1p/2n1P1q1/3Q4/2N3P1/PPP4P/4R1K1 b - - 1 25",
+      "4r3/6p1/2p1n1kp/1p6/8/2R3P1/PPP3KP/8 b - - 0 33",
+      "r1bq2k1/ppp2ppp/2n5/2b5/4rP2/3P1N2/PP4PP/R1BQ1R1K b - - 0 13",
+      "r2qr1k1/ppp2pp1/1bn4p/5R2/4N3/3P4/PP4PP/R1BQ3K b - - 0 17",
+      "r2qk2r/pp1b1ppp/1nnpp3/8/2PP4/2PB1N2/P4PPP/R1BQ1RK1 w kq - 3 11",
+      "rnbqk2r/ppp2ppp/1n1Pp3/8/1bPP4/2N2N2/PP3PPP/R1BQKB1R b KQkq - 0 7",
+      "r6r/pp1b1kp1/1n1p2p1/4P3/2P4q/2PQ3P/P4PP1/R1B2RK1 b - - 0 18",
+      "r1bqrnk1/pp3ppp/2p2n2/3p4/P1PPp3/BNP1P3/4BPPP/R2Q1RK1 b - - 2 12",
+      "r2qr1k1/p4ppp/1p2bnn1/2Pp4/P2Pp3/BN2P3/4BPPP/R2Q1RK1 w - - 0 16",
+      "rn1qk1nr/1b3pQ1/ppppp2p/3P4/4P3/3BBN2/PPP2PPP/R3K2R b KQkq - 0 10",
+      "4k1nR/r4b2/pppp4/4p1N1/4P3/3BB3/PPP2PP1/2K4R w - - 11 26",
+      "rnbq1rk1/2p1bppp/p3pn2/1p6/2BP4/P1N1PN2/1P3PPP/R1BQ1RK1 w - b6 0 9",
+      "r2q1rk1/1b2bppp/p7/1pnpP3/5B2/P4N2/BP3PPP/2RQ1RK1 b - - 1 15",
+      "2rr2k1/1b2q3/p3p2p/1p1p4/3Q1p2/P4N1P/BP3PP1/4R1K1 w - - 0 25",
+      "rn2k2r/ppp1ppbp/5np1/8/3P1B2/2P2P2/PP3P1P/RN2KB1R w KQkq - 3 9",
+      "rnbqr1k1/pp3ppp/3ppn2/3p4/3P1B2/3BPN2/PPP2PPP/R2QK2R b KQ - 2 8",
+      "r1bqr1k1/pp3ppp/2n2n2/3pp3/5B2/2PBPN2/PP3PPP/R2QK2R w KQ - 0 11",
+      "r1bq1rk1/pppp1ppp/2n2n2/3Np3/1bB1P3/5N2/PPPP1PPP/R1BQR1K1 b - - 11 7",
+      "r1bq1rk1/ppp2ppp/2np1n2/3Np3/1bB1P3/5N2/PPPP1PPP/R1BQR1K1 w - - 0 8"
+    ];
+  </script>
+
+  <!-- Logic -->
+  <script>
+    function getRandomSelection(data) {
+      var randomIndex = Math.floor(Math.random() * data.length);
+      return data[randomIndex];
+    }
+    function oppositeColor(color) {
+      return color === 'w' ? 'b' : 'w';
+    }
+
+    function moveAndKeepTheSameTurnToMove(game, move) {
+      game.move(move);
+      game.turn() === 'w' ? game.turn('b') : game.turn('w');
+      return game;
+    }
+
+    function getKnightMoves(game, withCaptures = false, canBeAttacked = false) {
+      // Generate all possible moves
+      var allMoves = game.verbose_moves();
+
+      // Filter out the moves that are not by the knight at the specified position
+      var knightMoves = allMoves.filter(function (move) {
+        return move.raw.piece === 'n'
+          && (move.san.indexOf('x') == -1 || withCaptures)
+          && ((!game.isAttacked(oppositeColor(game.turn()), move.raw.to)) || canBeAttacked);
+        //return move[0] === 'N' && (move.indexOf('x')==-1 || withCaptures);
+      });
+
+      return knightMoves;
+    }
+
+    function setKnightDistanceMap(currentKnightDistanceMap, game, moveNumber, moveChain) {
+      var knightMoves = getKnightMoves(game);
+      if (knightMoves.length === 0) { //no moves
+        return;
+      }
+      var newMoveNumber = moveNumber + 1;
+      for (var i = 0; i < knightMoves.length; i++) {
+        var move = knightMoves[i];
+        var currentMoveChain = moveChain.slice();
+        currentMoveChain.push(knightMoves[i]);
+
+        var square = game.getSquareName(move.raw.to);
+        var state = currentKnightDistanceMap[square];
+        if (state === undefined) {
+          state = {
+            moveNumberToGetHere: newMoveNumber,
+            paths: [currentMoveChain]
+          };
+          currentKnightDistanceMap[square] = state;
+
+          //Next Iteration
+          var newGame = new Chess(game.fen());
+          newGame.move(move.san);
+          //flip back the turn to move
+          newGame.turn() === 'w' ? newGame.turn('b') : newGame.turn('w');
+          setKnightDistanceMap(currentKnightDistanceMap, newGame, newMoveNumber, currentMoveChain);
+        } else if (state.moveNumberToGetHere > newMoveNumber) {
+
+          state.moveNumberToGetHere = newMoveNumber;
+          state.paths = [currentMoveChain];
+
+          //Next Iteration
+          var newGame = new Chess(game.fen());
+          newGame.move(move.san);
+          //flip back the turn to move
+          newGame.turn() === 'w' ? newGame.turn('b') : newGame.turn('w');
+
+          setKnightDistanceMap(currentKnightDistanceMap, newGame, newMoveNumber, currentMoveChain);
+
+        } else if (state.moveNumberToGetHere === newMoveNumber) {
+          state.paths.push(currentMoveChain);
+
+          //Next Iteration
+          var newGame = new Chess(game.fen());
+          newGame.move(move.san);
+          //flip back the turn to move
+          newGame.turn() === 'w' ? newGame.turn('b') : newGame.turn('w');
+
+          setKnightDistanceMap(currentKnightDistanceMap, newGame, newMoveNumber, currentMoveChain);
+        } else {
+          continue;
+        }
+      }
+    }
+  </script>
+
+  <!-- Event Handlers-->
+  <script>
+    function HelpBtnClick() {
+      let moveString = "";
+      for (var moves of moveState.availableMoves) {
+        for(var move of moves){
+          moveString += move + "-";
+        }
+        moveString += " ";
+      }
+      $('#HelpMovesSpan').text(" Help: " + moveString);
+    }
+
+    function onDrop(source, target, piece, newPos, oldPos, orientation) {
+      $('#HelpMovesSpan').text("");
+      console.log('Source: ' + source)
+      console.log('Target: ' + target)
+      console.log('Piece: ' + piece)
+      console.log('New position: ' + Chessboard.objToFen(newPos))
+      console.log('Old position: ' + Chessboard.objToFen(oldPos))
+      console.log('Orientation: ' + orientation)
+      console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
+      moveString = source + target;
+
+      console.log('MoveString: ' + moveString);
+      var atLeastOneMatch = false;
+      for (var availableMoveIndex = 0; availableMoveIndex < moveState.availableMoves.length; availableMoveIndex++) {
+        var moves = moveState.availableMoves[availableMoveIndex];
+        if (moves[0] == moveString) {
+          atLeastOneMatch = true;
+          break;
+        }
+      }
+
+      if (atLeastOneMatch) {
+        moveAndKeepTheSameTurnToMove(curentGame, {
+          from: source,
+          to: target,
+          promotion: 'q' // NOTE: always promote to a queen for example simplicity
+        });
+        moveState.movesInCurrentIteration.push(moveString);
+
+        nextIterationAvailableMoves = [];
+        for (var availableMoveIndex = 0; availableMoveIndex < moveState.availableMoves.length; availableMoveIndex++) {
+          var moves = moveState.availableMoves[availableMoveIndex];
+          const move = moves.shift();
+          if (moveString != move) {
+            continue;
+          }
+
+          if (moves.length == 0) {
+            console.log('done with iteration');
+
+            moveState.availableMoves2 = moveState.availableMoves2.filter(function (moves) {
+              return JSON.stringify(moves) !== JSON.stringify(moveState.movesInCurrentIteration);
+            });
+
+            if (moveState.availableMoves2.length == 0) {
+              console.log('done with all iterations');
+              startGame();
+              return;
+            }
+
+            curentGame.load(moveState.startingFen);
+            moveState.availableMoves = JSON.parse(JSON.stringify(moveState.availableMoves2));
+            $('#NumberOfUnexploredPaths').text(moveState.availableMoves.length);
+            //done at next move
+            moveState.movesInCurrentIteration = [];
+
+            return;
+          }
+          nextIterationAvailableMoves.push(moves)
+        }
+        moveState.availableMoves = nextIterationAvailableMoves;
+      }
+      return;
+    };
+
+    function onSnapEnd() {
+      console.log("OnSnapEnd FEN: " + curentGame.fen());
+      UIChessBoard.position(curentGame.fen());
+    };
+
+    function onClicky() {
+      return;
+    };
+  </script>
+
+  <!-- setup -->
+  <script>
+    var moveState = {
+      movesInCurrentIteration: [],
+      startingFen: '',
+      availableMoves: [],
+      availableMoves2: []
+    }
+
+
+    var UIChessBoard = Chessboard('UIChessBoard', {
+      draggable: true,
+      moveSpeed: 50,
+      snapbackSpeed: 50,
+      snapSpeed: 50,
+      position: 'start',
+      onDrop: onDrop,
+      onSnapEnd: onSnapEnd,
+      onClick: onClicky
+    })
+
+    var curentGame = new Chess();
+
+    function startGame() {
+      var fen = getRandomSelection(listOfStartingPositions);
+      UIChessBoard.position(fen);
+      curentGame.load(fen);
+      curentGame.turn() === 'w' ? UIChessBoard.orientation('white') : UIChessBoard.orientation('black');
+
+      var knightDistanceMap = {};
+      setKnightDistanceMap(knightDistanceMap, curentGame, 0, []);
+
+      moveState = {
+        movesInCurrentIteration: [],
+        startingFen: fen,
+        availableMoves: [],
+        availableMoves2: []
+      }
+
+      //filter knightDistanceMap,  knightDistanceMap.moveNumberToGetHere to minimum 3
+
+      var minMoveNumber = 3;
+      for (var key in knightDistanceMap) {
+        if (knightDistanceMap[key].moveNumberToGetHere < minMoveNumber) {
+          delete knightDistanceMap[key];
+        }
+      }
+
+      //randomly select one knightDistanceMap entry
+      var keys = Object.keys(knightDistanceMap);
+      var currentTargetSquare = keys[Math.floor(Math.random() * keys.length)];
+      var currentTargetPaths = knightDistanceMap[currentTargetSquare];
+
+
+      for (var i = 0; i < currentTargetPaths.paths.length; i++) {
+        var path = currentTargetPaths.paths[i];
+        var moves = [];
+        var moves2 = [];
+        for (var j = 0; j < path.length; j++) {
+          moves.push(curentGame.getSquareName(path[j].raw.from) + curentGame.getSquareName(path[j].raw.to));
+          moves2.push(curentGame.getSquareName(path[j].raw.from) + curentGame.getSquareName(path[j].raw.to));
+        }
+        moveState.availableMoves.push(moves);
+        moveState.availableMoves2.push(moves2);
+      }
+      console.log('moveState', moveState);
+
+      $('#KnightTargetSquare').text(currentTargetSquare);
+      $('#NumberOfPaths').text(currentTargetPaths.paths.length);
+      $('#NumberOfUnexploredPaths').text(currentTargetPaths.paths.length);
+      console.log('knightDistanceMap', knightDistanceMap);
+    }
+
+    
+
+    startGame();
+
+  </script>
+
+  <!-- Workaround -->
+  <script>
+    //Fix for scrolling
+    jQuery('#UIChessBoard').on('scroll touchmove touchend touchstart contextmenu', function (e) {
+      e.preventDefault();
+    });
+  </script>
+</body>
+
+</html>
