@@ -27,7 +27,6 @@
   <!-- data -->
   <script>
     var listOfStartingPositions = [
-      "r3kb1r/pp1bnpp1/2pQ3p/8/2B1PP1q/2N1B3/PPP3PP/R4RK1 b kq - 0 12",
       "4r3/1p2bkp1/2p2p1p/2n1P1q1/3Q4/2N3P1/PPP4P/4R1K1 b - - 1 25",
       "4r3/6p1/2p1n1kp/1p6/8/2R3P1/PPP3KP/8 b - - 0 33",
       "r1bq2k1/ppp2ppp/2n5/2b5/4rP2/3P1N2/PP4PP/R1BQ1R1K b - - 0 13",
@@ -40,13 +39,56 @@
       "rn1qk1nr/1b3pQ1/ppppp2p/3P4/4P3/3BBN2/PPP2PPP/R3K2R b KQkq - 0 10",
       "4k1nR/r4b2/pppp4/4p1N1/4P3/3BB3/PPP2PP1/2K4R w - - 11 26",
       "rnbq1rk1/2p1bppp/p3pn2/1p6/2BP4/P1N1PN2/1P3PPP/R1BQ1RK1 w - b6 0 9",
-      "r2q1rk1/1b2bppp/p7/1pnpP3/5B2/P4N2/BP3PPP/2RQ1RK1 b - - 1 15",
       "2rr2k1/1b2q3/p3p2p/1p1p4/3Q1p2/P4N1P/BP3PP1/4R1K1 w - - 0 25",
       "rn2k2r/ppp1ppbp/5np1/8/3P1B2/2P2P2/PP3P1P/RN2KB1R w KQkq - 3 9",
       "rnbqr1k1/pp3ppp/3ppn2/3p4/3P1B2/3BPN2/PPP2PPP/R2QK2R b KQ - 2 8",
       "r1bqr1k1/pp3ppp/2n2n2/3pp3/5B2/2PBPN2/PP3PPP/R2QK2R w KQ - 0 11",
-      "r1bq1rk1/pppp1ppp/2n2n2/3Np3/1bB1P3/5N2/PPPP1PPP/R1BQR1K1 b - - 11 7",
-      "r1bq1rk1/ppp2ppp/2np1n2/3Np3/1bB1P3/5N2/PPPP1PPP/R1BQR1K1 w - - 0 8"
+      "r1bq1rk1/ppp2ppp/2np1n2/3Np3/1bB1P3/5N2/PPPP1PPP/R1BQR1K1 w - - 0 8",
+      "r1bqk1nr/pppp1pp1/1b4np/3PP3/2B5/5N2/PP3PPP/RNBQK2R w KQkq - 1 9",
+      "r1bqk2r/ppp1n1p1/1b1pPpn1/3P3p/1PB5/2N2N2/P4PPP/R1BQ1RK1 w kq - 0 13",
+      "r1bqk1r1/1pp5/p3Ppp1/P2Ppn2/1P1b2Qp/2NB3P/1B3PP1/R2R2K1 w q - 3 21",
+      "r3k2r/ppq2p1p/2nbpn2/6Nb/1PP5/P6P/3PBPP1/RNBQ1RK1 b kq - 0 11",
+      "r3k2r/ppq2p1p/2n1pn2/4b1N1/1PP5/P6P/3PQPP1/RNB2RK1 w kq - 1 13",
+      "2k3rr/ppq2p1p/2n1pn2/4b1N1/1PP5/P1N4P/1B1PQPP1/R4RK1 w - - 5 15",
+      "2k4r/ppq2prp/4pn2/4n3/1PPP4/P1N4P/1B2QPP1/R4RK1 b - d3 0 17",
+      "2k3r1/ppq2prp/4pn2/8/1PPP2n1/P1N4P/1B2QP2/R4RK1 w - - 0 19",
+      "2k3r1/ppq2prp/4pn2/8/1PPP2P1/P1N5/1B2QP2/R4RK1 b - - 0 19",
+      "rnbq1rk1/pp3ppp/2pb1n2/3p4/3P4/4BN2/PPPNBPPP/R2QK2R w KQ - 6 8",
+      "rnbq1rk1/pp3ppp/2pb1n2/3p4/3P4/4BN2/PPPNBPPP/R2Q1RK1 b - - 7 8",
+      "rnb1r1k1/ppb1qppp/2p2n2/8/2BP4/1Q2BN2/PP1N1PPP/2R2RK1 b - - 4 12",
+      "r1b1q1k1/ppb2pp1/2p2n1p/8/2BP4/1Q3N2/PP1N1PPP/2R3K1 w - - 0 17",
+      "r1b1q1k1/pp3pp1/2p2n1p/4P3/2B5/1Q6/PP1N1PPP/2R3K1 b - - 0 18",
+      "r1b1q1k1/pp3pp1/2p4p/3nP3/2B5/1Q6/PP1N1PPP/2R3K1 w - - 1 19",
+      "4q1k1/p1Q2pp1/2p4p/3bP3/8/5N2/Pr3PPP/2R3K1 w - - 0 23",
+      "r1bqk1nr/ppp3pp/2p2p2/2b1p3/4P3/5N2/PPPP1PPP/RNBQ1RK1 w kq - 0 6",
+      "r1bqk1nr/ppp3pp/2p2p2/2b1p3/4P3/2P2N2/PP1P1PPP/RNBQ1RK1 b kq - 0 6",
+      "r1b1kr2/ppp4p/1bp2p1p/4P3/4P3/2P2N2/PP3PPP/RN1R2K1 w q - 1 11",
+      "r7/ppp1k2p/1bp4p/4Pr2/6b1/2P2N2/PP1N1PPP/3RR1K1 w - - 7 16",
+      "3r4/ppp1kr1p/1bp4p/4P2b/2NN4/2P2P2/PP4PP/3RR1K1 w - - 3 19",
+      "3r4/1pp1kr1p/1pp3b1/4P2p/3N2P1/2P2P2/PP4KP/3RR3 w - - 0 22",
+      "3r1k2/1pp1r3/1pp1P1b1/8/2PN2P1/1P4K1/P7/3RR3 w - - 1 29",
+      "5k2/1pp5/1pp1r1b1/5N2/2P3P1/1P4K1/P7/3R4 w - - 0 31",
+      "8/1ppR4/1pp1rkb1/5N2/2P3P1/1P4K1/P7/8 w - - 4 33",
+      "r1b1kb1r/pppqpppp/2n2n2/8/3P4/5N2/PPP1BPPP/RNBQ1RK1 w kq - 1 7",
+      "r1b2rk1/pppqnppp/4p3/8/2PP4/2P2N2/P2QBPPP/R2R2K1 w - - 3 14",
+      "r1b2rk1/pppqn1pp/4pp2/8/2PP4/2PB1NQ1/P4PPP/R2R2K1 w - - 4 17",
+      "r1b1qrk1/ppp1n2p/4p1p1/4Np2/2PP3Q/2PB4/P4PPP/R3R1K1 w - - 2 20",
+      "r1bqkbnr/ppp1pppp/2np4/8/3P1P2/5N2/PPP1P1PP/RNBQKB1R b KQkq d3 0 3",
+      "r1bqkbnr/ppp2ppp/2np4/4p3/3P1P2/5N2/PPP1P1PP/RNBQKB1R w KQkq e6 0 4",
+      "r2k1bnr/ppp2ppp/2n5/4P3/5Bb1/5N2/PPP1P1PP/RN2KB1R b KQ - 2 7",
+      "r2k1b1r/ppp1nppp/2n5/4P3/5Bb1/5N2/PPP1P1PP/RN2KB1R w KQ - 3 8",
+      "r2k1b1r/ppp1nppp/2n5/4P3/5B2/5P1P/PPP3P1/RN2KB1R b KQ - 0 9",
+      "r6r/ppp1kppp/2n3n1/4P3/8/5P1P/PPP3P1/RN2KB1R w KQ - 0 12",
+      "r6r/ppp1kppp/2n3n1/4P3/8/2N2P1P/PPP3P1/R3KB1R b KQ - 1 12",
+      "r6r/ppp1k1pp/2n2p2/1B2n3/8/2N2P1P/PPP3P1/2KR3R b - - 1 14",
+      "2rr1k2/ppN3pp/2n2p2/1B2n3/8/5P1P/PPP3P1/2KR3R w - - 1 17",
+      "2rn4/pp2k1pp/5p2/1B2n3/8/5P1P/PPP3P1/2KRR3 b - - 1 19",
+      "2r2k2/pp1R2pp/2n2p2/8/5P2/7P/PPP3P1/2K1R3 b - - 1 22",
+      "2r2k2/pp1RR1pp/5p2/n7/5P2/7P/PPP3P1/2K5 b - - 3 23",
+      "2R5/pp3k2/8/6R1/2n5/7P/PPP3P1/2K5 b - - 0 29",
+      "rnbqkr2/pppp1ppp/5n2/2b1p1N1/2B1P3/8/PPPP1PPP/RNBQ1RK1 b q - 7 5",
+      "rnbqkr2/ppp2ppp/3p4/2b1p1N1/2B1P1n1/3P3P/PPP2PP1/RNBQ1RK1 b q - 0 7",
+      "rnb1kr2/ppp2pp1/3p4/4p1q1/2B1P3/2NPP1p1/PPP3P1/R2Q1RK1 w q - 0 12"
     ];
   </script>
 
@@ -250,6 +292,7 @@
 
     function startGame() {
       var fen = getRandomSelection(listOfStartingPositions);
+      console.log('fen', fen);
       UIChessBoard.position(fen);
       curentGame.load(fen);
       curentGame.turn() === 'w' ? UIChessBoard.orientation('white') : UIChessBoard.orientation('black');
@@ -297,8 +340,6 @@
       $('#NumberOfUnexploredPaths').text(currentTargetPaths.paths.length);
       console.log('knightDistanceMap', knightDistanceMap);
     }
-
-    
 
     startGame();
 
